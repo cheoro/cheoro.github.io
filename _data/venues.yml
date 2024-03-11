@@ -1,82 +1,97 @@
 "MICRO":
-  url: https://microarch.org/
+  url: https://microarch.org
   color: "#b30000"
   
 "ISCA":
-  url: https://iscaconf.org/
+  url: https://iscaconf.org
   color: "#b30000"
  
 "ASPLOS":
-  url: https://www.asplos-conference.org/
+  url: https://www.asplos-conference.org
   color: "#b30000"
  
 "HPCA":
-  url: https://www.hpca-conf.org/
+  url: https://www.hpca-conf.org
   color: "#b30000"
 
 "ISLPED":
-  url: https://www.islped.org/
+  url: https://www.islped.org
   color: "#b30000"
   
 "DAC":
-  url: https://www.dac.com/
+  url: https://www.dac.com
   color: "#b30000"
 
 "ICCAD":
-  url: https://iccad.com/
+  url: https://iccad.com
   color: "#b30000"
  
 "DATE":
-  url: https://www.date-conference.com/
+  url: https://www.date-conference.com
   color: "#b30000"
 
 "FPGA":
-  url: https://www.isfpga.org/
+  url: https://www.isfpga.org
   color: "#b30000"
 
 "FCCM":
-  url: https://www.isfpga.org/
+  url: https://www.isfpga.org
   color: "#b30000"
 
 "FPL":
-  url: https://www.isfpga.org/
+  url: https://www.isfpga.org
   color: "#b30000"
 
 "PACT":
   color: "#b30000"
- 
-"DSD":
 
 "ICCE":
-  url: https://icce.org/
-
-"ISOCC":
-  url: https://isocc.org/
-
-"ICFICE":
+  url: https://icce.org
+  color: "#b30000"
 
 
 
-"TETC":
 
-"TC":
-  
-"TCAS-I":
 
-"TCAS-II":
 
-"TVLSI":
 
-"IEEE Access":
+# International Journal
+"MOTL":
+  url: https://onlinelibrary.wiley.com/journal/10982760
+  color: "#b30000"
+
+"HCIS":
+  url: http://hcisj.com/
+  color: "#b30000"
+
+"Access":
   url: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=6287639
-  
+  color: "#b30000"
+
 "Sensors":
   url: https://www.mdpi.com/journal/sensors
+  color: "#b30000"
 
-"Electronics":
-  url: https://www.mdpi.com/journal/electronics
+# International Conference
+"AICAS":
+  url: https://www.aicas2024.org
+  color: "#0080FF"
+
+"COMPSAC":
+  color: "#0080FF"
   
-"Micromachines":
-  url: https://www.mdpi.com/journal/micromachines
+"ISOCC":
+  url: https://isocc.org
+  color: "#0080FF"
 
-"JICCE":
+"ISCAS":
+  url: https://iscas2021.org
+  color: "#0080FF"
+
+"DSD":
+  url: https://dsd-seaa2023.com
+  color: "#0080FF"
+
+# Domestic Journal
+"KTSDE":
+  color: "#4C9900"
