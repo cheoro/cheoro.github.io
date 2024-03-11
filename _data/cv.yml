@@ -2,178 +2,243 @@
   type: map
   contents:
     - name: Full Name
-      value: Hyunwoo Oh
+      value: Cheol-Ho Choi
     - name: Date of Birth
-      value: 16th January 1995
+      value: 25 July 1994
     - name: Languages
-      value: Korean, English
+      value: Korean (Native), English (Fluent)
 
 - title: Education
   type: time_table
   contents:
-    - title: M.S. in Electronic Engineering
-      institution: Seoul National University of Science and Technology, Korea
-      location: Seoul
-      year: 2023
+    - title: M.S. in Electronic and Electrical Engineering
+      institution: Kyungpook National University, Republic of Korea
+      location: Daegu
+      year: 2022
       items:
-        - 'Thesis: Research on Optimized Processor and Floating-point Unit Architecture for Embedded Systems <a href="https://library.seoultech.ac.kr/en/#/eds/detail?an=edsker.000005084095&dbId=edsker"><i class="fas fa-external-link-alt"></i></a>'
-        - 'Advisor: Seung Eun Lee <a href="https://soc.seoultech.ac.kr/Professor/Professor.html"><i class="fas fa-user"></i></a>'
-    - title: B.S. in Electronic Engineering
-      institution: Seoul National University of Science and Technology, Korea
-      location: Seoul
-      year: 2021
+        - 'Thesis: Improved De-noising and Disparity Refinement for Stereo Vision Systems'
+        - 'Advisor: Byungin Moon <a href="https://soc.knu.ac.kr/docs/members/professor/"><i class="fas fa-user"></i></a>'
+    - title: B.S. in Electronics Engineering
+      institution: Yeungnam University, Republic of Korea
+      location: Gyeongsan
+      year: 2020
       items:
+        - 'Thesis: Deep Learning-based Hearing Impaired Visitor Notification System using Arduino'
+        - 'Advisor: Jong-Ryul Yang <a href="https://net10226.wixsite.com/misl/professor/"><i class="fas fa-user"></i></a>' 
 
 
 - title: Research Interests
   type: nested_list
   contents:
-    - title: Computer Architecture
+    - title: Computer Vision
       items:
-        - title: "Exploring novel HW architecture and methodologies to meet the growing computing performance and efficiency demands."
+        - title: "Developing image processing algorithms for improving the performance to used for various systems"
           subitems:
-            - "<b>Heterogeneous Computing</b>: Designing the optimized processor architectures that integrate both emerging parallel machines (PIM, NPU, etc.) and conventional general-purpose processors."
-            - "<b>Compilers</b>: Developing SW compilers optimized for targeted HW designs."
-    - title: HW/SW Co-design
-      items: 
-        - title: "Developing techniques for co-optimization to improve energy efficiency and performance."
+            - "<b>Disparity Refinement</b>:"
+            - "<b>Object Detection</b>:"
+            - "<b>Contrast Enhancement</b>:"
+
+    - title: Hardware Architecture
+      items:
+        - title: "Developing image processing algorithms for improving the performance to used for various systems"
           subitems:
-            - "<b>Parameterized HW Design Framework</b>: Designing configurable, scalable architectures with RTL generators, compilers, and SW stacks to tailor the HW to system constraints such as power, energy, and area."
-            - "<b>Partitioning Methodology</b>: Investigating a method to derive the parameters to mitigate the impact of Amdahl’s law and maximize system performance."
+            - "<b>Disparity Refinement</b>:"
+            - "<b>Object Detection</b>:"
+            - "<b>Contrast Enhancement</b>:"
+
 - title: Publications
   type: nested_list
   contents:
-    - title: I have authored/co-authored
+    - title: I have first authored
       items:
-        - 7 Peer-reviewed Journal Articles
-        - 9 Peer-reviewed Conference Papers
-    - title: See full list  <a href="../publications"><i class="fas fa-external-link-alt"></i></a>
+        - 3 Peer-reviewed International Journal Articles
+        - 2 Peer-reviewed International Conference Papers
+    - title: I have co-authored
+      items:
+        - 2 Peer-reviewed International Conference Papers
+        - 1 Peer-reviewed Korean Journal Articles
+        - 5 Peer-reviewed Korean Conference Papers
+    - title: See list  <a href="../publications"><i class="fas fa-external-link-alt"></i></a>
 
 - title: Awards and Honors
   type: time_table
   contents:
-    - year: 2020.10.23
-      title: President of the Institute of Semiconductor Engineers Award <a href=https://soc.seoultech.ac.kr/images_selee/2020/2020_ksia_award/2.png><i class="fas fa-external-link-alt"></i></a>
-      maindescription: in 21st Korea Semiconductor Design Contest
+    - year: 2021.05.14
+      title: Excellent Paper Award <a href=../assets/pdf/award/KIPS_Excellent_Paper_Award.pdf><i class="fas fa-external-link-alt"></i></a>
+      maindescription: By KIPS (Korea Information Processing Society)
+
+    - year: 2018.11.09
+      title: Excellent Award <a href=../assets/pdf/award/IEIE_Excellent_Award.pdf><i class="fas fa-external-link-alt"></i></a>
+      maindescription: By IEIE (Insititude of Electronic and Information Engineers)
+
+    - year: 2018.08.24
+      title: Excellent Paper Award <a href=../assets/pdf/award/KIEES_Excellent_Paper_Award.pdf><i class="fas fa-external-link-alt"></i></a>
+      maindescription: By KIEES (Korean Institute of Electromagnetic Engineering and Science)
 
 - title: Experience
   type: time_table
   contents:
     - title: Junior Engineer 
-      company: Infra Technology R&D Center, Hanwha Systems, Korea
-      location: Pangyo, Gyeonggi
+      company: Infrared Technology Team, Pangyo R&D Center, Hanwha Systems Co., Ltd., Republic of Korea
+      location: Pangyo
       year: 2023.01 - present
       items:
-        - Designed SoC FPGA-based integrated thermal image processor for infrared focal plane arrays. <a href="https://dsd-seaa2023.com/wp-content/uploads/2023/08/DSD-Program_12_August2023-hf-RS.pdf#page=3">[DSD 2023 (C8)]</a>
-        - Developed of the RTOS for Heterogeneous MPSoC using the TI Vision SDK platform.
+        - title: Role
+          subitems:
+            - "H/W: Implement the FPGA-based real-time infrared image processors"
+            - "S/W: Develop the high-performance object detection and contrast enhancement algorithms"
+        - title: Major Acheivements
+          subitems:
+            - "International Journal Article: 1"
+            - "International Conference: 2"
 
-    - title: Research Assistant
-      institution: SoC Platform Lab., Seoul National University of Science and Technology, Korea
-      location: Seoul
-      year: 2019.03 - 2023.02
+    - title: Research Assistant (RA)
+      institution: System on Chip (SoC) Lab., Kyungpook National University, Republic of Korea
+      location: Daegu
+      year: 2020.09 - 2022.08
       items:
-        - "Worked on several research projects funded by the various national institutes (See <b>Research Experience</b> section)."
+        - title: Role
+          subitems:
+            - "H/W: Implement the FPGA-based real-time stereo vision and object detection systems for autonomus driving platforms"
+            - "S/W: Develop the high-performance disparity refinement and machine learning-based object detection algorithms"
+        - title: Major Acheivements
+          subitems:
+            - "International Journal Article: 1"
+            - "International Conference: 2"
+
+    - title: Research Assistant (RA)
+      institution: Milimeter-wave Integrated Systems Lab. (MISL), Yeongnam University, Republic of Korea
+      location: Gyeongsan
+      year: 2017.07 - 2019.04
+      items:
+        - title: Role
+          subitems:
+            - "H/W: Design the low-noise amplifier for Doppler radar sensors"
+            - "S/W: Develop the high-performance bio-signal detection algorithms based on the wavelet transform"
+        - title: Major Acheivements
+          subitems:
+            - "International Journal Article: 1"
+            - "Excellent Paper Awards: 2"
 
 - title: Research Experience
   type: time_table
   contents:
-    - title: Development for Processing Software on AI Semiconductor Devices
-      institution: Seoul National University of Science and Technology, Korea
+    - title: Research on System of Test Equipment for High Speed Memory (CK 8GHz DQ 16Gbps)
+      institution: Yonsei University
       location: Seoul
-      year: 2022.07-2022.12
+      year: 2022.04 - 2022.08
       items:
-        - "Funder: Ministry of Science and ICT, Korea"
-        - title: "My contributions"
+        - "Funder: Ministry of Trade, Industry and Energy (MOTIE)"
+        - title: "Contributions"
           subitems:
-            - Designed the RISC processor with a custom instruction set extension for flexible AI acceleration for edge devices. <a href="https://ieeexplore.ieee.org/abstract/document/10124773">[IEEE Access 2023 (J6)]</a>
-            - Researched optimized hardware and software architecture for applying posit number format to previous applications based on IEEE-754. <a href="https://www.islped.org/2023/files/2023_Program_Booklet.pdf#page=8">[ISLPED 2023 (C6)]</a> <a href="https://ieeexplore.ieee.org/abstract/document/10031524">[ISOCC 2022 (C5)]</a>
+            - A
 
-    - title: Development of DRAM PIM Semiconductor Technology For Enhanced Computing Function for Edge
-      institution: Seoul National University of Science and Technology, Korea
-      location: Seoul
-      year: 2022.04-2022.12
+    - title: Interdisciplinary Incubation Center for Biomedical and System Semiconductor
+      institution: Pohang University of Science and Technology (POSTECH)
+      location: Pohang
+      year: 2020.09 - 2022.08
       items:
-        - "Funder: Ministry of Science and ICT, Korea"
-        - title: "My contributions"
+        - "Funder: Ministry of Science and ICT (MSIT)"
+        - title: "Contributions"
+        - title: "Papers"
           subitems:
-            - Designed a top-level hierarchical hardware architecture for PIM based on DRAM, and a software simulator architecture.
+            - Haar Filter Hardware Architecture for the Accuracy Improvement of Stereo Vision Systems <a href="">[ISOCC 2021]</a>
+    
+    - title: Development of the Identification Data Processing Technology for On-site Police officers
+      institution: Yonsei University
+      location: Seoul
+      year: 2020.09 - 2022.08
+      items:
+        - "Funder: Ministry of Trade, Industry and Energy (MOTIE)"
+        - title: "Contributions"
+          subitems:
+            - Implement the low-level software simulator of Haar cascade classifier using MATLAB and C/C++
+            - Design the object detection system based on Haar cascade classifier using Verilog HDL
+        - title: "Papers"
+          subitems:
+            - Face detection using haar cascade classifiers based on vertical component calibration <a href="">[HCIS 2022 (Q1)]</a>
+            - Hardware architecture of a Haar classifier based face detection system using a skip scheme <a href="">[ISCAS 2021]</a>
 
-    - title: Next-Generation System Semiconductor Design Engineer Development Program
-      institution: Seoul National University of Science and Technology, Korea
-      location: Seoul
-      year: 2022.03-2022.12
-      items:
-        - "Funder: Ministry of Trade, Industry and Energy, Korea"
-        - title: "My contributions"
-          subitems:
-            - Building a verification environment for LIN peripheral IP, including scripts for Synopsys EDA tools, a randomized testbench generator, and the software driver. <a href="https://ieeexplore.ieee.org/abstract/document/9730493">[ICCE 2022 (C4)]</a>
 
-    - title: Multi-core Hardware Accelerator for High-Performance Computing (HPC)
-      institution: Seoul National University of Science and Technology, Korea
-      location: Seoul
-      year: 2020.03-2022.03
+    - title: An Embedded System for Real-time Context Awareness of Smart Cars
+      institution: Kyungpook National University
+      location: Daegu
+      year: 2020.09 - 2022.08
       items:
-        - "Funder: Ministry of Science and ICT, Korea"
-        - title: "My contributions"
+        - "Funder: Ministry of Science and ICT (MSIT)"
+        - title: "Contributions"
           subitems:
-            - Researched processor architecture to provide a platform for building an accelerator-rich environment. <a href="https://ieeexplore.ieee.org/abstract/document/9332944">[ISOCC 2020 (C1)]</a>
+            - Implement the improved the de-noising and disparity refinement methods using MATLAB
+            - Design the SGM-based stereo vision system using Verilog HDL
+        - title: "Papers"
+          subitems:
+            - Filtering-based Method and Hardware Architecture for Drivable Area Detection in Road Environment Including Vegetation <a href="">[KTSDE 2022]</a>
 
-    - title: Development of Embedded Artificial Intelligence Module and System Based on Neuromorphic
-      institution: Seoul National University of Science and Technology, Korea
-      location: Seoul
-      year: 2020.03-2021.12
+    - title: Development of Core Technology for Specialized Lighting for Transportation Equipment
+      institution: Yeungnam University
+      location: Gyeongsan
+      year: 2017.08 - 2019.03
       items:
-        - "Funder: Ministry of Trade, Industry and Energy, Korea"
-        - title: "My contributions"
+        - "Funder: Ministry of Trade, Industry and Energy (MOTIE))"
+        - title: "Contributions"
           subitems:
-            - Developed the parameterized HDL generator software for an embedded AI module. <a href="https://www.mdpi.com/2072-666X/12/7/838">[Micromachines 2021 (J3)]</a>
-            - Researched applications of the AI module. <a href="https://www.jicce.org/journal/view.html?pn=mostread&uid=1183&vmd=Full">[JICCE 2022 (J5)]</a> <a href="https://www.mdpi.com/2072-666X/12/8/852">[Micromachines 2021 (J4)]</a> <a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11036311">[ICFICE 2022 (C3)]</a> <a href==https://ieeexplore.ieee.org/abstract/document/9427661">[ICCE 2021 (C2)]</a>
-
-    - title: Development of Light-weight SW-SoC Solution for Respiratory Medical Device
-      institution: Seoul National University of Science and Technology, Korea
-      location: Seoul
-      year: 2020.03-2021.12
-      items:
-        - "Funder: Ministry of Trade, Industry and Energy, Korea"
-        - title: "My contributions"
+            - Design the 2.45-GHz and 5.8-GHz low-noise amplifier (LNA) for Doppler radar sensor
+            - Implement the real-time signal processing algorithm using MATLAB and C/C++
+        - title: "Papers"
           subitems:
-            - Designed a 2D graphics accelerator architecture optimized for graph visualization tasks in medical devices. <a href="https://www.mdpi.com/2079-9292/10/4/469">[Electronics 2021 (J2)]</a>
-            - Developed a software stack for hardware implementation of Lempel-Ziv 77 lossless decompression accelerator. <a href="https://www.mdpi.com/2072-666X/12/2/145">[Micromachines 2021 (J1)]</a>
+            - Heartbeat Detection using a Doppler Radar Sensor based on the Scaling Function of Wavelet Transform <a href="https://onlinelibrary.wiley.com/doi/10.1002/mop.31823">[MOTL 2019 (Q3)]</a>
 
 - title: Teaching Experience
   type: time_table
   contents:
+    - title: 'Teaching Assisant for "SoC Design and Programming"'
+      institution: Kyungpook National University, Republic of Korea
+      location: Daegu
+      year: Spring, 2022
+      maindescription: BSc Electronic Engineering, Year 3 and 4
+
+    - title: 'Teaching Assisant for "Electronic Engineering Clinic I"'
+      institution: Kyungpook National University, Republic of Korea
+      location: Daegu
+      year: Spring, 2022
+      maindescription: BSc Electronic Engineering, Year 4
+
     - title: 'Teaching Assisant for "Computer Architecture"'
-      institution: Seoul National University of Science and Technology, Korea
-      location: Seoul
+      institution: Kyungpook National University, Republic of Korea
+      location: Daegu
       year: Fall, 2021
       maindescription: BSc Electronic Engineering, Year 3
-    - title: 'Teaching Assisant for "Digital System Design"'
-      institution: Seoul National University of Science and Technology, Korea
-      location: Seoul
+
+    - title: 'Teaching Assisant for "SoC Design and Programming"'
+      institution: Kyungpook National University, Republic of Korea
+      location: Daegu
+      year: Spring, 2022
+      maindescription: BSc Electronic Engineering, Year 3 and 4
+
+    - title: 'Teaching Assisant for "Electronic Engineering Clinic I"'
+      institution: Kyungpook National University, Republic of Korea
+      location: Daegu
       year: Spring, 2021
-      maindescription: BSc Electronic Engineering, Year 3
+      maindescription: BSc Electronic Engineering, Year 4
+
+    - title: 'Teaching Assisant for "Electronic Engineering Clinic II"'
+      institution: Kyungpook National University, Republic of Korea
+      location: Daegu
+      year: Fall, 2020
+      maindescription: BSc Electronic Engineering, Year 4
 
 
 - title: Skills
   type: map
   contents:
     - name: Computer Languages
-      value: C, C++, Python, MATLAB, R
+      value: C, C++, Python, MATLAB
     - name: Hardware Description
-      value: Verilog, SystemVerilog, Chisel
-    - name: HDL Simulation Tools
-      value: VCS, ModelSim, Verilator
+      value: Verilog
     - name: FPGA Tools
-      value: Vivado, Vitis, Quartus II/Prime, Nios II EDS
-    - name: Synopsys EDA Tools
-      value: Design Compiler, Memory Compiler, IC Compiler I/II, PrimeTime, Formality, StarRCXT, VCS, Verdi
-    - name: Cadence EDA Tools
-      value: Virtuoso Layout Suite, Calibre DRC/LVS
-    - name: Cadence CAD Tools
-      value: OrCAD Capture, Allegro PCB Designer
+      value: Vivado, Vitis
     - name: Operating Systems
-      value: FreeRTOS, TI Vision SDK, PetaLinux
+      value: TI Vision SDK
 
 - title: Training
   type: time_table
@@ -181,102 +246,114 @@
     - title: "ISO 26262:2018 Functional Safety Engineering Course: Automotive Foundation Level (FSE-AFL)"
       institution: Det Norske Veritas
       year: 2023.01
-    - title: "Design of High-speed Memory Interface"
+
+    - title: "Deep-Learning Processing Unit Design and Implementation"
       institution: IC Design Education Center <a href="http://eng.idec.or.kr/intro/vision/"><i class="fas fa-external-link-alt"></i></a>
-      year: 2022.12
-      maindescription: Certificate <a href=../assets/pdf/cert/training/06_idec.pdf><i class="fas fa-external-link-alt"></i></a>
-    - title: "Cell-based Chip Design Flow for Samsung 28nm Process"
-      institution: IC Design Education Center (IDEC)
-      year: 2021.11
-      maindescription: Certificate <a href=../assets/pdf/cert/training/05_idec.pdf><i class="fas fa-external-link-alt"></i></a>
-    - title: "[Synopsys] Block-level Auto P&R utilizing IC Compiler II"
-      institution: IC Design Education Center (IDEC)
-      year: 2021.10
-      maindescription: Certificate <a href=../assets/pdf/cert/training/04_idec.pdf><i class="fas fa-external-link-alt"></i></a>
-    - title: "Cell-based Chip Design Flow"
-      institution: IC Design Education Center (IDEC)
-      year: 2021.07
-      maindescription: Certificate <a href=../assets/pdf/cert/training/03_idec.pdf><i class="fas fa-external-link-alt"></i></a>
-    - title: "[Infineon] Automotive Semiconductor Expert Training - Basic Course"
-      institution: Korea Semiconductor Industry Association (KSIA)
-      year: 2021.06
-      maindescription: Certificate <a href=../assets/pdf/cert/training/02_ksia.pdf><i class="fas fa-external-link-alt"></i></a>
-    - title: "Cell-based Chip Design Flow"
-      institution: IC Design Education Center (IDEC)
-      year: 2020.08
-      maindescription: Certificate <a href=../assets/pdf/cert/training/01_idec.pdf><i class="fas fa-external-link-alt"></i></a>
-    
-- title: Chip Designs
-  type: time_table
-  contents:
-    - title: A RISC-V Processor Supporting AMBA AXI Protocol for Embedded Systems
+      year: 2022.11
+      maindescription: Certificate
+
+    - title: "HDL Code Generation and Verification using MATLAB"
+      institution: IC Design Education Center <a href="http://eng.idec.or.kr/intro/vision/"><i class="fas fa-external-link-alt"></i></a>
+      year: 2022.09
+      maindescription: Certificate
+
+    - title: "Automatically Code Generate Method for C and CUDA from MATLAB"
+      institution: IC Design Education Center <a href="http://eng.idec.or.kr/intro/vision/"><i class="fas fa-external-link-alt"></i></a>
+      year: 2022.09
+      maindescription: Certificate
+
+    - title: "Analog/Digital Integrated Circuit Theory and Design for Digital Circuit (RTL-to-GDSII)"
+      institution: IC Design Education Center <a href="http://eng.idec.or.kr/intro/vision/"><i class="fas fa-external-link-alt"></i></a>
+      year: 2022.08
+      maindescription: Certificate
+
+    - title: "Deep Learning Basics and Design"
+      institution: IC Design Education Center <a href="http://eng.idec.or.kr/intro/vision/"><i class="fas fa-external-link-alt"></i></a>
       year: 2022.07
-      img: ../assets/img/chip/7_2201_jws_mpw.png
-      items:
-        - Die photo <a href="https://soc.seoultech.ac.kr/Researches/research_img/mpw/2201_jws_mpw.png"><i class="fas fa-external-link-alt"></i></a>
-        - Certificate <a href=../assets/pdf/cert/chip/07_s28_2201_jws.pdf><i class="fas fa-external-link-alt"></i></a>
-        - "Designer: Won Sik Jeong, Sun Beom Kwon, <b>Hyun Woo Oh</b>, Jeongeun Kim"
-        - "Technology: Samsung 28nm RFCMOS (1-poly 8-metal)"
-        - "Role: RTL Verification"
-    - title: Robot-Specific Processor for Autonomous Driving
-      year: 2022.07
-      img: ../assets/img/chip/6_2201_jyw_mpw.png
-      items:
-        - Die photo <a href="https://soc.seoultech.ac.kr/Researches/research_img/mpw/2201_jyw_mpw.png"><i class="fas fa-external-link-alt"></i></a>
-        - Certificate <a href=../assets/pdf/cert/chip/06_s28_2201_jyw.pdf><i class="fas fa-external-link-alt"></i></a>
-        - "Designer: Youngwoo Jeong, Yue Ri Jeong, <b>Hyun Woo Oh</b>, Kwang Hyun Go"
-        - "Technology: Samsung 28nm RFCMOS (1-poly 8-metal)"
-        - "Role: System Verification Assistant"
-    - title: In-Vehicle Network Processor based on Cortex-M0
-      year: 2022.03
-      img: ../assets/img/chip/5_HM2103_chip_mpw.png
-      items:
-        - Die photo <a href="https://soc.seoultech.ac.kr/Researches/research_img/mpw/HM2103_chip_mpw.PNG"><i class="fas fa-external-link-alt"></i></a>
-        - Certificate <a href=../assets/pdf/cert/chip/05_hm_2103_ckn.pdf><i class="fas fa-external-link-alt"></i></a>
-        - "Designer: Kwon Neung Cho, Jeong Eun Kim, <b>Hyun Woo Oh</b>"
-        - "Technology: TSMC 180nm RFCMOS (1-poly 6-metal)"
-        - "Role: System Verification SW Dev., RTL Verification, Pre/Post-Layout Simulation"
-    - title: A Programmable Embedded AI Processor with Cortex-M0
-      year: 2021.07
-      img: ../assets/img/chip/4_2101_ckn_mpw.png
-      items:
-        - Die photo <a href="https://soc.seoultech.ac.kr/Researches/research_img/mpw/2101_ckn_mpw.png"><i class="fas fa-external-link-alt"></i></a>
-        - Certificate <a href=../assets/pdf/cert/chip/04_s28_2101_ckn.pdf><i class="fas fa-external-link-alt"></i></a>
-        - "Designer: Kwon Neung Cho, Young Woo Jeong, <b>Hyun Woo Oh</b>, Chang Yeop Han"
-        - "Technology: Samsung 28nm RFCMOS (1-poly 8-metal)"
-        - "Role: RTL Subblock Design"
-    - title: 32-bit Processor with Posit Arithmetic Coprocessor for Embedded Systems
-      year: 2021.07
-      img: ../assets/img/chip/3_2101_ohw_mpw.png
-      items:
-        - Die photo <a href="https://soc.seoultech.ac.kr/Researches/research_img/mpw/2101_ohw_mpw.png"><i class="fas fa-external-link-alt"></i></a>
-        - Certificate <a href=../assets/pdf/cert/chip/03_s28_2101_ohw.pdf><i class="fas fa-external-link-alt"></i></a>
-        - "Designer: <b>Hyun Woo Oh</b>, Jeong Eun Kim, Do Young Choi, Kwang Hyun Go"
-        - "Technology: Samsung 28nm RFCMOS (1-poly 8-metal)"
-        - "Role: RTL Design & Verification, ASIC Design Front-end/Back-end, Firmware Development, PCB Design & Chip Test"
-    - title: Implementation of Lossless Decompression Accelerator Based on Inflate Algorithm
-      year: 2020.09
-      img: ../assets/img/chip/2_2002_hgb_mpw.png
-      items:
-        - Die photo <a href="https://soc.seoultech.ac.kr/Researches/research_img/layout/2002_hgb_mpw.png"><i class="fas fa-external-link-alt"></i></a>
-        - Certificate <a href=../assets/pdf/cert/chip/02_s65_2002_hgb.pdf><i class="fas fa-external-link-alt"></i></a>
-        - "Designer: Gwan Beom Hwang, Do Young Choi, <b>Hyun Woo Oh</b>, Chang Yeop Han"
-        - "Technology: Samsung 65nm RFCMOS (1-poly 8-metal)"
-        - "Role: System Verification SW Dev., PCB Design & Chip Test"
-    - title: Communication System with Simple and Fast Communication Error Check Code Based on CRC
-      year: 2020.06
-      img: ../assets/img/chip/1_2001_hcy_mpw.png
-      items:
-        - Die photo <a href="https://soc.seoultech.ac.kr/Researches/research_img/layout/2001_hcy_mpw.png"><i class="fas fa-external-link-alt"></i></a>
-        - Certificate <a href=../assets/pdf/cert/chip/01_ms180_2001_hcy.pdf><i class="fas fa-external-link-alt"></i></a>
-        - "Designer: Chang Yeo Hanp, Kwon Neung Cho, <b>Hyun Woo Oh</b>"
-        - "Technology: Magnachip Hynix 0.18um CMOS"
-        - "Role: RTL Subblock Design"
+      maindescription: Certificate
+
+    - title: "Cell-based Chip Design Flow for Samsung 28nm Fabrication"
+      institution: IC Design Education Center <a href="http://eng.idec.or.kr/intro/vision/"><i class="fas fa-external-link-alt"></i></a>
+      year: 2022.05
+      maindescription: Certificate
+
+    - title: "AMBA AXI and AXI-Stream Design and Verification"
+      institution: IC Design Education Center <a href="http://eng.idec.or.kr/intro/vision/"><i class="fas fa-external-link-alt"></i></a>
+      year: 2020.10
+      maindescription: Certificate #<a href=../assets/pdf/cert/training/06_idec.pdf><i class="fas fa-external-link-alt"></i></a>
 
 
-- title: Professional Services
-  type: nested_list
-  contents:
-    - title: Reviwer Activities
-      items: 
-        - IEEE Access, 2 times since 2023
+- #title: Chip Designs
+  #type: time_table
+  #contents:
+  #  - title: A RISC-V Processor Supporting AMBA AXI Protocol for Embedded Systems
+  #    year: 2022.07
+  #    img: ../assets/img/chip/7_2201_jws_mpw.png
+  #    items:
+  #      - Die photo <a href="https://soc.seoultech.ac.kr/Researches/research_img/mpw/2201_jws_mpw.png"><i class="fas fa-external-link-alt"></i></a>
+  #      - Certificate <a href=../assets/pdf/cert/chip/07_s28_2201_jws.pdf><i class="fas fa-external-link-alt"></i></a>
+  #      - "Designer: Won Sik Jeong, Sun Beom Kwon, <b>Hyun Woo Oh</b>, Jeongeun Kim"
+  #      - "Technology: Samsung 28nm RFCMOS (1-poly 8-metal)"
+  #      - "Role: RTL Verification"
+  #  - title: Robot-Specific Processor for Autonomous Driving
+  #    year: 2022.07
+  #    img: ../assets/img/chip/6_2201_jyw_mpw.png
+  #    items:
+  #      - Die photo <a href="https://soc.seoultech.ac.kr/Researches/research_img/mpw/2201_jyw_mpw.png"><i class="fas fa-external-link-alt"></i></a>
+  #      - Certificate <a href=../assets/pdf/cert/chip/06_s28_2201_jyw.pdf><i class="fas fa-external-link-alt"></i></a>
+  #      - "Designer: Youngwoo Jeong, Yue Ri Jeong, <b>Hyun Woo Oh</b>, Kwang Hyun Go"
+  #      - "Technology: Samsung 28nm RFCMOS (1-poly 8-metal)"
+  #      - "Role: System Verification Assistant"
+  #  - title: In-Vehicle Network Processor based on Cortex-M0
+  #    year: 2022.03
+  #    img: ../assets/img/chip/5_HM2103_chip_mpw.png
+  #    items:
+  #      - Die photo <a href="https://soc.seoultech.ac.kr/Researches/research_img/mpw/HM2103_chip_mpw.PNG"><i class="fas fa-external-link-alt"></i></a>
+  #      - Certificate <a href=../assets/pdf/cert/chip/05_hm_2103_ckn.pdf><i class="fas fa-external-link-alt"></i></a>
+  #      - "Designer: Kwon Neung Cho, Jeong Eun Kim, <b>Hyun Woo Oh</b>"
+  #      - "Technology: TSMC 180nm RFCMOS (1-poly 6-metal)"
+  #      - "Role: System Verification SW Dev., RTL Verification, Pre/Post-Layout Simulation"
+  #  - title: A Programmable Embedded AI Processor with Cortex-M0
+  #    year: 2021.07
+  #    img: ../assets/img/chip/4_2101_ckn_mpw.png
+  #    items:
+  #      - Die photo <a href="https://soc.seoultech.ac.kr/Researches/research_img/mpw/2101_ckn_mpw.png"><i class="fas fa-external-link-alt"></i></a>
+  #      - Certificate <a href=../assets/pdf/cert/chip/04_s28_2101_ckn.pdf><i class="fas fa-external-link-alt"></i></a>
+  #      - "Designer: Kwon Neung Cho, Young Woo Jeong, <b>Hyun Woo Oh</b>, Chang Yeop Han"
+  #      - "Technology: Samsung 28nm RFCMOS (1-poly 8-metal)"
+  #      - "Role: RTL Subblock Design"
+  #  - title: 32-bit Processor with Posit Arithmetic Coprocessor for Embedded Systems
+  #    year: 2021.07
+  #    img: ../assets/img/chip/3_2101_ohw_mpw.png
+  #    items:
+  #      - Die photo <a href="https://soc.seoultech.ac.kr/Researches/research_img/mpw/2101_ohw_mpw.png"><i class="fas fa-external-link-alt"></i></a>
+  #      - Certificate <a href=../assets/pdf/cert/chip/03_s28_2101_ohw.pdf><i class="fas fa-external-link-alt"></i></a>
+  #      - "Designer: <b>Hyun Woo Oh</b>, Jeong Eun Kim, Do Young Choi, Kwang Hyun Go"
+  #      - "Technology: Samsung 28nm RFCMOS (1-poly 8-metal)"
+  #      - "Role: RTL Design & Verification, ASIC Design Front-end/Back-end, Firmware Development, PCB Design & Chip Test"
+  #  - title: Implementation of Lossless Decompression Accelerator Based on Inflate Algorithm
+  #    year: 2020.09
+  #    img: ../assets/img/chip/2_2002_hgb_mpw.png
+  #    items:
+  #      - Die photo <a href="https://soc.seoultech.ac.kr/Researches/research_img/layout/2002_hgb_mpw.png"><i class="fas fa-external-link-alt"></i></a>
+  #      - Certificate <a href=../assets/pdf/cert/chip/02_s65_2002_hgb.pdf><i class="fas fa-external-link-alt"></i></a>
+  #      - "Designer: Gwan Beom Hwang, Do Young Choi, <b>Hyun Woo Oh</b>, Chang Yeop Han"
+  #      - "Technology: Samsung 65nm RFCMOS (1-poly 8-metal)"
+  #      - "Role: System Verification SW Dev., PCB Design & Chip Test"
+  #  - title: Communication System with Simple and Fast Communication Error Check Code Based on CRC
+  #    year: 2020.06
+  #    img: ../assets/img/chip/1_2001_hcy_mpw.png
+  #    items:
+  #      - Die photo <a href="https://soc.seoultech.ac.kr/Researches/research_img/layout/2001_hcy_mpw.png"><i class="fas fa-external-link-alt"></i></a>
+  #      - Certificate <a href=../assets/pdf/cert/chip/01_ms180_2001_hcy.pdf><i class="fas fa-external-link-alt"></i></a>
+  #      - "Designer: Chang Yeo Hanp, Kwon Neung Cho, <b>Hyun Woo Oh</b>"
+  #      - "Technology: Magnachip Hynix 0.18um CMOS"
+  #      - "Role: RTL Subblock Design"
+
+
+#- title: Professional Services
+#  type: nested_list
+#  contents:
+#    - title: Reviwer Activities
+#      items: 
+#        - IEEE Access, 2 times since 2023
