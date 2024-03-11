@@ -4,5 +4,5 @@ permalink: /cv/
 title: CV
 nav: true
 nav_order: 5
-cv_pdf: CV_Hyunwoo_Oh_240117.pdf
+cv_pdf: CV_C.Choi_230312.pdf
 ---
