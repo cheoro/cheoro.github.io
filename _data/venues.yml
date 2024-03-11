@@ -72,6 +72,11 @@
   url: https://www.mdpi.com/journal/sensors
   color: "#b30000"
 
+# Domestic Journal
+"KTSDE":
+  url: http://ktsde.kips.or.kr/digital-library/25273
+  color: "#4C9900"
+
 # International Conference
 "AICAS":
   url: https://www.aicas2024.org
@@ -91,7 +96,3 @@
 "DSD":
   url: https://dsd-seaa2023.com
   color: "#0080FF"
-
-# Domestic Journal
-"KTSDE":
-  color: "#4C9900"
