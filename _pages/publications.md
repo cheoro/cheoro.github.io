@@ -15,11 +15,11 @@ List of peer-reviewed publications.
      <div class="abbr">
        Publication Types
        <br>
-       <abbr class="badge badge-conf" style="background-color:#b30000">Jour.</abbr>: Journal     
+       <abbr class="badge badge-conf" style="background-color:#b30000">Journal
      </div>
      <div class="abbr">
        <br>
-       <abbr class="badge badge-conf" style="background-color:#0080FF">Conf.</abbr>: Conference
+       <abbr class="badge badge-conf" style="background-color:#0080FF">Conference
      </div>
    </li>
   </ol>

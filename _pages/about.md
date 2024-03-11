@@ -1,6 +1,6 @@
 ---
 layout: about
-title: about
+title: About
 permalink: /
 subtitle: System on Chip (SoC) Engineer @ Core H/W Team, Hanwha Systems Co., Ltd., Pangyo, Seongnam, Gyeonggi, Republic of Korea.
 
