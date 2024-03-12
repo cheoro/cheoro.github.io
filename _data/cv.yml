@@ -52,12 +52,11 @@
     - title: I have first authored
       items:
         - 3 Peer-reviewed International Journal Articles
-        - 2 Peer-reviewed International Conference Papers
+        - 3 Peer-reviewed International Conference Papers
     - title: I have co-authored
       items:
         - 2 Peer-reviewed International Conference Papers
         - 1 Peer-reviewed Korean Journal Articles
-        - 5 Peer-reviewed Korean Conference Papers
     - title: See list  <a href="../publications"><i class="fas fa-external-link-alt"></i></a>
 
 - title: Awards and Honors
@@ -90,7 +89,7 @@
         - title: Major Acheivements
           subitems:
             - "International Journal Article: 1"
-            - "International Conference: 2"
+            - "International Conference: 3"
 
     - title: Research Assistant (RA)
       institution: System on Chip (SoC) Lab., Kyungpook National University, Republic of Korea
@@ -123,6 +122,23 @@
 - title: Research Experience
   type: time_table
   contents:
+    - title: Research and Development of Night Vision and Child Presence Detection (CPD) Systems based on Infrared Thermal Sensor for Autonomous Driving
+      institution: Hanwha Systems
+      location: Panggyo
+      year: 2023.01 ~ Present
+      items:
+        - "Funder: Hanwha Systems"
+        - title: "Contributions"
+          subitems:
+            - Design the FPGA-based real-time image processor for infrared-based thermal camera
+            - Design the firmware for real-time night vision embedded systems using infrared thermal cameras
+        - title: "Papers"
+          subitems:
+            - Fast Object Detection Algorithm using Edge-based Operation Skip Scheme with Viola-Jones Method <a href="">[AICAS 2024]</a>
+            - Cell-Based Refinement Processor Utilizing Disparity Characteristics of Road Environment for SGM-Based Stereo Vision Systems <a href="http://ieeexplore.ieee.org/abstract/document/10339275/">[Access 2023 (Q1)]</a>
+            - Disparity Refinement Processor Architecture utilizing Horizontal and Vertical Characteristics for Stereo Vision Systems <a href="">[DSD 2023]</a>
+            - An SoC FPGA-based Integrated Real-time Image Processor for Uncooled Infrared Focal Plane Array <a href="">[DSD 2023]</a>
+
     - title: Research on System of Test Equipment for High Speed Memory (CK 8GHz DQ 16Gbps)
       institution: Yonsei University
       location: Seoul
@@ -131,7 +147,7 @@
         - "Funder: Ministry of Trade, Industry and Energy (MOTIE)"
         - title: "Contributions"
           subitems:
-            - A
+            - Design the test pattern generation algorithm for memory fault test equipments
 
     - title: Interdisciplinary Incubation Center for Biomedical and System Semiconductor
       institution: Pohang University of Science and Technology (POSTECH)
@@ -140,9 +156,11 @@
       items:
         - "Funder: Ministry of Science and ICT (MSIT)"
         - title: "Contributions"
+          subitems:
+            - Research for non-memory semiconductor
         - title: "Papers"
           subitems:
-            - Haar Filter Hardware Architecture for the Accuracy Improvement of Stereo Vision Systems <a href="">[ISOCC 2021]</a>
+            - Haar Filter Hardware Architecture for the Accuracy Improvement of Stereo Vision Systems <a href="http://ieeexplore.ieee.org/abstract/document/9614032/">[ISOCC 2021]</a>
     
     - title: Development of the Identification Data Processing Technology for On-site Police officers
       institution: Yonsei University
@@ -156,8 +174,8 @@
             - Design the object detection system based on Haar cascade classifier using Verilog HDL
         - title: "Papers"
           subitems:
-            - Face detection using haar cascade classifiers based on vertical component calibration <a href="">[HCIS 2022 (Q1)]</a>
-            - Hardware architecture of a Haar classifier based face detection system using a skip scheme <a href="">[ISCAS 2021]</a>
+            - Face detection using haar cascade classifiers based on vertical component calibration <a href="http://hcisj.com/articles/issue_view.php?wr_id=365&page=1">[HCIS 2022 (Q1)]</a>
+            - Hardware architecture of a Haar classifier based face detection system using a skip scheme <a href="https://ieeexplore.ieee.org/abstract/document/9401114">[ISCAS 2021]</a>
 
 
     - title: An Embedded System for Real-time Context Awareness of Smart Cars
@@ -172,7 +190,7 @@
             - Design the SGM-based stereo vision system using Verilog HDL
         - title: "Papers"
           subitems:
-            - Filtering-based Method and Hardware Architecture for Drivable Area Detection in Road Environment Including Vegetation <a href="">[KTSDE 2022]</a>
+            - Filtering-based Method and Hardware Architecture for Drivable Area Detection in Road Environment Including Vegetation <a href="http://ktsde.kips.or.kr/digital-library/25273">[KTSDE 2022]</a>
 
     - title: Development of Core Technology for Specialized Lighting for Transportation Equipment
       institution: Yeungnam University
@@ -244,7 +262,7 @@
   type: time_table
   contents:
     - title: "ISO 26262:2018 Functional Safety Engineering Course: Automotive Foundation Level (FSE-AFL)"
-      institution: Det Norske Veritas
+      institution: Det Norske Veritas (DNV) <a href="https://www.dnv.co.kr/"><i class="fas fa-external-link-alt"></i></a>
       year: 2023.01
 
     - title: "Deep-Learning Processing Unit Design and Implementation"
