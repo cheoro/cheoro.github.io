@@ -141,7 +141,7 @@
 }
 
 @inproceedings{oh_soc_2023,
-    address         = {Durres, Albania},
+    address         = {Golem, Albania},
     title           = {An SoC FPGA-based Integrated Real-time Image Processor for Uncooled Infrared Focal Plane Array},
     abstract        = {This paper presents an integrated image processor architecture designed for real-time interfacing and processing of high-resolution thermal video obtained from an uncooled infrared focal plane array (IRFPA) utilizing a modern system-onchip field-programmable gate array (SoC FPGA). Our processor provides a one-chip solution for incorporating non-uniformity correction (NUC) algorithms and contrast enhancement methods (CEM) to be performed seamlessly. We have employed NUC algorithms that utilize multiple coefficients to ensure robust image quality, free from ghosting effects and blurring. These algorithms include polynomial modeling-based thermal drift compensation (TDC), two-point correction (TPC), and run-time discrete flat field correction (FFC). To address the memory bottlenecks originating from the parallel execution of NUC algorithms in real-time, we designed accelerators and parallel caching modules for pixel-wise algorithms based on a multi-parameter polynomial expression. Furthermore, we designed a specialized accelerator architecture to minimize the interrupted time for run-time FFC. The implementation on the XC7Z020CLG400 SoC FPGA with the QuantumRed VR thermal module demonstrates that our image processing module achieves a throughput of 60 frames per second (FPS) when processing 14-bit 640×480 resolution infrared video acquired from an uncooled IRFPA.},
     language        = {en},
@@ -157,11 +157,12 @@
     bibtex_show     = {true},
     present_text    = {Long},
     acc_text        = {Acceptance Rate = 48.42% (77 out of 159), Long Presentation (48 out of 77)},
+    html            = {http://ieeexplore.ieee.org/document/10456855/},
     selected        = {false}
 }
 
 @inproceedings{choi_disparity_2023,
-    address         = {Durres, Albania},
+    address         = {Golem, Albania},
     title           = {Disparity Refinement Processor Architecture utilizing Horizontal and Vertical Characteristics for Stereo Vision Systems},
     abstract        = {In embedded stereo vision systems based on semiglobal matching, the matching accuracy of the initial disparity map can be degraded because of various factors. To solve this problem, weighted median-based disparity refinement hardware architectures are utilized to improve the matching accuracy. However, for the conventional hardware architectures, there is a trade-off between hardware resource utilization and refinement performance when they are implemented on a field programmable gate array (FPGA). Therefore, in this paper, we propose a hybrid max-median filter and its hardware architecture to improve the refinement performance and reduce hardware resource utilization. To evaluate the refinement performance, we used two public stereo datasets. When using the various window sizes for KITTI 2012 and 2015 stereo benchmark datasets, the proposed hardware architecture showed better matching accuracy performance compared with the conventional hardware architectures. In terms of the hardware resource utilization, when implemented on an FPGA, the proposed hardware architecture has low requirements for all types of hardware resources. That is, the proposed hardware architecture overcomes the trade-off between hardware resource utilization and refinement performance.},
     language        = {en},
@@ -177,6 +178,8 @@
     bibtex_show     = {true},
     present_text    = {Long},
     acc_text        = {Acceptance Rate = 48.42% (77 out of 159), Long Presentation (48 out of 77)},
+    html            = {https://ieeexplore.ieee.org/document/10456793},
+    pdf             = {2023_DSD_Paper (Choi).pdf},
     selected        = {false}
 }
 
