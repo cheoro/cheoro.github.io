@@ -32,19 +32,17 @@
   contents:
     - title: Computer Vision
       items:
-        - title: "Developing image processing algorithms for improving the performance to used for various systems"
+        - title: "Developing traditional or artificial intelligence (AI)-based image processing algorithms to enhance accuracy performance"
           subitems:
-            - "<b>Disparity Refinement</b>:"
-            - "<b>Object Detection</b>:"
-            - "<b>Contrast Enhancement</b>:"
+            - "<b>Artificial Intelligence (AI)</b>:" Developing lightweight algorithms with high accuracy for resource-limited embedded systems
+            - "<b>Traditional Approach</b>:" Developing kernel-based algorithms tailored for specific domains, such as LWIR-based sensors for autonomous vehicles
 
     - title: Hardware Architecture
       items:
-        - title: "Developing image processing algorithms for improving the performance to used for various systems"
+        - title: "Developing accelerators or processors for domain-specific image processing to achieve real-time, low-cost and low power performance"
           subitems:
-            - "<b>Disparity Refinement</b>:"
-            - "<b>Object Detection</b>:"
-            - "<b>Contrast Enhancement</b>:"
+            - "<b>Accelerator</b>:" Designing scalable architectures that can efficiently adapt to different input parameters to meet the power, performance, and area (PPA) requirements of the systems
+            - "<b>Processor</b>:" Researching and applying partitioning methodologies to maximize system performance (e.g., achieving 60+ fps) for the development of HW/SW co-processing systems
 
 - title: Publications
   type: nested_list
