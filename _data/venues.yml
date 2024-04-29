@@ -72,6 +72,10 @@
   url: https://www.mdpi.com/journal/sensors
   color: "#b30000"
 
+"SPL":
+  url: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=97
+  color: "#b30000" 
+
 # Domestic Journal
 "KTSDE":
   url: http://ktsde.kips.or.kr/digital-library/25273
@@ -95,4 +99,8 @@
 
 "DSD":
   url: https://dsd-seaa2023.com
+  color: "#0080FF"
+
+"RTCSA":
+  url: https://rtcsa2024.github.io/
   color: "#0080FF"
