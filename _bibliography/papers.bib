@@ -20,6 +20,7 @@
 @inproceedings{2024_RTCSA,
     address         = {Sokcho, Republic of Korea},
     title           = {A Compact Real-Time Thermal Imaging System Based on Heterogeneous System-on-Chip},
+    abstract        = {This paper presents a real-time embedded thermal imaging system architecture for compact, energy-efficient, high-quality imaging utilizing heterogeneous system-on-chip and uncooled infrared focal plane arrays (IRFPAs). In contrast to previous systems that organized separate devices for complex image processing, our system provides integrated image processing support for robust sensor-to-surveillance. We organized the image processing architecture into two algorithm stacks: a non-uniformity correction stack to mitigate the distinctive noise vulnerability of uncooled IRFPAs and an image enhancement stack, which includes contrast enhancement and frame-level temporal noise filters. We optimized the algorithms for domain-specific factors, including asymmetric multiprocessing (AMP), cache organization, single instruction multiple data (SIMD) instructions, and very long instruction word (VLIW) architectures. The implementation on TI TDA3x SoC demonstrates that our system can process 640×480, 60 frames per second (FPS) videos at a peak core load of 57.5% while consuming power less than 2.2 W for the entire system, denoting the possibility of processing the 1280×1024, 30 FPS videos from the state-of-the-art IRFPAs.},
     language        = {en},
     booktitle       = {IEEE International Conference on Embedded and Real-Time Computing Systems and Applications (RTCSA)},
     publisher       = {IEEE},
@@ -37,8 +38,8 @@
 
 @inproceedings{2024_ISOCC,
     address         = {Sapporo, Japan},
-    abstract        = {Long-wave infrared-based thermal cameras employing uncooled detectors are extensively utilized in the night vision systems of autonomous driving platforms. In these cameras, contrast enhancement process is necessary to transition from low dynamic range to high dynamic range. Therefore, in this paper, we propose an improved contrast enhancement algorithm utilizing histogram equalization with gamma correction.},
     title           = {Improved Contrast Enhancement Algorithm for Night Vision Systems using Thermal Camera},
+    abstract        = {Long-wave infrared-based thermal cameras employing uncooled detectors are extensively utilized in the night vision systems of autonomous driving platforms. In these cameras, contrast enhancement process is necessary to transition from low dynamic range to high dynamic range. Therefore, in this paper, we propose an improved contrast enhancement algorithm utilizing histogram equalization with gamma correction.},
     language        = {en},
     booktitle       = {International Conference on SoC Design Conference (ISOCC)},
     publisher       = {IEIE},
