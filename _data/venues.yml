@@ -1,53 +1,49 @@
 "MICRO":
   url: https://microarch.org
-  color: "#b30000"
+  color: "#0080FF"
   
 "ISCA":
   url: https://iscaconf.org
-  color: "#b30000"
+  color: "#0080FF"
  
 "ASPLOS":
   url: https://www.asplos-conference.org
-  color: "#b30000"
+  color: "#0080FF"
  
 "HPCA":
   url: https://www.hpca-conf.org
-  color: "#b30000"
+  color: "#0080FF"
 
 "ISLPED":
   url: https://www.islped.org
-  color: "#b30000"
+  color: "#0080FF"
   
 "DAC":
   url: https://www.dac.com
-  color: "#b30000"
+  color: "#0080FF"
 
 "ICCAD":
   url: https://iccad.com
-  color: "#b30000"
+  color: "#0080FF"
  
 "DATE":
   url: https://www.date-conference.com
-  color: "#b30000"
+  color: "#0080FF"
 
 "FPGA":
   url: https://www.isfpga.org
-  color: "#b30000"
+  color: "#0080FF"
 
 "FCCM":
   url: https://www.isfpga.org
-  color: "#b30000"
+  color: "#0080FF"
 
 "FPL":
   url: https://www.isfpga.org
-  color: "#b30000"
+  color: "#0080FF"
 
 "PACT":
-  color: "#b30000"
-
-"ICCE":
-  url: https://icce.org
-  color: "#b30000"
+  color: "#0080FF"
 
 
 
@@ -104,3 +100,12 @@
 "RTCSA":
   url: https://rtcsa2024.github.io/
   color: "#0080FF"
+
+"ICCE":
+  url: https://icce.org
+  color: "#0080FF"
+
+"ICCE-Asia":
+  url: https://icce-asia2024.org/2024/
+  color: "#0080FF"
+
