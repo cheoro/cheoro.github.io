@@ -49,11 +49,11 @@
   contents:
     - title: I have first authored
       items:
-        - 3 Peer-reviewed International Journal Articles
-        - 3 Peer-reviewed International Conference Papers
+        - 4 Peer-reviewed International Journal Articles
+        - 4 Peer-reviewed International Conference Papers
     - title: I have co-authored
       items:
-        - 2 Peer-reviewed International Conference Papers
+        - 3 Peer-reviewed International Conference Papers
         - 1 Peer-reviewed Korean Journal Articles
     - title: See list  <a href="../publications"><i class="fas fa-external-link-alt"></i></a>
 
@@ -86,8 +86,8 @@
             - "S/W: Develop the high-performance object detection and contrast enhancement algorithms"
         - title: Major Acheivements
           subitems:
-            - "International Journal Article: 1"
-            - "International Conference: 3"
+            - "International Journal Article: 2"
+            - "International Conference: 5"
 
     - title: Research Assistant (RA)
       institution: System on Chip (SoC) Lab., Kyungpook National University, Republic of Korea
@@ -132,10 +132,13 @@
             - Design the firmware for real-time night vision embedded systems using infrared thermal cameras
         - title: "Papers"
           subitems:
+            - A Compact Real-Time Thermal Imaging System Based on Heterogeneous System-on-Chip <a href="">[RTCSA 2024]</a>
+            - Improved Contrast Enhancement Algorithm for Night Vision Systems using Thermal Camera <a href="">[ISOCC 2024]</a>
+            - Contrast Enhancement Method using Region-based Dynamic Clipping Technique for LWIR-based Thermal Camera of Night Vision Systems <a href="https://www.mdpi.com/1424-8220/24/12/3829">[Sensors 2024 (Q1)]</a>
             - Fast Object Detection Algorithm using Edge-based Operation Skip Scheme with Viola-Jones Method <a href="">[AICAS 2024]</a>
             - Cell-Based Refinement Processor Utilizing Disparity Characteristics of Road Environment for SGM-Based Stereo Vision Systems <a href="http://ieeexplore.ieee.org/abstract/document/10339275/">[Access 2023 (Q1)]</a>
-            - Disparity Refinement Processor Architecture utilizing Horizontal and Vertical Characteristics for Stereo Vision Systems <a href="">[DSD 2023]</a>
-            - An SoC FPGA-based Integrated Real-time Image Processor for Uncooled Infrared Focal Plane Array <a href="">[DSD 2023]</a>
+            - Disparity Refinement Processor Architecture utilizing Horizontal and Vertical Characteristics for Stereo Vision Systems <a href="https://ieeexplore.ieee.org/document/10456793">[DSD 2023]</a>
+            - An SoC FPGA-based Integrated Real-time Image Processor for Uncooled Infrared Focal Plane Array <a href="http://ieeexplore.ieee.org/document/10456855/">[DSD 2023]</a>
 
     - title: Research on System of Test Equipment for High Speed Memory (CK 8GHz DQ 16Gbps)
       institution: Yonsei University
