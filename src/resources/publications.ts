@@ -66,7 +66,7 @@ export const publications: Publication[] = [
     abstract:
       "This paper presents a guided-frame-reuse tone-mapping accelerator for real-time thermal imaging systems. The proposed architecture reduces histogram computation and on-chip memory requirements while preserving image quality and temporal consistency.",
     pdf:
-      "/papers/2019_MOTL_Paper.pdf",
+      "/papers/tecs2026.pdf",
     // doi:
     //   "https://ieeexplore.ieee.org/document/12345678",
     // bibtex: `@inproceedings{choi2026iccad,
@@ -112,7 +112,7 @@ export const publications: Publication[] = [
     abstract:
       "This paper presents a guided-frame-reuse tone-mapping accelerator for real-time thermal imaging systems. The proposed architecture reduces histogram computation and on-chip memory requirements while preserving image quality and temporal consistency.",
     pdf:
-      "/papers/2019_MOTL_Paper.pdf",
+      "/papers/tecs2026.pdf",
     // doi:
     //   "https://ieeexplore.ieee.org/document/12345678",
     // bibtex: `@inproceedings{choi2026iccad,
@@ -188,7 +188,7 @@ export const publications: Publication[] = [
     abstract:
       "In embedded long-wavelength infrared thermal imaging systems, contrast enhancement is essential after the non–uniformity correction process to generate visually interpretable frames. To address this, our previous work proposed a region-based histogram equalization method with a dynamic clipping technique. However, that study had limitations, as it relied on only a small number of test frames and did not employ appropriate quantitative evaluation metrics. In this paper, we conduct additional experiments to identify optimal parameter configuration for the previously proposed method. Frame quality was evaluated using four assessment metrics on 4,768 test frames collected from 10 driving scenarios. The experimental results confirm that the configuration with the operation bit parameter set to 14 and the divided-region parameter set to 32 is the most effective and suitable for thermal imaging systems.",
     pdf:
-      "/papers/2019_MOTL_Paper.pdf",
+      "/papers/tecs2026.pdf",
     doi:
       "https://ieeexplore.ieee.org/abstract/document/11263630",
     bibtex: 
@@ -231,7 +231,7 @@ export const publications: Publication[] = [
     abstract:
       "Machine learning-based object detection systems are preferred due to their cost-effectiveness compared to deep learning approaches. Among machine learning methods, the Viola-Jones classifier stands out for its reasonable accuracy and efficient resource utilization. However, as the number of classification iterations increases or the resolution of the input image increases, the detection processing speed may decrease. To address the detection speed issue related to input image resolution, an improved edge component calibration method is applied. Additionally, an edge-based operation skip scheme is proposed to overcome the detection processing speed problem caused by the number of classification iterations. Our experiments using the FDDB public dataset show that our method reduces classification iterations by 24.6157% to 84.1288% compared to conventional methods, except for our previous study. Importantly, our method maintains detection accuracy while reducing classification iterations. This result implies that our method can realize almost real-time object detection when implemented on field-programmable gate arrays.",
     pdf:
-      "/papers/2019_MOTL_Paper.pdf",
+      "/papers/tecs2026.pdf",
     doi:
       "https://www.mdpi.com/2079-9292/14/2/397",
     bibtex: 
@@ -276,7 +276,7 @@ export const publications: Publication[] = [
     abstract:
       "In the automotive industry, thermal imaging systems are increasingly explored for night vision applications. Building on our previous study, which introduced a region-based contrast enhancement algorithm designed to deliver consistent performance across varying driving environments, this paper focuses on a detailed performance analysis based on different parameters. Specifically, we investigate the algorithm's effectiveness using four operation bits (8, 10, 12, and 14) and four divided region (DR) parameters (4, 8, 16, and 32). Our experimental results demonstrate that the algorithm meets real-time processing requirements and performs optimally with an 8-bit operation and a DR parameter of 16. These findings indicate that this configuration provides the best balance between performance and real-time processing capabilities. Based on these results, we aim to offer users the most effective performance solutions for future night vision applications utilizing thermal imaging systems.",
     pdf:
-      "/papers/2019_MOTL_Paper.pdf",
+      "/papers/tecs2026.pdf",
     doi:
       "https://ieeexplore.ieee.org/abstract/document/11263630",
     bibtex: 

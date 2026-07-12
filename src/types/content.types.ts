@@ -179,10 +179,10 @@ export interface About extends BasePageConfig {
     title: string;
     /** List of institutions attended */
     institutions: Array<{
-      /** Institution name */
       name: string;
-      /** Description of studies */
       description: React.ReactNode;
+      period?: string;
+      location?: string;
     }>;
   };
   /** Technical skills section */
