@@ -4,25 +4,22 @@ import { Line, Row, Text } from "@once-ui-system/core";
 const person: Person = {
   firstName: "Cheol-Ho",
   lastName: "Choi",
-  name: `Cheol-Ho`,
+  name: `Cheol-Ho Choi`,
   role: "FPGA Architect and Researcher",
-  avatar: "/images/avatar.jpg",
-  email: "cheoro1994@hanwha.com",
+  avatar: "/images/C.Choi.jpg",
+  email: "cheoro1994@uos.ac.kr",
   location: "Asia/Seoul", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["Korean", "English"], // optional: Leave the array empty if you don't want to display languages
   locale: "en", // BCP 47 language tag for the HTML lang attribute, e.g., 'en', 'ja', 'zh-TW'
 };
 
 const newsletter: Newsletter = {
-  display: true,
-  title: <>Subscribe to {person.firstName}'s Newsletter</>,
-  description: <>My weekly newsletter about creativity and engineering</>,
+  display: false,
+  title: <>Subscribe to {person.firstName}&apos;s Newsletter</>,
+  description: <>Research updates and technical notes</>,
 };
 
 const social: Social = [
-  // Links are automatically displayed.
-  // Import new icons in /once-ui/icons.ts
-  // Set essentials: true for links you want to show on the about page
   {
     name: "GitHub",
     icon: "github",
@@ -32,19 +29,7 @@ const social: Social = [
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
-    essential: true,
-  },
-  {
-    name: "Instagram",
-    icon: "instagram",
-    link: "https://www.instagram.com/once_ui/",
-    essential: false,
-  },
-  {
-    name: "Threads",
-    icon: "threads",
-    link: "https://www.threads.com/@once_ui",
+    link: "https://www.linkedin.com/in/cheol-ho-choi-b03a472a8/",
     essential: true,
   },
   {
@@ -92,150 +77,263 @@ const about: About = {
   path: "/about",
   label: "About",
   title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from ${person.location}`,
+  description:
+    `${person.name} is an FPGA architect and researcher specializing in ` +
+    "real-time thermal imaging, embedded vision, and hardware acceleration.",
+
   tableOfContent: {
     display: true,
     subItems: false,
   },
+
   avatar: {
     display: true,
   },
+
   calendar: {
-    display: true,
-    link: "https://cal.com",
+    display: false,
+    link: "",
   },
+
   intro: {
     display: true,
     title: "Introduction",
     description: (
       <>
-        {person.name} is an FPGA architect and researcher specializing in
-        real-time thermal imaging systems, embedded vision, and hardware
-        acceleration. His work focuses on streaming image-processing
-        architectures, FPGA-based tone mapping, non-uniformity correction,
-        and edge AI systems.
+        <p>
+          Hello! I am <strong>{person.name}</strong>.
+        </p>
+
+        <p>
+          I am a Ph.D. student at the University of Seoul and an Engineer
+          Hanwha Systems Co., Ltd., where I work on FPGA-based acceleration
+          and real-time image processing systems for embedded vision and
+          thermal imaging applications.
+        </p>
+
+        <p>
+          My research lies at the intersection of computer architecture,
+          image processing, and hardware-software co-design.
+          I build efficient real-time systems under stric latency, memory,
+          and power constraints, with a particular focus on FPGA accelerators,
+          thermal imaging systems, embedded vision, and heterogeneous SoC architectures.
+        </p>
+
+        <p>
+          My work spans algorithm development, architecture exploration,
+          RTL implementation, FPGA prototyping, and system integration
+          for real-time embedded systems.
+        </p>
       </>
     ),
   },
+
   work: {
-    display: true, // set to false to hide this section
-    title: "Work Experience",
+    display: true,
+    title: "Work and Research Experience",
+
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "Hanwha Systems Co., Ltd.",
+        timeframe: "2023 – Present",
+        role: "Junior Engineer · FPGA Image Processing",
+
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Design FPGA-based real-time image-processing architectures
+            for infrared and thermal imaging systems.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Develop image-enhancement and image-processing algorithms
+            for infrared object-detection platforms.
+          </>,
+          <>
+            Implement streaming hardware accelerators and embedded vision
+            pipelines using FPGA and SoC platforms.
+          </>,
+          <>
+            Conduct research on non-uniformity correction, tone mapping,
+            contrast enhancement, and embedded AI for thermal imaging.
           </>,
         ],
-        images: [
-          // optional: leave the array empty if you don't want to display images
-          {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
-          },
-        ],
+
+        images: [],
       },
+
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "System-on-Chip Laboratory",
+        timeframe: "2020 – 2022",
+        role: "Graduate Researcher",
+
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            Designed FPGA-based real-time stereo vision systems using
+            traditional computer-vision algorithms for mobile and
+            autonomous-driving platforms.
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            Designed FPGA-based fast object-detection systems using
+            machine-learning techniques for embedded and autonomous platforms.
+          </>,
+          <>
+            Developed FPGA–SoC co-processing architectures combining
+            programmable logic and processing systems.
+          </>,
+          <>
+            Implemented algorithms using MATLAB and C/C++, and translated
+            computationally intensive functions into hardware accelerators.
           </>,
         ],
+
+        images: [],
+      },
+
+      {
+        company: "Milimeter-wave Integrated Systems Laboratory",
+        timeframe: "2017 - 2019",
+        role: "Undergraduate Researcher",
+
+        achievements: [
+          <>
+            Designed 2.45-GHz and 5.8-GHz low-noise amplifier circuits
+            for Doppler radar sensors.
+          </>,
+          <>
+            Developed real-time bio-signal detection algorithms for
+            2.45-GHz Doppler radar sensing systems.
+          </>,
+          <>
+            Implemented and evaluated signal-processing algorithms using
+            MATLAB and C/C++.
+          </>,
+        ],
+
         images: [],
       },
     ],
   },
+
   studies: {
-    display: true, // set to false to hide this section
-    title: "Studies",
+    display: true,
+    title: "Education",
+
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        name: "University of Seoul",
+
+        period: "2025 - Present",
+
+        location: "Seoul, Korea",
+
+        description: (
+          <>
+            <strong>M.S. in Electronic and Computer Engineering</strong>
+            <br />
+            Advisor: Prof. Jeongkyu Hong
+          </>
+        ),
       },
+
       {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "Kyungpook National University",
+
+        period: "2020 - 2022",
+
+        location: "Daegu, Korea",
+
+        description: (
+          <>
+            <strong>M.S. in Electronic and Electrical Engineering</strong>
+            <br />
+            Advisor: Prof. Byungin Moon
+          </>
+        ),
       },
-    ],
+
+      {
+        name: "Yeungnam University",
+
+        period: "2013 - 2020",
+
+        location: "Gyeongsan, Korea",
+
+        description: (
+          <>
+            <strong>B.S. in Electronic Engineering</strong>
+            <br />
+            Advisor: Prof. Jong-Ryul Yang
+          </>
+        ),
+      },
+    ]
   },
+
   technical: {
-    display: true, // set to false to hide this section
-    title: "Technical skills",
+    display: true,
+    title: "Research and Technical Interests",
+
     skills: [
       {
-        title: "Figma",
+        title: "FPGA and SoC Architecture",
+
         description: (
-          <>Able to prototype in Figma with Once UI with unnatural speed.</>
+          <>
+            Design of real-time streaming accelerators and FPGA–SoC
+            co-processing architectures for embedded imaging applications.
+          </>
         ),
+
         tags: [
-          {
-            name: "Figma",
-            icon: "figma",
-          },
+          { name: "Verilog HDL" },
+          { name: "SystemVerilog" },
+          { name: "Vivado" },
+          { name: "Zynq MPSoC" },
+          { name: "AXI" },
         ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
+
+        images: [],
       },
+
       {
-        title: "Next.js",
+        title: "Thermal Imaging",
+
         description: (
-          <>Building next gen apps with Next.js + Once UI + Supabase.</>
+          <>
+            Hardware and algorithm development for infrared image correction,
+            enhancement, tone mapping, and target detection.
+          </>
         ),
+
         tags: [
-          {
-            name: "JavaScript",
-            icon: "javascript",
-          },
-          {
-            name: "Next.js",
-            icon: "nextjs",
-          },
-          {
-            name: "Supabase",
-            icon: "supabase",
-          },
+          { name: "NUC" },
+          { name: "Tone Mapping" },
+          { name: "Contrast Enhancement" },
+          { name: "Thermal Vision" },
         ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
+
+        images: [],
+      },
+
+      {
+        title: "Embedded Vision and AI",
+
+        description: (
+          <>
+            Development and evaluation of real-time computer-vision and
+            machine-learning systems for embedded and autonomous platforms.
+          </>
+        ),
+
+        tags: [
+          { name: "Computer Vision" },
+          { name: "Embedded AI" },
+          { name: "Object Detection" },
+          { name: "PyTorch" },
+          { name: "C/C++" },
+          { name: "MATLAB" },
         ],
+
+        images: [],
       },
     ],
   },

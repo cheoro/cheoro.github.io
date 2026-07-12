@@ -135,6 +135,26 @@ export const Header = () => {
                   label="Publications"
                 />
               )}
+              {routes["/cv"] && (
+                <>
+                  <Row s={{ hide: true }}>
+                    <ToggleButton
+                      prefixIcon="document"
+                      href="/cv"
+                      label="CV"
+                      selected={pathname === "/cv"}
+                    />
+                  </Row>
+
+                  <Row hide s={{ hide: false }}>
+                    <ToggleButton
+                      prefixIcon="document"
+                      href="/cv"
+                      selected={pathname === "/cv"}
+                    />
+                  </Row>
+                </>
+              )}
               {routes["/blog"] && (
                 <>
                   <Row s={{ hide: true }}>
