@@ -2,14 +2,14 @@ import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/
 import { Line, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
-  firstName: "Selene",
-  lastName: "Yu",
-  name: `Selene Yu`,
-  role: "Design Engineer",
+  firstName: "Cheol-Ho",
+  lastName: "Choi",
+  name: `Cheol-Ho`,
+  role: "FPGA Architect and Researcher",
   avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  email: "cheoro1994@hanwha.com",
+  location: "Asia/Seoul", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  languages: ["Korean", "English"], // optional: Leave the array empty if you don't want to display languages
   locale: "en", // BCP 47 language tag for the HTML lang attribute, e.g., 'en', 'ja', 'zh-TW'
 };
 
@@ -26,7 +26,7 @@ const social: Social = [
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system",
+    link: "https://github.com/cheoro",
     essential: true,
   },
   {
@@ -59,26 +59,31 @@ const home: Home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Home",
-  title: `${person.name}'s Portfolio`,
-  description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  title: `${person.name} – FPGA Research Portfolio`,
+  description:
+    "Research portfolio of Cheol-Ho Choi, focusing on FPGA acceleration, thermal imaging, embedded vision, and edge AI.",
+  headline: <>FPGA Architect for Real-Time Thermal Imaging Systems</>,
   featured: {
     display: true,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">Once UI</strong>{" "}
+        <strong className="ml-4">ICCAD 2026</strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
-          Featured work
+          Featured publication
         </Text>
       </Row>
     ),
-    href: "/work/building-once-ui-a-customizable-design-system",
+    href: "/work",
   },
   subline: (
     <>
-      I'm {person.firstName}, a {person.role.toLowerCase()} at{" "}
-      <Text as="span" size="xl" weight="strong">ONCE UI</Text>, where I craft intuitive <br /> user experiences. After hours, I build my own projects.
+      I am {person.name}, an FPGA architect and researcher working on{" "}
+      <Text as="span" size="xl" weight="strong">
+        thermal imaging, embedded vision, and edge AI
+      </Text>
+      . My research focuses on real-time streaming architectures, efficient
+      hardware acceleration, and FPGA-based imaging systems.
     </>
   ),
 };
@@ -104,9 +109,11 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        {person.firstName} is a {person.location.split("/")[1]?.replace("_", " ")}-based {person.role.toLowerCase()} with a passion for transforming complex challenges
-        into simple, elegant design solutions. Their work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        {person.name} is an FPGA architect and researcher specializing in
+        real-time thermal imaging systems, embedded vision, and hardware
+        acceleration. His work focuses on streaming image-processing
+        architectures, FPGA-based tone mapping, non-uniformity correction,
+        and edge AI systems.
       </>
     ),
   },
@@ -237,19 +244,15 @@ const about: About = {
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
-  title: "Writing about design and tech...",
-  description: `Read what ${person.name} has been up to recently`,
-  // Create new blog posts by adding a new .mdx file to app/blog/posts
-  // All posts will be listed on the /blog route
+  title: "Research Notes",
+  description: `Technical notes and research updates by ${person.name}`,
 };
 
 const work: Work = {
   path: "/work",
-  label: "Work",
-  title: `Projects – ${person.name}`,
-  description: `Design and dev projects by ${person.name}`,
-  // Create new project pages by adding a new .mdx file to app/blog/posts
-  // All projects will be listed on the /home and /work routes
+  label: "Projects",
+  title: `Research Projects – ${person.name}`,
+  description: `FPGA, thermal imaging, and embedded vision projects by ${person.name}`,
 };
 
 const gallery: Gallery = {

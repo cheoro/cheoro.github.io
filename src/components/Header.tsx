@@ -128,6 +128,13 @@ export const Header = () => {
                   </Row>
                 </>
               )}
+              {routes["/publications"] && (
+                <ToggleButton
+                  prefixIcon="book"
+                  href="/publications"
+                  label="Publications"
+                />
+              )}
               {routes["/blog"] && (
                 <>
                   <Row s={{ hide: true }}>
