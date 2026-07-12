@@ -14,10 +14,10 @@ import {
 import { home, person, social } from "./content";
 
 // IMPORTANT: Replace with your own domain address - it's used for SEO in meta tags and schema
-const baseURL: string = "https://demo.magic-portfolio.com";
+const baseURL: string = "https://portfolio-woad-eight-ok52kuljit.vercel.app/publications";
 
 const routes: RoutesConfig = {
-  "/": false,
+  "/": true,
   "/about": true,
   "/publications": true,
   "/work": false,
