@@ -43,11 +43,11 @@ export async function generateMetadata() {
 function SectionHeader({
   id,
   title,
-  rightContent,
+  href,
 }: {
   id: string;
   title: string;
-  rightContent?: React.ReactNode;
+  href?: string;
 }) {
   return (
     <Row
@@ -56,16 +56,38 @@ function SectionHeader({
       gap="16"
       marginBottom="l"
     >
-      <Heading
-        as="h2"
-        id={id}
-        variant="display-strong-s"
-        style={{
-          whiteSpace: "nowrap",
-        }}
-      >
-        {title}
-      </Heading>
+      {href ? (
+        <a
+          href={href}
+          style={{
+            color: "inherit",
+            textDecoration: "none",
+            flexShrink: 0,
+          }}
+        >
+          <Heading
+            as="h2"
+            id={id}
+            variant="display-strong-s"
+            style={{
+              whiteSpace: "nowrap",
+            }}
+          >
+            {title}
+          </Heading>
+        </a>
+      ) : (
+        <Heading
+          as="h2"
+          id={id}
+          variant="display-strong-s"
+          style={{
+            whiteSpace: "nowrap",
+          }}
+        >
+          {title}
+        </Heading>
+      )}
 
       <div
         style={{
@@ -74,8 +96,6 @@ function SectionHeader({
           background: "var(--neutral-alpha-medium)",
         }}
       />
-
-      {rightContent}
     </Row>
   );
 }
@@ -345,6 +365,7 @@ export default function About() {
           <SectionHeader
             id="News"
             title="News"
+            href="/news"
           />
 
           <Column
@@ -417,6 +438,7 @@ export default function About() {
           <SectionHeader
             id="Selected Publications"
             title="Selected Publications"
+            href="/publications"
           />
 
           <Column fillWidth>
@@ -467,9 +489,7 @@ export default function About() {
 
                             return (
                               <Row
-                                key={
-                                  paperKey
-                                }
+                                key={paperKey}
                                 className={
                                   styles.selectedItem
                                 }
@@ -493,9 +513,7 @@ export default function About() {
                                       "nowrap",
                                   }}
                                 >
-                                  {
-                                    paper.venue
-                                  }
+                                  {paper.venue}
                                 </Text>
 
                                 {/* Separator */}
@@ -508,7 +526,7 @@ export default function About() {
                                   onBackground="neutral-weak"
                                   style={{
                                     marginRight:
-                                      "12px",
+                                      "3px",
                                   }}
                                 >
                                   —
@@ -517,9 +535,7 @@ export default function About() {
                                 {/* Title */}
 
                                 <a
-                                  href={
-                                    destination
-                                  }
+                                  href={destination}
                                   className={
                                     styles.selectedTitle
                                   }
@@ -533,9 +549,7 @@ export default function About() {
                                     flex: 1,
                                   }}
                                 >
-                                  {
-                                    paper.title
-                                  }
+                                  {paper.title}
                                 </a>
                               </Row>
                             );

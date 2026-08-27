@@ -59,14 +59,9 @@ export default function PublicationsPage() {
   /* ========================================================= */
 
   const [
-    openYears,
-    setOpenYears,
-  ] =
-    useState<number[]>(
-      years.length > 0
-        ? [years[0]]
-        : []
-    );
+  openYears,
+  setOpenYears,
+] = useState<number[]>(years);
 
   /* ========================================================= */
   /* Anchor Navigation */

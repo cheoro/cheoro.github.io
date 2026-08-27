@@ -24,6 +24,7 @@ const routes: RoutesConfig = {
   "/blog": false,
   "/gallery": false,
   "/cv": true,
+  "/news": true,
 };
 
 const display: DisplayConfig = {
