@@ -49,68 +49,6 @@ export const publications: Publication[] = [
     year: 2026,
 
     venue:
-      "ICCAD",
-
-    type:
-      "conference",
-
-    status:
-      "accepted",
-
-    selected:
-      true,
-
-    anchor:
-      "iccad-2026-cegf-tm",
-
-    title:
-      "CEGF-TM: A Cost-Effective Streaming Tone-Mapping Accelerator Using Guided Frame Statistics for Thermal Imaging",
-
-    authors:
-      "Cheol-Ho Choi, Hyunmin Choi, Taehyun Kim, Seongtaek Hong, Taehyung Kim, Jeongkyu Hong",
-
-    publisher:
-      "IEEE/ACM International Conference on Computer-Aided Design",
-
-    month:
-      "November 2026",
-
-    monthNumber:
-      11,
-
-    city:
-      "San Jose, CA",
-
-    country:
-      "USA",
-
-    // pages:
-    //   "1-8",
-
-    acceptanceRate:
-      "24.09%",
-
-    abstract:
-      "This paper presents a guided-frame-reuse tone-mapping accelerator for real-time thermal imaging systems. The proposed architecture reduces histogram computation and on-chip memory requirements while preserving image quality and temporal consistency.",
-
-    pdf:
-      "/papers/tecs2026.pdf",
-
-    // doi:
-    //   "https://ieeexplore.ieee.org/document/12345678",
-
-    thumbnail:
-      "/images/publications/2026_ICCAD.pdf",
-
-    keywords: [
-      "Computer Architecture",
-    ],
-  },
-
-  {
-    year: 2026,
-
-    venue:
       "ICCD",
 
     type:
@@ -163,6 +101,68 @@ export const publications: Publication[] = [
 
     thumbnail:
       "/images/publications/2026_ICCD.pdf",
+
+    keywords: [
+      "Computer Architecture",
+    ],
+  },
+
+  {
+    year: 2026,
+
+    venue:
+      "ICCAD",
+
+    type:
+      "conference",
+
+    status:
+      "accepted",
+
+    selected:
+      true,
+
+    anchor:
+      "iccad-2026-cegf-tm",
+
+    title:
+      "CEGF-TM: A Cost-Effective Streaming Tone-Mapping Accelerator Using Guided Frame Statistics for Thermal Imaging",
+
+    authors:
+      "Cheol-Ho Choi, Hyunmin Choi, Taehyun Kim, Seongtaek Hong, Taehyung Kim, Jeongkyu Hong",
+
+    publisher:
+      "IEEE/ACM International Conference on Computer-Aided Design",
+
+    month:
+      "November 2026",
+
+    monthNumber:
+      11,
+
+    city:
+      "San Jose, CA",
+
+    country:
+      "USA",
+
+    // pages:
+    //   "1-8",
+
+    acceptanceRate:
+      "24.09%",
+
+    abstract:
+      "This paper presents a guided-frame-reuse tone-mapping accelerator for real-time thermal imaging systems. The proposed architecture reduces histogram computation and on-chip memory requirements while preserving image quality and temporal consistency.",
+
+    pdf:
+      "/papers/tecs2026.pdf",
+
+    // doi:
+    //   "https://ieeexplore.ieee.org/document/12345678",
+
+    thumbnail:
+      "/images/publications/2026_ICCAD.pdf",
 
     keywords: [
       "Computer Architecture",

@@ -62,7 +62,7 @@ export type NewsItem = {
 
 const news: NewsItem[] = [
   {
-    date: "2026-08-27",
+    date: "2026-08-21",
     text: (
       <>
         Our paper <strong>“VA-NUC”</strong> was accepted to{" "}

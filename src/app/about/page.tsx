@@ -349,7 +349,7 @@ export default function About() {
 
           <Column
             fillWidth
-            gap="16"
+            gap="12"
           >
             {latestNews.map(
               (item, index) => {
@@ -417,15 +417,6 @@ export default function About() {
           <SectionHeader
             id="Selected Publications"
             title="Selected Publications"
-            rightContent={
-              <Button
-                href="/publications"
-                label="View all"
-                size="s"
-                variant="secondary"
-                arrowIcon
-              />
-            }
           />
 
           <Column fillWidth>
@@ -450,19 +441,19 @@ export default function About() {
                         styles.selectedYearGroup
                       }
                     >
-                      <Heading
-                        as="h3"
-                        variant="heading-strong-l"
+                      <Text
+                        variant="body-strong-m"
+                        onBackground="brand-medium"
                         className={
                           styles.selectedYear
                         }
                       >
-                        {year}
-                      </Heading>
+                        [{year}]
+                      </Text>
 
                       <Column
                         fillWidth
-                        gap="16"
+                        gap="12"
                       >
                         {papersForYear.map(
                           (paper) => {
@@ -515,6 +506,10 @@ export default function About() {
                                   }
                                   variant="body-default-m"
                                   onBackground="neutral-weak"
+                                  style={{
+                                    marginRight:
+                                      "12px",
+                                  }}
                                 >
                                   —
                                 </Text>
