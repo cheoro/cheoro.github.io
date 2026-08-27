@@ -8,6 +8,19 @@
     }
 }
 
+/* Introduction paragraph alignment */
+.introText {
+    width: 100%;
+
+    p {
+        width: 100%;
+        text-align: justify !important;
+        text-align-last: left;
+        text-justify: inter-word;
+        hyphens: auto;
+    }
+}
+
 @media (max-width: breakpoints.$s) {
     .textAlign {
         text-align: center;
@@ -15,5 +28,19 @@
 
     .blockAlign {
         align-self: center;
+    }
+
+    .profileGrid {
+        grid-template-columns: 1fr !important;
+        row-gap: 32px;
+    }
+
+    /* Mobile에서는 강제 양쪽 정렬 해제 */
+    .introText {
+        p {
+            text-align: left !important;
+            text-align-last: auto;
+            hyphens: none;
+        }
     }
 }

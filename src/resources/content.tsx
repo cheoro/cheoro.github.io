@@ -1,5 +1,16 @@
-import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+import {
+  About,
+  Blog,
+  Gallery,
+  Home,
+  Newsletter,
+  Person,
+  Social,
+  Work,
+} from "@/types";
+
 import { Line, Row, Text } from "@once-ui-system/core";
+import type { ReactNode } from "react";
 
 const person: Person = {
   firstName: "Cheol-Ho",
@@ -8,9 +19,9 @@ const person: Person = {
   role: "FPGA Architect and Researcher",
   avatar: "/images/C.Choi.jpg",
   email: "cheoro1994@uos.ac.kr",
-  location: "Asia/Seoul", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["Korean", "English"], // optional: Leave the array empty if you don't want to display languages
-  locale: "en", // BCP 47 language tag for the HTML lang attribute, e.g., 'en', 'ja', 'zh-TW'
+  location: "Asia/Seoul",
+  languages: ["Korean", "English"],
+  locale: "en",
 };
 
 const newsletter: Newsletter = {
@@ -37,6 +48,36 @@ const social: Social = [
     icon: "email",
     link: `mailto:${person.email}`,
     essential: true,
+  },
+];
+
+/* ========================================================= */
+/* News */
+/* ========================================================= */
+
+export type NewsItem = {
+  date: string;
+  text: ReactNode;
+};
+
+const news: NewsItem[] = [
+  {
+    date: "2026-08-27",
+    text: (
+      <>
+        Our paper <strong>“VA-NUC”</strong> was accepted to{" "}
+        <strong>IEEE ICCD 2026</strong>!
+      </>
+    ),
+  },
+  {
+    date: "2026-07-11",
+    text: (
+      <>
+        Our paper <strong>“CEGF-TM”</strong> was accepted to{" "}
+        <strong>IEEE/ACM ICCAD 2026</strong>!
+      </>
+    ),
   },
 ];
 
@@ -100,29 +141,53 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        <p>
+        <p
+          style={{
+            width: "100%",
+            textAlign: "justify",
+            textJustify: "inter-word",
+          }}
+        >
           Hello! I am <strong>{person.name}</strong>.
         </p>
 
-        <p>
-          I am a Ph.D. student at the University of Seoul and an Engineer
-          Hanwha Systems Co., Ltd., where I work on FPGA-based acceleration
-          and real-time image processing systems for embedded vision and
-          thermal imaging applications.
+        <p
+          style={{
+            width: "100%",
+            textAlign: "justify",
+            textJustify: "inter-word",
+          }}
+        >
+          I am a Ph.D. student at the University of Seoul and an Engineer at
+          Hanwha Systems Co., Ltd., where I work on FPGA-based acceleration and
+          real-time image processing systems for embedded vision and thermal
+          imaging applications.
         </p>
 
-        <p>
-          My research lies at the intersection of computer architecture,
-          image processing, and hardware-software co-design.
-          I build efficient real-time systems under stric latency, memory,
-          and power constraints, with a particular focus on FPGA accelerators,
-          thermal imaging systems, embedded vision, and heterogeneous SoC architectures.
+        <p
+          style={{
+            width: "100%",
+            textAlign: "justify",
+            textJustify: "inter-word",
+          }}
+        >
+          My research lies at the intersection of computer architecture, image
+          processing, and hardware-software co-design. I build efficient real-time
+          systems under strict latency, memory, and power constraints, with a
+          particular focus on FPGA accelerators, thermal imaging systems, embedded
+          vision, and heterogeneous SoC architectures.
         </p>
 
-        <p>
-          My work spans algorithm development, architecture exploration,
-          RTL implementation, FPGA prototyping, and system integration
-          for real-time embedded systems.
+        <p
+          style={{
+            width: "100%",
+            textAlign: "justify",
+            textJustify: "inter-word",
+          }}
+        >
+          My work spans algorithm development, architecture exploration, RTL
+          implementation, FPGA prototyping, and system integration for real-time
+          embedded systems.
         </p>
       </>
     ),
@@ -140,12 +205,12 @@ const about: About = {
 
         achievements: [
           <>
-            Design FPGA-based real-time image-processing architectures
-            for infrared and thermal imaging systems.
+            Design FPGA-based real-time image-processing architectures for
+            infrared and thermal imaging systems.
           </>,
           <>
-            Develop image-enhancement and image-processing algorithms
-            for infrared object-detection platforms.
+            Develop image-enhancement and image-processing algorithms for
+            infrared object-detection platforms.
           </>,
           <>
             Implement streaming hardware accelerators and embedded vision
@@ -167,9 +232,9 @@ const about: About = {
 
         achievements: [
           <>
-            Designed FPGA-based real-time stereo vision systems using
-            traditional computer-vision algorithms for mobile and
-            autonomous-driving platforms.
+            Designed FPGA-based real-time stereo vision systems using traditional
+            computer-vision algorithms for mobile and autonomous-driving
+            platforms.
           </>,
           <>
             Designed FPGA-based fast object-detection systems using
@@ -195,16 +260,16 @@ const about: About = {
 
         achievements: [
           <>
-            Designed 2.45-GHz and 5.8-GHz low-noise amplifier circuits
-            for Doppler radar sensors.
+            Designed 2.45-GHz and 5.8-GHz low-noise amplifier circuits for
+            Doppler radar sensors.
           </>,
           <>
-            Developed real-time bio-signal detection algorithms for
-            2.45-GHz Doppler radar sensing systems.
+            Developed real-time bio-signal detection algorithms for 2.45-GHz
+            Doppler radar sensing systems.
           </>,
           <>
-            Implemented and evaluated signal-processing algorithms using
-            MATLAB and C/C++.
+            Implemented and evaluated signal-processing algorithms using MATLAB
+            and C/C++.
           </>,
         ],
 
@@ -227,7 +292,7 @@ const about: About = {
 
         description: (
           <>
-            <strong>M.S. in Electronic and Computer Engineering</strong>
+            <strong>Ph.D. in Electronic and Computer Engineering</strong>
             <br />
             Advisor: Prof. Jeongkyu Hong
           </>
@@ -265,7 +330,7 @@ const about: About = {
           </>
         ),
       },
-    ]
+    ],
   },
 
   technical: {
@@ -358,8 +423,7 @@ const gallery: Gallery = {
   label: "Gallery",
   title: `Photo gallery – ${person.name}`,
   description: `A photo collection by ${person.name}`,
-  // Images by https://lorant.one
-  // These are placeholder images, replace with your own
+
   images: [
     {
       src: "/images/gallery/horizontal-1.jpg",
@@ -404,4 +468,14 @@ const gallery: Gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+export {
+  person,
+  social,
+  newsletter,
+  home,
+  about,
+  blog,
+  work,
+  gallery,
+  news,
+};
