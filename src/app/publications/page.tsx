@@ -19,6 +19,27 @@ export default function PublicationsPage() {
     (a, b) => b - a
   );
 
+  // 처음 접속했을 때 최신 연도만 펼치기
+  const [openYears, setOpenYears] = useState<number[]>(
+    years.length > 0 ? [years[0]] : []
+  );
+
+  const toggleYear = (year: number) => {
+    setOpenYears((prev) =>
+      prev.includes(year)
+        ? prev.filter((item) => item !== year)
+        : [...prev, year]
+    );
+  };
+
+  const expandAll = () => {
+    setOpenYears(years);
+  };
+
+  const collapseAll = () => {
+    setOpenYears([]);
+  };
+
   return (
     <main
       style={{
@@ -52,447 +73,613 @@ export default function PublicationsPage() {
         </p>
       </header>
 
-      {/* Publication type legend */}
+      {/* Publication type legend + Expand/Collapse controls */}
       <section
         style={{
           marginBottom: "48px",
           paddingBottom: "30px",
-          borderBottom: "1px solid rgba(255, 255, 255, 0.15)",
+          borderBottom: "1px solid var(--neutral-alpha-medium)",
         }}
       >
-        <h2
-          style={{
-            fontSize: "20px",
-            marginBottom: "16px",
-          }}
-        >
-          Types
-        </h2>
-
         <div
           style={{
             display: "flex",
-            gap: "12px",
-            flexWrap: "wrap",
+            justifyContent: "space-between",
+            alignItems: "flex-start",
+            gap: "20px",
           }}
         >
-          <span
-            style={{
-              padding: "7px 13px",
-              borderRadius: "6px",
-              background: "#8B5CF6",
-              color: "white",
-              fontSize: "14px",
-              fontWeight: 700,
-            }}
-          >
-            Int&apos;l Conference
-          </span>
+          {/* Left: Publication Types */}
+          <div>
+            <h2
+              style={{
+                fontSize: "20px",
+                marginTop: 0,
+                marginBottom: "16px",
+              }}
+            >
+              Types
+            </h2>
 
-          <span
+            <div
+              style={{
+                display: "flex",
+                gap: "12px",
+                flexWrap: "wrap",
+              }}
+            >
+              <span
+                style={{
+                  padding: "7px 13px",
+                  borderRadius: "6px",
+                  background: "#8B5CF6",
+                  color: "white",
+                  fontSize: "14px",
+                  fontWeight: 700,
+                }}
+              >
+                Conference
+              </span>
+
+              <span
+                style={{
+                  padding: "7px 13px",
+                  borderRadius: "6px",
+                  background: "#0EA5E9",
+                  color: "white",
+                  fontSize: "14px",
+                  fontWeight: 700,
+                }}
+              >
+                Journal
+              </span>
+            </div>
+          </div>
+
+          {/* Right: Expand / Collapse controls */}
+          <div
             style={{
-              padding: "7px 13px",
-              borderRadius: "6px",
-              background: "#0EA5E9",
-              color: "white",
-              fontSize: "14px",
-              fontWeight: 700,
+              display: "flex",
+              gap: "8px",
+              paddingTop: "2px",
+              flexWrap: "wrap",
+              justifyContent: "flex-end",
             }}
           >
-            Int&apos;l Journal
-          </span>
+            <button
+              type="button"
+              onClick={expandAll}
+              style={{
+                padding: "7px 12px",
+                border: "1px solid var(--neutral-alpha-medium)",
+                borderRadius: "6px",
+                background: "transparent",
+                color: "inherit",
+                fontSize: "13px",
+                fontWeight: 500,
+                cursor: "pointer",
+              }}
+            >
+              Expand All
+            </button>
+
+            <button
+              type="button"
+              onClick={collapseAll}
+              style={{
+                padding: "7px 12px",
+                border: "1px solid var(--neutral-alpha-medium)",
+                borderRadius: "6px",
+                background: "transparent",
+                color: "inherit",
+                fontSize: "13px",
+                fontWeight: 500,
+                cursor: "pointer",
+              }}
+            >
+              Collapse All
+            </button>
+          </div>
         </div>
       </section>
 
       {/* Publications grouped by year */}
       {years.map((year) => {
         const papersForYear = publications
-        .filter((paper) => paper.year === year)
-        .sort((a, b) => (b.monthNumber ?? 0) - (a.monthNumber ?? 0));
+          .filter((paper) => paper.year === year)
+          .sort(
+            (a, b) =>
+              (b.monthNumber ?? 0) - (a.monthNumber ?? 0)
+          );
+
+        const isYearOpen = openYears.includes(year);
 
         return (
           <section
             key={year}
             style={{
-              marginBottom: "54px",
+              marginBottom: isYearOpen ? "54px" : "30px",
             }}
           >
             {/* Year header */}
-            <div
+            <button
+              type="button"
+              onClick={() => toggleYear(year)}
               style={{
+                width: "100%",
                 display: "flex",
                 alignItems: "center",
-                gap: "18px",
-                marginBottom: "24px",
+                gap: "12px",
+                marginBottom: isYearOpen ? "24px" : "0px",
+                padding: 0,
+                border: "none",
+                background: "transparent",
+                color: "inherit",
+                cursor: "pointer",
+                textAlign: "left",
               }}
             >
-              <h2
+              {/* Year */}
+              <span
                 style={{
-                    margin: 0,
-                    fontSize: "30px",
-                    fontWeight: 600,
+                  fontSize: "30px",
+                  fontWeight: 600,
+                  lineHeight: 1,
+                  whiteSpace: "nowrap",
                 }}
-                >
+              >
                 {year}
+              </span>
 
-                <span
-                    style={{
-                    fontSize: "20px",
-                    fontWeight: 400,
-                    opacity: 0.6,
-                    marginLeft: "12px",
-                    }}
-                >
-                    {papersForYear.length} Publication
-                    {papersForYear.length > 1 ? "s" : ""}
-                </span>
-              </h2>
+              {/* Arrow */}
+              <span
+                style={{
+                  fontSize: "14px",
+                  opacity: 0.6,
+                  lineHeight: 1,
+                  transform: isYearOpen
+                    ? "rotate(0deg)"
+                    : "rotate(-90deg)",
+                  transition: "transform 0.2s ease",
+                }}
+              >
+                ▼
+              </span>
 
+              {/* Publication count */}
+              <span
+                style={{
+                  fontSize: "18px",
+                  fontWeight: 400,
+                  opacity: 0.6,
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {papersForYear.length} Publication
+                {papersForYear.length > 1 ? "s" : ""}
+              </span>
+
+              {/* Divider */}
               <div
                 style={{
                   flex: 1,
                   height: "1px",
-                  background: "rgba(255, 255, 255, 0.16)",
+                  background: "var(--neutral-alpha-medium)",
+                  marginLeft: "6px",
                 }}
               />
-            </div>
+            </button>
 
             {/* Cards for this year */}
-            {papersForYear.map((paper) => {
-              const paperKey = `${paper.year}-${paper.venue}-${paper.title}`;
+            {isYearOpen &&
+              papersForYear.map((paper) => {
+                const paperKey = `${paper.year}-${paper.venue}-${paper.title}`;
 
-              const typeColor =
-                paper.type === "conference" ? "#8B5CF6" : "#0EA5E9";
+                const typeColor =
+                  paper.type === "conference"
+                    ? "#8B5CF6"
+                    : "#0EA5E9";
 
-              const isAbstractOpen = openAbstract === paperKey;
-              const isBibtexCopied = copiedBibtex === paperKey;
+                const isAbstractOpen =
+                  openAbstract === paperKey;
 
-              return (
-                <article
-                  key={paperKey}
-                  style={{
-                    position: "relative",
-                    border: "1px solid rgba(255, 255, 255, 0.16)",
-                    borderRadius: "18px",
-                    padding: "24px",
-                    marginBottom: "20px",
-                    background: "rgba(255, 255, 255, 0.02)",
-                  }}
-                >
-                  {/* Venue and status */}
-                    <div
+                const isBibtexCopied =
+                  copiedBibtex === paperKey;
+
+                return (
+                  <article
+                    key={paperKey}
                     style={{
+                      position: "relative",
+                      border: "1px solid var(--neutral-alpha-medium)",
+                      borderRadius: "18px",
+                      padding: "24px",
+                      marginBottom: "20px",
+                      background: "var(--neutral-alpha-weak)",
+                    }}
+                  >
+                    {/* Main card layout */}
+                    <div
+                      style={{
                         display: "flex",
-                        alignItems: "center",
-                        gap: "10px",
-                        marginBottom: "16px",
-                        flexWrap: "wrap",
-                    }}
+                        gap: "24px",
+                        alignItems: "flex-start",
+                      }}
                     >
-                    <span
-                        style={{
-                        padding: "6px 12px",
-                        borderRadius: "6px",
-                        background: typeColor,
-                        color: "white",
-                        fontSize: "14px",
-                        fontWeight: 700,
-                        }}
-                    >
-                        {paper.venue}
-                    </span>
-
-                    <span
-                        style={{
-                        fontSize: "13px",
-                        opacity: 0.68,
-                        }}
-                    >
-                        {statusMap[paper.status]}
-                    </span>
-                    </div>
-
-                  {/* Paper title */}
-                  <h3
-                    style={{
-                      fontSize: "22px",
-                      lineHeight: 1.4,
-                      marginBottom: "12px",
-                    }}
-                  >
-                    {paper.title}
-                  </h3>
-
-                  {/* Authors */}
-                    <p
-                    style={{
-                        fontSize: "17px",
-                        lineHeight: 1.6,
-                        marginBottom: "6px",
-                    }}
-                    >
-                    {paper.authors.split("Cheol-Ho Choi").map((part, idx, arr) => (
-                        <span key={idx}>
-                        {part}
-
-                        {idx < arr.length - 1 && (
-                            <strong
+                      {/* Thumbnail */}
+                      {paper.thumbnail && (
+                        <div
+                          style={{
+                            width: "220px",
+                            minWidth: "220px",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            padding: "8px",
+                          }}
+                        >
+                          <img
+                            src={paper.thumbnail}
+                            alt={`${paper.title} thumbnail`}
                             style={{
-                                fontWeight: 700,
-                                textDecoration: "underline",
-                                textDecorationColor: "#60A5FA",
-                                textDecorationThickness: "2px",
-                                textUnderlineOffset: "4px",
+                              width: "100%",
+                              height: "auto",
+                              maxHeight: "180px",
+                              objectFit: "contain",
+                              display: "block",
                             }}
+                          />
+                        </div>
+                      )}
+
+                      {/* Publication information */}
+                      <div
+                        style={{
+                          flex: 1,
+                          minWidth: 0,
+                        }}
+                      >
+                        {/* Venue and status */}
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "10px",
+                            marginBottom: "16px",
+                            flexWrap: "wrap",
+                          }}
+                        >
+                          <span
+                            style={{
+                              padding: "6px 12px",
+                              borderRadius: "6px",
+                              background: typeColor,
+                              color: "white",
+                              fontSize: "14px",
+                              fontWeight: 700,
+                            }}
+                          >
+                            {paper.venue}
+                          </span>
+
+                          {paper.status !== "published" && (
+                          <span
+                            style={{
+                              fontSize: "13px",
+                              opacity: 0.68,
+                            }}
+                          >
+                            {statusMap[paper.status]}
+                          </span>
+                        )}
+                        </div>
+
+                        {/* Paper title */}
+                        <h3
+                          style={{
+                            fontSize: "22px",
+                            lineHeight: 1.4,
+                            marginTop: 0,
+                            marginBottom: "12px",
+                          }}
+                        >
+                          {paper.title}
+                        </h3>
+
+                        {/* Authors */}
+                        <p
+                          style={{
+                            fontSize: "17px",
+                            lineHeight: 1.6,
+                            marginTop: 0,
+                            marginBottom: "6px",
+                          }}
+                        >
+                          {paper.authors
+                            .split("Cheol-Ho Choi")
+                            .map((part, idx, arr) => (
+                              <span key={idx}>
+                                {part}
+
+                                {idx < arr.length - 1 && (
+                                  <strong
+                                    style={{
+                                      fontWeight: 700,
+                                      textDecoration: "underline",
+                                      textDecorationColor: "#60A5FA",
+                                      textDecorationThickness: "2px",
+                                      textUnderlineOffset: "4px",
+                                    }}
+                                  >
+                                    Cheol-Ho Choi
+                                  </strong>
+                                )}
+                              </span>
+                            ))}
+                        </p>
+
+                        {/* Publisher */}
+                        <p
+                          style={{
+                            lineHeight: 1.6,
+                            marginTop: 0,
+                            marginBottom: "6px",
+                            opacity: 0.7,
+                          }}
+                        >
+                          <em>{paper.publisher}</em>
+                        </p>
+
+                        {/* Publication metadata */}
+                        <p
+                          style={{
+                            fontSize: "15px",
+                            opacity: 0.6,
+                            marginTop: "4px",
+                            marginBottom: "20px",
+                          }}
+                        >
+                          {paper.type === "conference" ? (
+                            <>
+                              {paper.city &&
+                              paper.country
+                                ? `${paper.city}, ${paper.country}`
+                                : null}
+
+                              {paper.month && (
+                                <>
+                                  {" · "}
+                                  {paper.month}
+                                </>
+                              )}
+
+                              {paper.pages && (
+                                <>
+                                  {" · pp. "}
+                                  {paper.pages}
+                                </>
+                              )}
+
+                              {paper.acceptanceRate && (
+                                <>
+                                  {" "}
+                                  (Acceptance rate:{" "}
+                                  {paper.acceptanceRate})
+                                </>
+                              )}
+                            </>
+                          ) : (
+                            <>
+                              {paper.volume &&
+                                `Vol. ${paper.volume}`}
+
+                              {paper.number &&
+                                `, No. ${paper.number}`}
+
+                              {paper.month &&
+                                ` · ${paper.month}`}
+
+                              {paper.pages &&
+                                ` · pp. ${paper.pages}`}
+                            </>
+                          )}
+                        </p>
+
+                        {/* Keywords */}
+                        <div
+                          style={{
+                            display: "flex",
+                            gap: "9px",
+                            flexWrap: "wrap",
+                            marginBottom: "22px",
+                          }}
+                        >
+                          {paper.keywords.map(
+                            (keyword) => (
+                              <span
+                                key={keyword}
+                                style={{
+                                  padding: "5px 10px",
+                                  border:
+                                    "1px solid var(--neutral-alpha-medium)",
+                                  borderRadius: "999px",
+                                  fontSize: "14px",
+                                  opacity: 0.85,
+                                }}
+                              >
+                                {keyword}
+                              </span>
+                            )
+                          )}
+                        </div>
+
+                        {/* Buttons */}
+                        <div
+                          style={{
+                            display: "flex",
+                            gap: "10px",
+                            flexWrap: "wrap",
+                          }}
+                        >
+                          {/* Abstract */}
+                          <button
+                            type="button"
+                            onClick={() =>
+                              setOpenAbstract(
+                                isAbstractOpen
+                                  ? null
+                                  : paperKey
+                              )
+                            }
+                            style={{
+                              padding: "8px 14px",
+                              border:
+                                "1px solid var(--neutral-alpha-strong)",
+                              borderRadius: "6px",
+                              background: "transparent",
+                              color: "inherit",
+                              fontSize: "14px",
+                              fontWeight: 600,
+                              cursor: "pointer",
+                            }}
+                          >
+                            {isAbstractOpen
+                              ? "Hide Abstract"
+                              : "Abstract"}
+                          </button>
+
+                          {/* PDF */}
+                          {paper.pdf && (
+                            <a
+                              href={paper.pdf}
+                              target="_blank"
+                              rel="noreferrer"
+                              style={{
+                                padding: "8px 14px",
+                                border:
+                                  "1px solid var(--neutral-alpha-strong)",
+                                borderRadius: "6px",
+                                color: "inherit",
+                                textDecoration: "none",
+                                fontSize: "14px",
+                                fontWeight: 600,
+                              }}
                             >
-                            Cheol-Ho Choi
-                            </strong>
-                        )}
-                        </span>
-                    ))}
-                    </p>
+                              PDF
+                            </a>
+                          )}
 
-                  {/* Publisher */}
-                  <p
-                    style={{
-                      lineHeight: 1.6,
-                      marginBottom: "6px",
-                      opacity: 0.7,
-                    }}
-                  >
-                    <em>{paper.publisher}</em>
-                  </p>
-                  <p
-                    style={{
-                        fontSize: "15px",
-                        opacity: 0.6,
-                        marginTop: "4px",
-                        marginBottom: "20px",
-                    }}
-                    >
-                    {paper.type === "conference" ? (
-                        <>
-                        {paper.city && paper.country
-                            ? `${paper.city}, ${paper.country}`
-                            : null}
+                          {/* DOI */}
+                          {paper.doi && (
+                            <a
+                              href={paper.doi}
+                              target="_blank"
+                              rel="noreferrer"
+                              style={{
+                                padding: "8px 14px",
+                                border:
+                                  "1px solid var(--brand-alpha-strong)",
+                                borderRadius: "6px",
+                                color: "var(--brand-on-background-strong)",
+                                textDecoration: "none",
+                                fontSize: "15px",
+                                fontWeight: 600,
+                              }}
+                            >
+                              DOI
+                            </a>
+                          )}
 
-                        {paper.month && (
-                            <>
-                            {" · "}
-                            {paper.month}
-                            </>
-                        )}
+                          {/* Project */}
+                          {paper.project && (
+                            <a
+                              href={paper.project}
+                              target="_blank"
+                              rel="noreferrer"
+                              style={{
+                                padding: "8px 14px",
+                                border:
+                                  "1px solid var(--neutral-alpha-strong)",
+                                borderRadius: "6px",
+                                color: "inherit",
+                                textDecoration: "none",
+                                fontSize: "14px",
+                                fontWeight: 600,
+                              }}
+                            >
+                              Project
+                            </a>
+                          )}
 
-                        {paper.pages && (
-                            <>
-                            {" · pp. "}
-                            {paper.pages}
-                            </>
-                        )}
+                          {/* Copy BibTeX */}
+                          {paper.bibtex && (
+                            <button
+                              type="button"
+                              onClick={async () => {
+                                await navigator.clipboard.writeText(
+                                  paper.bibtex!
+                                );
 
-                        {paper.acceptanceRate && (
-                            <>
-                            {" "}
-                            (Acceptance rate: {paper.acceptanceRate})
-                            </>
-                        )}
-                        </>
-                    ) : (
-                        <>
-                        {paper.volume && `Vol. ${paper.volume}`}
-                        {paper.number && `, No. ${paper.number}`}
-                        {paper.month && ` · ${paper.month}`}
-                        {paper.pages && ` · pp. ${paper.pages}`}
-                        </>
-                    )}
-                    </p>
+                                setCopiedBibtex(
+                                  paperKey
+                                );
 
-                  {/* Keywords */}
-                  <div
-                    style={{
-                      display: "flex",
-                      gap: "9px",
-                      flexWrap: "wrap",
-                      marginBottom: "22px",
-                    }}
-                  >
-                    {paper.keywords.map((keyword) => (
-                      <span
-                        key={keyword}
-                        style={{
-                          padding: "5px 10px",
-                          border:
-                            "1px solid rgba(255, 255, 255, 0.22)",
-                          borderRadius: "999px",
-                          fontSize: "14px",
-                          opacity: 0.85,
-                        }}
-                      >
-                        {keyword}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Buttons */}
-                  <div
-                    style={{
-                      display: "flex",
-                      gap: "10px",
-                      flexWrap: "wrap",
-                    }}
-                  >
-                    {/* Abstract */}
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setOpenAbstract(
-                          isAbstractOpen ? null : paperKey
-                        )
-                      }
-                      style={{
-                        padding: "8px 14px",
-                        border:
-                          "1px solid rgba(255, 255, 255, 0.6)",
-                        borderRadius: "6px",
-                        background: "transparent",
-                        color: "inherit",
-                        fontSize: "14px",
-                        fontWeight: 600,
-                        cursor: "pointer",
-                      }}
-                    >
-                      {isAbstractOpen
-                        ? "Hide Abstract"
-                        : "Abstract"}
-                    </button>
-
-                    {/* PDF */}
-                    {paper.pdf && (
-                      <a
-                        href={paper.pdf}
-                        target="_blank"
-                        rel="noreferrer"
-                        style={{
-                          padding: "8px 14px",
-                          border:
-                            "1px solid rgba(255, 255, 255, 0.6)",
-                          borderRadius: "6px",
-                          color: "inherit",
-                          textDecoration: "none",
-                          fontSize: "14px",
-                          fontWeight: 600,
-                        }}
-                      >
-                        PDF
-                      </a>
-                    )}
-
-                    {/* Publisher page */}
-                    {paper.doi && (
-                    <a
-                        href={paper.doi}
-                        target="_blank"
-                        rel="noreferrer"
-                        style={{
-                        padding: "8px 14px",
-                        border: "1px solid #0788bd",
-                        borderRadius: "6px",
-                        color: "#30b3ff",
-                        textDecoration: "none",
-                        fontSize: "15px",
-                        fontWeight: 600,
-                        }}
-                    >
-                        DOI
-                    </a>
-                    )}
-
-                    {/* Project */}
-                    {paper.project && (
-                      <a
-                        href={paper.project}
-                        target="_blank"
-                        rel="noreferrer"
-                        style={{
-                          padding: "8px 14px",
-                          border:
-                            "1px solid rgba(255, 255, 255, 0.6)",
-                          borderRadius: "6px",
-                          color: "inherit",
-                          textDecoration: "none",
-                          fontSize: "14px",
-                          fontWeight: 600,
-                        }}
-                      >
-                        Project
-                      </a>
-                    )}
-
-                    {/* Copy BibTeX */}
-                    {paper.bibtex && (
-                      <button
-                        type="button"
-                        onClick={async () => {
-                          await navigator.clipboard.writeText(
-                            paper.bibtex!
-                          );
-
-                          setCopiedBibtex(paperKey);
-
-                          window.setTimeout(() => {
-                            setCopiedBibtex(null);
-                          }, 2000);
-                        }}
-                        style={{
-                          padding: "8px 14px",
-                          border:
-                            "1px solid rgba(255, 255, 255, 0.6)",
-                          borderRadius: "6px",
-                          background: "transparent",
-                          color: "inherit",
-                          fontSize: "14px",
-                          fontWeight: 600,
-                          cursor: "pointer",
-                        }}
-                      >
-                        {isBibtexCopied
-                          ? "Copied!"
-                          : "Copy BibTeX"}
-                      </button>
-                    )}
-                  </div>
-
-                  {/* Expandable abstract */}
-                  {isAbstractOpen && (
-                    <div
-                      style={{
-                        marginTop: "20px",
-                        padding: "18px",
-                        border:
-                          "1px dashed rgba(255, 255, 255, 0.5)",
-                        borderRadius: "10px",
-                        background:
-                          "rgba(255, 255, 255, 0.025)",
-                        fontSize: "15px",
-                        lineHeight: 1.75,
-                        textAlign: "justify",
-                      }}
-                    >
-                      <strong
-                        style={{
-                          display: "block",
-                          marginBottom: "8px",
-                        }}
-                      >
-                        Abstract
-                      </strong>
-
-                      {paper.abstract}
+                                window.setTimeout(() => {
+                                  setCopiedBibtex(null);
+                                }, 2000);
+                              }}
+                              style={{
+                                padding: "8px 14px",
+                                border:
+                                  "1px solid var(--neutral-alpha-strong)",
+                                borderRadius: "6px",
+                                background: "transparent",
+                                color: "inherit",
+                                fontSize: "14px",
+                                fontWeight: 600,
+                                cursor: "pointer",
+                              }}
+                            >
+                              {isBibtexCopied
+                                ? "Copied!"
+                                : "Copy BibTeX"}
+                            </button>
+                          )}
+                        </div>
+                      </div>
                     </div>
-                  )}
-                </article>
-              );
-            })}
+
+                    {/* Expandable abstract */}
+                    {isAbstractOpen && (
+                      <div
+                        style={{
+                          marginTop: "20px",
+                          padding: "18px",
+                          border:
+                            "1px dashed var(--neutral-alpha-strong)",
+                          borderRadius: "10px",
+                          background:
+                            "var(--neutral-alpha-weak)",
+                          fontSize: "15px",
+                          lineHeight: 1.75,
+                          textAlign: "justify",
+                        }}
+                      >
+                        <strong
+                          style={{
+                            display: "block",
+                            marginBottom: "8px",
+                          }}
+                        >
+                          Abstract
+                        </strong>
+
+                        {paper.abstract}
+                      </div>
+                    )}
+                  </article>
+                );
+              })}
           </section>
         );
       })}

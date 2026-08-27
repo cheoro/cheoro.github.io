@@ -21,6 +21,8 @@ export type Publication = {
   project?: string;
   bibtex?: string;
 
+  thumbnail?: string;
+
   month?: string;
   pages?: string;
   city?: string;
@@ -69,51 +71,53 @@ export const publications: Publication[] = [
       "/papers/tecs2026.pdf",
     // doi:
     //   "https://ieeexplore.ieee.org/document/12345678",
+
+    thumbnail:
+      "/images/publications/2026_ICCAD.pdf",
+
     keywords: [
-      "Thermal Imaging",
-      "FPGA",
-      "Tone Mapping",
-      "Hardware Accelerator",
+      "Computer Architecture"
     ],
   },
 
   {
     year: 2026,
     venue:
-      "-",
+      "ICCD",
     type:
       "conference",
     status:
-      "under_review",
+      "accepted",
     title:
-      "--",
-    authors: 
+      "VA-NUC: A Fully Streaming Architecture for Vignetting-Aware Non-Uniformity Correction with Deterministic Coefficient Caching",
+    authors:
       "Cheol-Ho Choi, Jeongkyu Hong",
     publisher:
-      "-",
-    // month: 
-    //   "November 2026",
+      "IEEE International Conference on Computer Design",
+    month:
+      "November 2026",
     monthNumber:
       11,
-    // city:
-    //   "Hong Kong SAR",
-    // country:
-    //   "China",
+    city:
+      "Hong Kong SAR",
+    country:
+      "China",
     // pages:
     //   "1-8",
-    // acceptanceRate:
-    //   "24.09%",
+    acceptanceRate:
+      "26%",
     abstract:
       "This paper presents a guided-frame-reuse tone-mapping accelerator for real-time thermal imaging systems. The proposed architecture reduces histogram computation and on-chip memory requirements while preserving image quality and temporal consistency.",
     pdf:
       "/papers/tecs2026.pdf",
     // doi:
     //   "https://ieeexplore.ieee.org/document/12345678",
+
+    thumbnail:
+      "/images/publications/2026_ICCD.pdf",
+
     keywords: [
-      "Thermal Imaging",
-      "FPGA",
-      "Tone Mapping",
-      "Hardware Accelerator",
+      "Computer Architecture"
     ],
   },
 
@@ -125,7 +129,7 @@ export const publications: Publication[] = [
     type:
       "journal",
     status:
-      "major_revision",
+      "under_review",
     title:
       "FPGA-Based Thermal Imaging Architecture with Integrated Contrast Enhancement for Visibility Improvement",
     authors:
@@ -141,11 +145,7 @@ export const publications: Publication[] = [
     bibtex: 
       "",
     keywords: [
-      "Long-wavelength Infrared",
-      "Thermal Imaging System",
-      "Contrast Enhancement",
-      "Histogram Equalization",
-      "FPGA",
+      "Computer Architecture"
     ],
   },
 
@@ -156,7 +156,7 @@ export const publications: Publication[] = [
     type:
       "conference",
     status:
-      "accepted",
+      "published",
     title:
       "Performance Evaluation of Optimal Parameter Settings for Region-Based Contrast Enhancement in Thermal Imaging Systems",
     authors: 
@@ -180,10 +180,7 @@ export const publications: Publication[] = [
     doi:
       "https://ieeexplore.ieee.org/abstract/document/11263630",
     keywords: [
-      "Long-wavelength Infrared",
-      "Thermal Imaging System",
-      "Optimal Configuration",
-      "Contrast Enhancement Algorithm",
+      "Computer Vision"
     ],
   },
 
@@ -194,7 +191,7 @@ export const publications: Publication[] = [
     type:
       "journal",
     status:
-      "accepted",
+      "published",
     title:
       "EOS: Edge-Based Operation Skip Scheme for Real-Time Object Detection Using Viola-Jones Classifier",
     authors: 
@@ -214,10 +211,7 @@ export const publications: Publication[] = [
     doi:
       "https://www.mdpi.com/2079-9292/14/2/397",
     keywords: [
-      "Object Detection",
-      "Machine Learning",
-      "Viola-Jones Classifier",
-      "Operation Skip Scheme"
+      "Artificial Intelligence"
     ],
   },
 
@@ -228,7 +222,7 @@ export const publications: Publication[] = [
     type:
       "conference",
     status:
-      "accepted",
+      "published",
     title:
       "Region-Based Contrast Enhancement for Infrared Thermal Imaging Systems: Parameter-Wise Performance Evaluation and Comparative Analysis",
     authors: 
@@ -252,10 +246,7 @@ export const publications: Publication[] = [
     doi:
       "https://ieeexplore.ieee.org/abstract/document/10930054",
     keywords: [
-      "Parameter-wise Analysis",
-      "Contrast Enhancement",
-      "Infrared Thermal Imaging",
-      "Histogram Equalization",
+      "Computer Vision"
     ],
   },
 
@@ -266,7 +257,7 @@ export const publications: Publication[] = [
     type:
       "conference",
     status:
-      "accepted",
+      "published",
     title:
       "Algorithm for LWIR Thermal Imaging Camera with Minimal Mechanical Shutter Utilization",
     authors: 
@@ -290,10 +281,7 @@ export const publications: Publication[] = [
     doi:
       "https://ieeexplore.ieee.org/abstract/document/10773806",
     keywords: [
-      "Infrared",
-      "Thermal Imaging Camera",
-      "Uncooled LWIR",
-      "NUC Algorithm",
+      "Computer Vision"
     ],
   },
 
@@ -304,7 +292,7 @@ export const publications: Publication[] = [
     type:
       "conference",
     status:
-      "accepted",
+      "published",
     title:
       "Infrared Thermal Imaging for Embedded Child Presence Detection System: Feasibility and Performance Evaluation",
     authors: 
@@ -328,10 +316,7 @@ export const publications: Publication[] = [
     doi:
       "https://ieeexplore.ieee.org/abstract/document/10773759",
     keywords: [
-      "Infrared Thermal Imaging",
-      "Child Presence Detection",
-      "Support Vector Machine",
-      "Regulation",
+      "Artificial Intelligence"
     ],
   },
 
@@ -342,7 +327,7 @@ export const publications: Publication[] = [
     type:
       "conference",
     status:
-      "accepted",
+      "published",
     title:
       "A Compact Real-Time Thermal Imaging System Based on Heterogeneous System-on-Chip",
     authors: 
@@ -366,11 +351,7 @@ export const publications: Publication[] = [
     doi:
       "https://ieeexplore.ieee.org/abstract/document/10695588",
     keywords: [
-      "Thermal Imaging",
-      "Image Processing",
-      "Heterogeneous Computing",
-      "SIMD",
-      "Real-Time Embedded Systems",
+      "Computer Architecture"
     ],
   },
 
@@ -381,7 +362,7 @@ export const publications: Publication[] = [
     type:
       "conference",
     status:
-      "accepted",
+      "published",
     title:
       "Improved Contrast Enhancement Algorithm for Night Vision Systems Using Thermal Camera",
     authors: 
@@ -405,11 +386,7 @@ export const publications: Publication[] = [
     doi:
       "https://ieeexplore.ieee.org/abstract/document/10695588",
     keywords: [
-      "Thermal Imaging",
-      "Image Processing",
-      "Heterogeneous Computing",
-      "SIMD",
-      "Real-Time Embedded Systems",
+      "Computer Vision"
     ],
   },
 
@@ -420,7 +397,7 @@ export const publications: Publication[] = [
     type:
       "conference",
     status:
-      "accepted",
+      "published",
     title:
       "Fast Object Detection Algorithm Using Edge-Based Operation Skip Scheme with Viola-Jones Method",
     authors: 
@@ -444,11 +421,7 @@ export const publications: Publication[] = [
     doi:
       "https://ieeexplore.ieee.org/abstract/document/10695588",
     keywords: [
-      "Thermal Imaging",
-      "Image Processing",
-      "Heterogeneous Computing",
-      "SIMD",
-      "Real-Time Embedded Systems",
+      "Artificial Intelligence"
     ],
   },
 
@@ -459,7 +432,7 @@ export const publications: Publication[] = [
     type:
       "journal",
     status:
-      "accepted",
+      "published",
     title:
       "Contrast Enhancement Method Using Region-Based Dynamic Clipping Technique for LWIR-Based Thermal Camera of Night Vision Systems",
     authors: 
@@ -479,11 +452,7 @@ export const publications: Publication[] = [
     doi:
       "https://www.mdpi.com/1424-8220/24/12/3829",
     keywords: [
-      "Object Detection",
-      "Machine Learning",
-      "Viola-Jones Method",
-      "Skip Scheme",
-      "Wavelet Trasnform",
+      "Computer Vision"
     ],
   },
 
@@ -494,7 +463,7 @@ export const publications: Publication[] = [
     type:
       "journal",
     status:
-      "accepted",
+      "published",
     title:
       "Cell-Based Refinement Processor Utilizing Disparity Characteristics of Road Environment for SGM-Based Stereo Vision Systems",
     authors: 
@@ -514,10 +483,7 @@ export const publications: Publication[] = [
     doi:
       "https://ieeexplore.ieee.org/abstract/document/10695588",
     keywords: [
-      "Stereo Vision",
-      "Disparity Refinement",
-      "Hardware Architecture",
-      "FPGA",
+      "Computer Architecture"
     ],
   },
 
@@ -528,7 +494,7 @@ export const publications: Publication[] = [
     type:
       "conference",
     status:
-      "accepted",
+      "published",
     title:
       "An SoC FPGA-Based Integrated Real-Time Image Processor for Uncooled Infrared Focal Plane Array",
     authors: 
@@ -552,11 +518,7 @@ export const publications: Publication[] = [
     doi:
       "https://ieeexplore.ieee.org/abstract/document/10456855",
     keywords: [
-      "Object Detection",
-      "Machine Learning",
-      "Viola-Jones Method",
-      "Skip Scheme",
-      "Wavelet Trasnform",
+      "Computer Architecture"
     ],
   },
 
@@ -567,7 +529,7 @@ export const publications: Publication[] = [
     type:
       "conference",
     status:
-      "accepted",
+      "published",
     title:
       "Disparity Refinement Processor Architecture Utilizing Horizontal and Vertical Characteristics for Stereo Vision Systems",
     authors: 
@@ -591,11 +553,7 @@ export const publications: Publication[] = [
     doi:
       "https://ieeexplore.ieee.org/abstract/document/10456793",
     keywords: [
-      "Object Detection",
-      "Machine Learning",
-      "Viola-Jones Method",
-      "Skip Scheme",
-      "Wavelet Trasnform",
+      "Computer Architecture"
     ],
   },
 
@@ -606,7 +564,7 @@ export const publications: Publication[] = [
     type:
       "journal",
     status:
-      "accepted",
+      "published",
     title:
       "Face Detection Using Haar Cascade Classifiers Based on Vertical Component Calibration",
     authors: 
@@ -626,11 +584,7 @@ export const publications: Publication[] = [
     doi:
       "https://hcisj.com/articles/?HCIS202212011",
     keywords: [
-      "Object Detection",
-      "Machine Learning",
-      "Viola-Jones Method",
-      "Skip Scheme",
-      "Wavelet Trasnform",
+      "Artificial Intelligence"
     ],
   },
 
@@ -641,7 +595,7 @@ export const publications: Publication[] = [
     type:
       "conference",
     status:
-      "accepted",
+      "published",
     title:
       "Haar Filter Hardware Architecture for the Accuracy Improvement of Stereo Vision Systems",
     authors: 
@@ -665,11 +619,7 @@ export const publications: Publication[] = [
     doi:
       "https://ieeexplore.ieee.org/abstract/document/9614032",
     keywords: [
-      "Object Detection",
-      "Machine Learning",
-      "Viola-Jones Method",
-      "Skip Scheme",
-      "Wavelet Trasnform",
+      "Computer Architecture"
     ],
   },
 
@@ -680,7 +630,7 @@ export const publications: Publication[] = [
     type:
       "conference",
     status:
-      "accepted",
+      "published",
     title:
       "Hardware Architecture of a Haar Classifier Based Face Detection System Using a Skip Scheme",
     authors: 
@@ -704,11 +654,7 @@ export const publications: Publication[] = [
     doi:
       "https://ieeexplore.ieee.org/abstract/document/9614032",
     keywords: [
-      "Object Detection",
-      "Machine Learning",
-      "Viola-Jones Method",
-      "Skip Scheme",
-      "Wavelet Trasnform",
+      "Computer Architecture"
     ],
   },
 
@@ -719,7 +665,7 @@ export const publications: Publication[] = [
     type:
       "journal",
     status:
-      "accepted",
+      "published",
     title:
       "Heartbeat Detection Using a Doppler Radar Sensor Based on the Scaling Function of Wavelet Trasnform",
     authors: 
@@ -739,11 +685,7 @@ export const publications: Publication[] = [
     doi:
       "https://onlinelibrary.wiley.com/doi/abs/10.1002/mop.31823",
     keywords: [
-      "Object Detection",
-      "Machine Learning",
-      "Viola-Jones Method",
-      "Skip Scheme",
-      "Wavelet Trasnform",
+      "Signal Processing"
     ],
   },
 ];
