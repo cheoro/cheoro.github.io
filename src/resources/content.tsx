@@ -38,6 +38,24 @@ const social: Social = [
     essential: true,
   },
   {
+    name: "Google Scholar",
+    icon: "googleScholar",
+    link: "https://scholar.google.com/citations?user=tO-MrjEAAAAJ&hl=en",
+    essential: true,
+  },
+  {
+    name: "ORCID",
+    icon: "orcid",
+    link: "https://orcid.org/0000-0002-2836-395X",
+    essential: true,
+  },
+  {
+    name: "ResearchGate",
+    icon: "researchGate",
+    link: "https://www.researchgate.net/profile/Cheol-Ho-Choi",
+    essential: true,
+  },
+  {
     name: "LinkedIn",
     icon: "linkedin",
     link: "https://www.linkedin.com/in/cheol-ho-choi-b03a472a8/",
@@ -46,7 +64,7 @@ const social: Social = [
   {
     name: "Email",
     icon: "email",
-    link: `mailto:${person.email}`,
+    link: `mailto:{cheoro1994.uos.ac.kr}`,
     essential: true,
   },
 ];
