@@ -3,23 +3,42 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
+import {
+  Fade,
+  Flex,
+  Line,
+  Row,
+  ToggleButton,
+} from "@once-ui-system/core";
 
-import { routes, display, person, about, blog, work, gallery } from "@/resources";
+import {
+  routes,
+  display,
+  person,
+  about,
+  blog,
+  work,
+  gallery,
+} from "@/resources";
+
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.scss";
 
 type TimeDisplayProps = {
   timeZone: string;
-  locale?: string; // Optionally allow locale, defaulting to 'en-GB'
+  locale?: string;
 };
 
-const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "en-GB" }) => {
+const TimeDisplay: React.FC<TimeDisplayProps> = ({
+  timeZone,
+  locale = "en-GB",
+}) => {
   const [currentTime, setCurrentTime] = useState("");
 
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
+
       const options: Intl.DateTimeFormatOptions = {
         timeZone,
         hour: "2-digit",
@@ -27,14 +46,25 @@ const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "en-GB" })
         second: "2-digit",
         hour12: false,
       };
-      const timeString = new Intl.DateTimeFormat(locale, options).format(now);
+
+      const timeString = new Intl.DateTimeFormat(
+        locale,
+        options
+      ).format(now);
+
       setCurrentTime(timeString);
     };
 
     updateTime();
-    const intervalId = setInterval(updateTime, 1000);
 
-    return () => clearInterval(intervalId);
+    const intervalId = setInterval(
+      updateTime,
+      1000
+    );
+
+    return () => {
+      clearInterval(intervalId);
+    };
   }, [timeZone, locale]);
 
   return <>{currentTime}</>;
@@ -45,12 +75,33 @@ export default TimeDisplay;
 export const Header = () => {
   const pathname = usePathname() ?? "";
 
+  const isHome = pathname === "/";
+  const isAbout = pathname === "/about";
+  const isWork = pathname.startsWith("/work");
+  const isPublications =
+    pathname.startsWith("/publications");
+  const isCV = pathname === "/cv";
+  const isBlog = pathname.startsWith("/blog");
+  const isGallery =
+    pathname.startsWith("/gallery");
+
   return (
     <>
-      <Fade s={{ hide: true }} fillWidth position="fixed" height="80" zIndex={9} />
+      <Fade
+        s={{
+          hide: true,
+        }}
+        fillWidth
+        position="fixed"
+        height="80"
+        zIndex={9}
+      />
+
       <Fade
         hide
-        s={{ hide: false }}
+        s={{
+          hide: false,
+        }}
         fillWidth
         position="fixed"
         bottom="0"
@@ -58,6 +109,7 @@ export const Header = () => {
         height="80"
         zIndex={9}
       />
+
       <Row
         fitHeight
         className={styles.position}
@@ -72,10 +124,35 @@ export const Header = () => {
           position: "fixed",
         }}
       >
-        <Row paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
-          {display.location && <Row s={{ hide: true }}>{person.location}</Row>}
+        {/* ================================================= */}
+        {/* Left */}
+        {/* ================================================= */}
+
+        <Row
+          paddingLeft="12"
+          fillWidth
+          vertical="center"
+          textVariant="body-default-s"
+        >
+          {display.location && (
+            <Row
+              s={{
+                hide: true,
+              }}
+            >
+              {person.location}
+            </Row>
+          )}
         </Row>
-        <Row fillWidth horizontal="center">
+
+        {/* ================================================= */}
+        {/* Navigation */}
+        {/* ================================================= */}
+
+        <Row
+          fillWidth
+          horizontal="center"
+        >
           <Row
             background="page"
             border="neutral-alpha-weak"
@@ -85,124 +162,316 @@ export const Header = () => {
             horizontal="center"
             zIndex={1}
           >
-            <Row gap="4" vertical="center" textVariant="body-default-s" suppressHydrationWarning>
+            <Row
+              gap="4"
+              vertical="center"
+              textVariant="body-default-s"
+              suppressHydrationWarning
+            >
+              {/* =========================================== */}
+              {/* Home */}
+              {/* =========================================== */}
+
               {routes["/"] && (
-                <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} />
+                <ToggleButton
+                  prefixIcon="home"
+                  href="/"
+                  selected={isHome}
+                />
               )}
-              <Line background="neutral-alpha-medium" vert maxHeight="24" />
+
+              <Line
+                background="neutral-alpha-medium"
+                vert
+                maxHeight="24"
+              />
+
+              {/* =========================================== */}
+              {/* About */}
+              {/* =========================================== */}
+
               {routes["/about"] && (
                 <>
-                  <Row s={{ hide: true }}>
+                  {/* Desktop */}
+
+                  <Row
+                    s={{
+                      hide: true,
+                    }}
+                  >
                     <ToggleButton
                       prefixIcon="person"
                       href="/about"
                       label={about.label}
-                      selected={pathname === "/about"}
+                      selected={isAbout}
                     />
                   </Row>
-                  <Row hide s={{ hide: false }}>
+
+                  {/* Mobile */}
+
+                  <Row
+                    hide
+                    s={{
+                      hide: false,
+                    }}
+                  >
                     <ToggleButton
                       prefixIcon="person"
                       href="/about"
-                      selected={pathname === "/about"}
+                      label={
+                        isAbout
+                          ? about.label
+                          : undefined
+                      }
+                      selected={isAbout}
                     />
                   </Row>
                 </>
               )}
+
+              {/* =========================================== */}
+              {/* Work */}
+              {/* =========================================== */}
+
               {routes["/work"] && (
                 <>
-                  <Row s={{ hide: true }}>
+                  {/* Desktop */}
+
+                  <Row
+                    s={{
+                      hide: true,
+                    }}
+                  >
                     <ToggleButton
                       prefixIcon="grid"
                       href="/work"
                       label={work.label}
-                      selected={pathname.startsWith("/work")}
+                      selected={isWork}
                     />
                   </Row>
-                  <Row hide s={{ hide: false }}>
+
+                  {/* Mobile */}
+
+                  <Row
+                    hide
+                    s={{
+                      hide: false,
+                    }}
+                  >
                     <ToggleButton
                       prefixIcon="grid"
                       href="/work"
-                      selected={pathname.startsWith("/work")}
+                      label={
+                        isWork
+                          ? work.label
+                          : undefined
+                      }
+                      selected={isWork}
                     />
                   </Row>
                 </>
               )}
+
+              {/* =========================================== */}
+              {/* Publications */}
+              {/* =========================================== */}
+
               {routes["/publications"] && (
-                <ToggleButton
-                  prefixIcon="book"
-                  href="/publications"
-                  label="Publications"
-                />
+                <>
+                  {/* Desktop */}
+
+                  <Row
+                    s={{
+                      hide: true,
+                    }}
+                  >
+                    <ToggleButton
+                      prefixIcon="book"
+                      href="/publications"
+                      label="Publications"
+                      selected={isPublications}
+                    />
+                  </Row>
+
+                  {/* Mobile */}
+
+                  <Row
+                    hide
+                    s={{
+                      hide: false,
+                    }}
+                  >
+                    <ToggleButton
+                      prefixIcon="book"
+                      href="/publications"
+                      label={
+                        isPublications
+                          ? "Publications"
+                          : undefined
+                      }
+                      selected={isPublications}
+                    />
+                  </Row>
+                </>
               )}
+
+              {/* =========================================== */}
+              {/* CV */}
+              {/* =========================================== */}
+
               {routes["/cv"] && (
                 <>
-                  <Row s={{ hide: true }}>
+                  {/* Desktop */}
+
+                  <Row
+                    s={{
+                      hide: true,
+                    }}
+                  >
                     <ToggleButton
                       prefixIcon="document"
                       href="/cv"
                       label="CV"
-                      selected={pathname === "/cv"}
+                      selected={isCV}
                     />
                   </Row>
 
-                  <Row hide s={{ hide: false }}>
+                  {/* Mobile */}
+
+                  <Row
+                    hide
+                    s={{
+                      hide: false,
+                    }}
+                  >
                     <ToggleButton
                       prefixIcon="document"
                       href="/cv"
-                      selected={pathname === "/cv"}
+                      label={
+                        isCV
+                          ? "CV"
+                          : undefined
+                      }
+                      selected={isCV}
                     />
                   </Row>
                 </>
               )}
+
+              {/* =========================================== */}
+              {/* Blog */}
+              {/* =========================================== */}
+
               {routes["/blog"] && (
                 <>
-                  <Row s={{ hide: true }}>
+                  {/* Desktop */}
+
+                  <Row
+                    s={{
+                      hide: true,
+                    }}
+                  >
                     <ToggleButton
                       prefixIcon="book"
                       href="/blog"
                       label={blog.label}
-                      selected={pathname.startsWith("/blog")}
+                      selected={isBlog}
                     />
                   </Row>
-                  <Row hide s={{ hide: false }}>
+
+                  {/* Mobile */}
+
+                  <Row
+                    hide
+                    s={{
+                      hide: false,
+                    }}
+                  >
                     <ToggleButton
                       prefixIcon="book"
                       href="/blog"
-                      selected={pathname.startsWith("/blog")}
+                      label={
+                        isBlog
+                          ? blog.label
+                          : undefined
+                      }
+                      selected={isBlog}
                     />
                   </Row>
                 </>
               )}
+
+              {/* =========================================== */}
+              {/* Gallery */}
+              {/* =========================================== */}
+
               {routes["/gallery"] && (
                 <>
-                  <Row s={{ hide: true }}>
+                  {/* Desktop */}
+
+                  <Row
+                    s={{
+                      hide: true,
+                    }}
+                  >
                     <ToggleButton
                       prefixIcon="gallery"
                       href="/gallery"
                       label={gallery.label}
-                      selected={pathname.startsWith("/gallery")}
+                      selected={isGallery}
                     />
                   </Row>
-                  <Row hide s={{ hide: false }}>
+
+                  {/* Mobile */}
+
+                  <Row
+                    hide
+                    s={{
+                      hide: false,
+                    }}
+                  >
                     <ToggleButton
                       prefixIcon="gallery"
                       href="/gallery"
-                      selected={pathname.startsWith("/gallery")}
+                      label={
+                        isGallery
+                          ? gallery.label
+                          : undefined
+                      }
+                      selected={isGallery}
                     />
                   </Row>
                 </>
               )}
+
+              {/* =========================================== */}
+              {/* Theme */}
+              {/* =========================================== */}
+
               {display.themeSwitcher && (
                 <>
-                  <Line background="neutral-alpha-medium" vert maxHeight="24" />
+                  <Line
+                    background="neutral-alpha-medium"
+                    vert
+                    maxHeight="24"
+                  />
+
                   <ThemeToggle />
                 </>
               )}
             </Row>
           </Row>
         </Row>
-        <Flex fillWidth horizontal="end" vertical="center">
+
+        {/* ================================================= */}
+        {/* Right */}
+        {/* ================================================= */}
+
+        <Flex
+          fillWidth
+          horizontal="end"
+          vertical="center"
+        >
           <Flex
             paddingRight="12"
             horizontal="end"
@@ -210,8 +479,16 @@ export const Header = () => {
             textVariant="body-default-s"
             gap="20"
           >
-            <Flex s={{ hide: true }}>
-              {display.time && <TimeDisplay timeZone={person.location} />}
+            <Flex
+              s={{
+                hide: true,
+              }}
+            >
+              {display.time && (
+                <TimeDisplay
+                  timeZone={person.location}
+                />
+              )}
             </Flex>
           </Flex>
         </Flex>
