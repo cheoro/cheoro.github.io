@@ -178,6 +178,7 @@ export default function About() {
 
         {about.avatar.display && (
           <Column
+            className={styles.profileSidebar}
             fitHeight
             fillWidth
             gap="m"
@@ -230,6 +231,7 @@ export default function About() {
         {/* =================================================== */}
 
         <Column
+          className={styles.profileContent}
           fillWidth
           style={{
             minWidth: 0,
@@ -237,6 +239,7 @@ export default function About() {
         >
           <Column
             id={about.intro.title}
+            className={styles.profileHeader}
             fillWidth
             marginBottom="32"
           >
@@ -275,12 +278,14 @@ export default function About() {
             )}
 
             <Heading
+              className={styles.profileName}
               variant="display-strong-xl"
             >
               {person.name}
             </Heading>
 
             <Text
+              className={styles.profileRole}
               variant="display-default-xs"
               onBackground="neutral-weak"
             >
@@ -289,6 +294,7 @@ export default function About() {
 
             {social.length > 0 && (
               <Row
+                className={styles.socialRow}
                 paddingTop="20"
                 paddingBottom="8"
                 gap="8"
@@ -454,10 +460,6 @@ export default function About() {
                   <React.Fragment
                     key={year}
                   >
-                    {/* ======================================= */}
-                    {/* Year */}
-                    {/* ======================================= */}
-
                     <div
                       className={
                         styles.selectedYearGroup
@@ -498,8 +500,6 @@ export default function About() {
                                 gap="12"
                                 paddingY="4"
                               >
-                                {/* Venue */}
-
                                 <Text
                                   className={
                                     styles.selectedVenue
@@ -516,8 +516,6 @@ export default function About() {
                                   {paper.venue}
                                 </Text>
 
-                                {/* Separator */}
-
                                 <Text
                                   className={
                                     styles.selectedSeparator
@@ -526,13 +524,11 @@ export default function About() {
                                   onBackground="neutral-weak"
                                   style={{
                                     marginRight:
-                                      "3px",
+                                      "10px",
                                   }}
                                 >
                                   —
                                 </Text>
-
-                                {/* Title */}
 
                                 <a
                                   href={destination}
@@ -557,10 +553,6 @@ export default function About() {
                         )}
                       </Column>
                     </div>
-
-                    {/* ======================================= */}
-                    {/* Divider between years */}
-                    {/* ======================================= */}
 
                     {yearIndex <
                       selectedYears.length -
