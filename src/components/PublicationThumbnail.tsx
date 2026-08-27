@@ -27,10 +27,24 @@ export default function PublicationThumbnail({
   const [error, setError] =
     useState(false);
 
+  const [isOpen, setIsOpen] =
+    useState(false);
+
+  const [previewUrl, setPreviewUrl] =
+    useState<string | null>(null);
+
+  /* ======================================================== */
+  /* PDF Rendering */
+  /* ======================================================== */
+
   useEffect(() => {
     let cancelled = false;
+
     let resizeObserver:
       ResizeObserver | null = null;
+
+    let renderTask:
+      any = null;
 
     const renderPdf = async () => {
       try {
@@ -92,46 +106,42 @@ export default function PublicationThumbnail({
           }
 
           const context =
-            canvas.getContext("2d", {
-              alpha: false,
-            });
+            canvas.getContext(
+              "2d",
+              {
+                alpha: false,
+              }
+            );
 
           if (!context) {
             return;
           }
 
-          /*
-           * 실제 화면에서 사용 가능한 폭.
-           *
-           * publication card에서는 대략 220px 정도지만
-           * resize에도 자동 대응한다.
-           */
+          /* ================================================== */
+          /* Display width */
+          /* ================================================== */
+
           const cssWidth =
             Math.max(
               container.clientWidth,
               1
             );
 
-          /*
-           * PDF 원본 크기.
-           */
+          /* ================================================== */
+          /* PDF original size */
+          /* ================================================== */
+
           const baseViewport =
             page.getViewport({
               scale: 1,
             });
 
-          /*
-           * 핵심:
-           *
-           * 화면 표시 크기의 4배 해상도로 렌더링.
-           *
-           * 예:
-           * 실제 표시 = 220px
-           * 내부 canvas = 약 880px
-           *
-           * 따라서 작은 글씨와 선이 훨씬 선명해짐.
-           */
-          const qualityScale = 4;
+          /* ================================================== */
+          /* High-quality rendering */
+          /* ================================================== */
+
+          const qualityScale =
+            4;
 
           const renderWidth =
             cssWidth *
@@ -143,7 +153,8 @@ export default function PublicationThumbnail({
 
           const viewport =
             page.getViewport({
-              scale: pdfScale,
+              scale:
+                pdfScale,
             });
 
           /* ================================================== */
@@ -160,14 +171,12 @@ export default function PublicationThumbnail({
               viewport.height
             );
 
-          /*
-           * 브라우저에 실제 보여주는 크기는
-           * 원래 container 폭으로 유지.
-           */
           const cssHeight =
             cssWidth *
-            (baseViewport.height /
-              baseViewport.width);
+            (
+              baseViewport.height /
+              baseViewport.width
+            );
 
           canvas.style.width =
             `${cssWidth}px`;
@@ -194,32 +203,93 @@ export default function PublicationThumbnail({
           context.restore();
 
           /* ================================================== */
+          /* Cancel previous render if necessary */
+          /* ================================================== */
+
+          if (
+            renderTask
+          ) {
+            try {
+              renderTask.cancel();
+            } catch {
+              // Ignore cancellation errors.
+            }
+          }
+
+          /* ================================================== */
           /* Render PDF */
           /* ================================================== */
 
-          await page.render({
-            canvasContext:
-              context,
-            viewport,
-            canvas,
-          }).promise;
+          renderTask =
+            page.render({
+              canvasContext:
+                context,
+              viewport,
+              canvas,
+            });
+
+          try {
+            await renderTask.promise;
+          } catch (
+            renderError: any
+          ) {
+            /*
+             * ResizeObserver can trigger another render
+             * while the previous render is still active.
+             * PDF.js throws RenderingCancelledException
+             * in that case, which is safe to ignore.
+             */
+            if (
+              renderError?.name !==
+              "RenderingCancelledException"
+            ) {
+              throw renderError;
+            }
+
+            return;
+          }
 
           if (
-            !cancelled
+            cancelled
           ) {
-            setLoading(false);
+            return;
           }
+
+          /* ================================================== */
+          /* Store high-resolution image for modal */
+          /* ================================================== */
+
+          try {
+            const dataUrl =
+              canvas.toDataURL(
+                "image/png"
+              );
+
+            setPreviewUrl(
+              dataUrl
+            );
+          } catch (
+            previewError
+          ) {
+            console.error(
+              "Failed to create publication preview:",
+              previewError
+            );
+          }
+
+          setLoading(false);
         };
 
-        /*
-         * 최초 렌더링
-         */
+        /* ==================================================== */
+        /* Initial render */
+        /* ==================================================== */
+
         await drawPage();
 
-        /*
-         * 브라우저 크기가 변경되어도
-         * 현재 표시 폭에 맞춰 다시 렌더링.
-         */
+        /* ==================================================== */
+        /* Responsive redraw */
+        /* ==================================================== */
+
         if (
           containerRef.current
         ) {
@@ -240,7 +310,9 @@ export default function PublicationThumbnail({
           err
         );
 
-        if (!cancelled) {
+        if (
+          !cancelled
+        ) {
           setLoading(false);
           setError(true);
         }
@@ -250,102 +322,428 @@ export default function PublicationThumbnail({
     renderPdf();
 
     return () => {
-      cancelled = true;
+      cancelled =
+        true;
 
       if (
         resizeObserver
       ) {
         resizeObserver.disconnect();
       }
+
+      if (
+        renderTask
+      ) {
+        try {
+          renderTask.cancel();
+        } catch {
+          // Ignore cleanup errors.
+        }
+      }
     };
   }, [src]);
 
+  /* ======================================================== */
+  /* ESC to close modal */
+  /* ======================================================== */
+
+  useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
+    const handleKeyDown =
+      (
+        event: KeyboardEvent
+      ) => {
+        if (
+          event.key ===
+          "Escape"
+        ) {
+          setIsOpen(false);
+        }
+      };
+
+    window.addEventListener(
+      "keydown",
+      handleKeyDown
+    );
+
+    return () => {
+      window.removeEventListener(
+        "keydown",
+        handleKeyDown
+      );
+    };
+  }, [isOpen]);
+
+  /* ======================================================== */
+  /* Prevent background scrolling while enlarged */
+  /* ======================================================== */
+
+  useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
+    const previousOverflow =
+      document.body.style.overflow;
+
+    document.body.style.overflow =
+      "hidden";
+
+    return () => {
+      document.body.style.overflow =
+        previousOverflow;
+    };
+  }, [isOpen]);
+
+  /* ======================================================== */
+  /* Open preview */
+  /* ======================================================== */
+
+  const openPreview =
+    () => {
+      if (
+        loading ||
+        error ||
+        !previewUrl
+      ) {
+        return;
+      }
+
+      setIsOpen(true);
+    };
+
+  /* ======================================================== */
+  /* UI */
+  /* ======================================================== */
+
   return (
-    <div
-      ref={containerRef}
-      aria-label={alt}
-      style={{
-        width: "100%",
+    <>
+      {/* ==================================================== */}
+      {/* Thumbnail */}
+      {/* ==================================================== */}
 
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+      <div
+        ref={
+          containerRef
+        }
+        aria-label={
+          alt
+        }
+        role="button"
+        tabIndex={
+          loading ||
+          error
+            ? -1
+            : 0
+        }
+        onClick={
+          openPreview
+        }
+        onKeyDown={(
+          event
+        ) => {
+          if (
+            event.key ===
+              "Enter" ||
+            event.key ===
+              " "
+          ) {
+            event.preventDefault();
 
-        position: "relative",
-
-        overflow: "hidden",
-      }}
-    >
-      {/* ===================================================== */}
-      {/* Loading */}
-      {/* ===================================================== */}
-
-      {loading && (
-        <div
-          style={{
-            width: "100%",
-            minHeight: "120px",
-
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-
-            fontSize: "12px",
-            opacity: 0.45,
-          }}
-        >
-          Loading preview...
-        </div>
-      )}
-
-      {/* ===================================================== */}
-      {/* Error */}
-      {/* ===================================================== */}
-
-      {error && (
-        <div
-          style={{
-            width: "100%",
-            minHeight: "120px",
-
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-
-            fontSize: "12px",
-            opacity: 0.45,
-          }}
-        >
-          Preview unavailable
-        </div>
-      )}
-
-      {/* ===================================================== */}
-      {/* Canvas */}
-      {/* ===================================================== */}
-
-      <canvas
-        ref={canvasRef}
-        aria-label={alt}
-        style={{
-          display:
-            loading || error
-              ? "none"
-              : "block",
-
-          maxWidth: "100%",
-
-          /*
-           * canvas 자체에서 정확한 aspect ratio를
-           * 계산해서 width/height를 넣으므로
-           * 여기서는 강제로 stretch하지 않는다.
-           */
-          objectFit: "contain",
-
-          pointerEvents: "none",
-          userSelect: "none",
+            openPreview();
+          }
         }}
-      />
-    </div>
+        style={{
+          width:
+            "100%",
+
+          display:
+            "flex",
+          alignItems:
+            "center",
+          justifyContent:
+            "center",
+
+          position:
+            "relative",
+
+          overflow:
+            "hidden",
+
+          cursor:
+            loading ||
+            error
+              ? "default"
+              : "zoom-in",
+        }}
+      >
+        {/* ================================================== */}
+        {/* Loading */}
+        {/* ================================================== */}
+
+        {loading && (
+          <div
+            style={{
+              width:
+                "100%",
+              minHeight:
+                "120px",
+
+              display:
+                "flex",
+              alignItems:
+                "center",
+              justifyContent:
+                "center",
+
+              fontSize:
+                "12px",
+              opacity:
+                0.45,
+            }}
+          >
+            Loading
+            preview...
+          </div>
+        )}
+
+        {/* ================================================== */}
+        {/* Error */}
+        {/* ================================================== */}
+
+        {error && (
+          <div
+            style={{
+              width:
+                "100%",
+              minHeight:
+                "120px",
+
+              display:
+                "flex",
+              alignItems:
+                "center",
+              justifyContent:
+                "center",
+
+              fontSize:
+                "12px",
+              opacity:
+                0.45,
+            }}
+          >
+            Preview
+            unavailable
+          </div>
+        )}
+
+        {/* ================================================== */}
+        {/* Canvas */}
+        {/* ================================================== */}
+
+        <canvas
+          ref={
+            canvasRef
+          }
+          aria-label={
+            alt
+          }
+          style={{
+            display:
+              loading ||
+              error
+                ? "none"
+                : "block",
+
+            maxWidth:
+              "100%",
+
+            objectFit:
+              "contain",
+
+            pointerEvents:
+              "none",
+
+            userSelect:
+              "none",
+          }}
+        />
+      </div>
+
+      {/* ==================================================== */}
+      {/* Enlarged Preview */}
+      {/* ==================================================== */}
+
+      {isOpen &&
+        previewUrl && (
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label={`${alt} enlarged preview`}
+            onClick={() => {
+              setIsOpen(
+                false
+              );
+            }}
+            style={{
+              position:
+                "fixed",
+
+              inset: 0,
+
+              zIndex:
+                99999,
+
+              display:
+                "flex",
+
+              alignItems:
+                "center",
+
+              justifyContent:
+                "center",
+
+              padding:
+                "40px",
+
+              background:
+                "rgba(0, 0, 0, 0.88)",
+
+              backdropFilter:
+                "blur(6px)",
+
+              cursor:
+                "zoom-out",
+            }}
+          >
+            {/* ============================================== */}
+            {/* Close */}
+            {/* ============================================== */}
+
+            <button
+              type="button"
+              aria-label="Close preview"
+              onClick={(
+                event
+              ) => {
+                event.stopPropagation();
+
+                setIsOpen(
+                  false
+                );
+              }}
+              style={{
+                position:
+                  "fixed",
+
+                top:
+                  "24px",
+
+                right:
+                  "28px",
+
+                width:
+                  "44px",
+
+                height:
+                  "44px",
+
+                display:
+                  "flex",
+
+                alignItems:
+                  "center",
+
+                justifyContent:
+                  "center",
+
+                border:
+                  "1px solid rgba(255,255,255,0.22)",
+
+                borderRadius:
+                  "50%",
+
+                background:
+                  "rgba(20,20,20,0.72)",
+
+                color:
+                  "#ffffff",
+
+                fontSize:
+                  "28px",
+
+                fontWeight:
+                  300,
+
+                lineHeight:
+                  1,
+
+                cursor:
+                  "pointer",
+
+                zIndex:
+                  100000,
+              }}
+            >
+              ×
+            </button>
+
+            {/* ============================================== */}
+            {/* Enlarged Figure */}
+            {/* ============================================== */}
+
+            <img
+              src={
+                previewUrl
+              }
+              alt={
+                alt
+              }
+              draggable={
+                false
+              }
+              onClick={(
+                event
+              ) => {
+                event.stopPropagation();
+              }}
+              style={{
+                display:
+                  "block",
+
+                maxWidth:
+                  "min(92vw, 1400px)",
+
+                maxHeight:
+                  "88vh",
+
+                width:
+                  "auto",
+
+                height:
+                  "auto",
+
+                objectFit:
+                  "contain",
+
+                background:
+                  "#ffffff",
+
+                boxShadow:
+                  "0 24px 80px rgba(0,0,0,0.55)",
+
+                cursor:
+                  "default",
+
+                userSelect:
+                  "none",
+              }}
+            />
+          </div>
+        )}
+    </>
   );
 }
