@@ -66,7 +66,7 @@ const news: NewsItem[] = [
     text: (
       <>
         Our paper <strong>“VA-NUC”</strong> was accepted to{" "}
-        <strong>IEEE ICCD 2026</strong>!
+        <strong>IEEE ICCD 2026</strong> !
       </>
     ),
   },
@@ -75,9 +75,29 @@ const news: NewsItem[] = [
     text: (
       <>
         Our paper <strong>“CEGF-TM”</strong> was accepted to{" "}
-        <strong>IEEE/ACM ICCAD 2026</strong>!
+        <strong>IEEE/ACM ICCAD 2026</strong> !
       </>
     ),
+  },
+  {
+    date: "2025-03-01",
+    text: "Started my Ph.D. program in Electrical and Computer Engineering at the University of Seoul (UoS) and joined the ACAS Lab under the supervision of Prof. Jeongkyu Hong.",
+  },
+  {
+    date: "2025-03-01",
+    text: "Promoted to Engineer at Hanwha Systems.",
+  },
+  {
+    date: "2024-05-01",
+    text: (
+      <>
+        Presented our work in the <strong>“In-Cabin Session at AutoSens USA 2024”</strong> !
+      </>
+    ),
+  },
+  {
+    date: "2023-01-01",
+    text: "Joined Hanwha Systems as a Junior Engineer.",
   },
 ];
 

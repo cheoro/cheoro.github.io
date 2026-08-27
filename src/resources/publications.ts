@@ -375,7 +375,7 @@ export const publications: Publication[] = [
       "Taehyun Kim, Joonhwan, Jeongwoo Cha, Hyunmin Choi, Jungho Shin, Eunchong Kim, Hyun Woo Oh, Cheol-Ho Choi, Seongtaek Hong, Taehyung Kim",
 
     publisher:
-      "IEEE International Conference on Consumer Electronics",
+      "IEEE International Conference on Consumer Electronics-Asia",
 
     month:
       "November 2024",
@@ -426,7 +426,7 @@ export const publications: Publication[] = [
       "Cheol-Ho Choi, Seongtaek Hong, Eun Jin Jeong, Joonhwan Han",
 
     publisher:
-      "IEEE International Conference on Consumer Electronics",
+      "IEEE International Conference on Consumer Electronics-Asia",
 
     month:
       "November 2024",
@@ -466,6 +466,9 @@ export const publications: Publication[] = [
 
     type:
       "conference",
+
+    selected:
+      true,
 
     status:
       "published",

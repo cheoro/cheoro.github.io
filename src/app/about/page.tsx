@@ -107,7 +107,7 @@ export default function About() {
 
   const latestNews = [...news]
     .sort((a, b) => b.date.localeCompare(a.date))
-    .slice(0, 5);
+    .slice(0, 3);
 
   /* ========================================================= */
   /* Selected Publications */
