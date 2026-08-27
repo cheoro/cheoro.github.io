@@ -24,18 +24,8 @@
 /* News */
 /* ========================================================== */
 
-/*
- * Desktop layout is controlled by the Row component and
- * inline styles in page.tsx.
- *
- * These classes intentionally do NOT change desktop layout.
- */
-
 .newsItem {
     width: 100%;
-}
-
-.newsDate {
 }
 
 .newsText {
@@ -46,18 +36,70 @@
 /* Selected Publications */
 /* ========================================================== */
 
-.selectedItem {
+.selectedYearGroup {
     width: 100%;
 }
 
+.selectedYear {
+    margin-bottom: 18px;
+}
+
+/*
+ * page.tsx의 Row에는 gap="12"가 지정되어 있지만,
+ * About의 Selected Publications에서만 간격을 줄인다.
+ */
+.selectedItem {
+    width: 100%;
+    gap: 6px !important;
+}
+
+/*
+ * Venue:
+ * ICCAD / ICCD / Access
+ *
+ * 기존 body-strong-m보다 시각적으로 1px 작게.
+ */
 .selectedVenue {
+    font-size: 15px !important;
+    line-height: 1.55;
 }
 
+/*
+ * Dash와 venue 사이도 너무 벌어져 보이지 않도록 유지.
+ */
 .selectedSeparator {
+    font-size: 15px !important;
+    line-height: 1.55;
 }
 
+/*
+ * Publication title
+ */
 .selectedTitle {
     min-width: 0;
+
+    font-size: 15px;
+    line-height: 1.55 !important;
+
+    transition: opacity 0.15s ease;
+}
+
+.selectedTitle:hover {
+    opacity: 0.65;
+}
+
+/* ========================================================== */
+/* Divider between publication years */
+/* ========================================================== */
+
+.yearDivider {
+    width: 100%;
+    height: 1px;
+
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    background: var(--neutral-alpha-medium);
 }
 
 /* ========================================================== */
@@ -70,17 +112,6 @@
     /* Profile */
     /* ====================================================== */
 
-    /*
-     * page.tsx has:
-     *
-     * gridTemplateColumns: "220px minmax(0, 1fr)"
-     *
-     * as an inline style.
-     *
-     * Therefore !important is required here so that only
-     * mobile switches the profile area to a single column.
-     */
-
     .profileGrid {
         grid-template-columns: 1fr !important;
         row-gap: 32px;
@@ -89,17 +120,6 @@
     /* ====================================================== */
     /* News */
     /* ====================================================== */
-
-    /*
-     * Desktop:
-     *
-     * Aug 2026     Our paper ...
-     *
-     * Mobile:
-     *
-     * Aug 2026
-     * Our paper ...
-     */
 
     .newsItem {
         display: flex !important;
@@ -123,29 +143,30 @@
     /* Selected Publications */
     /* ====================================================== */
 
-    /*
-     * Desktop:
-     *
-     * ICCAD  —  CEGF-TM: ...
-     *
-     * Mobile:
-     *
-     * ICCAD
-     * CEGF-TM: ...
-     */
+    .selectedYear {
+        margin-bottom: 14px;
+    }
 
     .selectedItem {
         display: flex !important;
         flex-direction: column !important;
         align-items: flex-start !important;
-        gap: 4px !important;
+        gap: 3px !important;
     }
 
     .selectedVenue {
         min-width: 0 !important;
         width: auto !important;
+
+        font-size: 15px !important;
     }
 
+    /*
+     * Mobile에서는 dash 제거
+     *
+     * ICCAD
+     * CEGF-TM: ...
+     */
     .selectedSeparator {
         display: none !important;
     }
@@ -154,8 +175,16 @@
         width: 100% !important;
         min-width: 0 !important;
         flex: none !important;
+
+        font-size: 15px;
+
         overflow-wrap: break-word;
         word-break: normal;
+    }
+
+    .yearDivider {
+        margin-top: 24px;
+        margin-bottom: 24px;
     }
 
     /* ====================================================== */

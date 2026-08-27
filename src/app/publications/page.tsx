@@ -9,12 +9,15 @@ import {
   publications,
 } from "@/resources/publications";
 
+import PublicationThumbnail from "@/components/PublicationThumbnail";
+
 import styles from "./publications.module.scss";
 
 const statusMap = {
   accepted: "🟢 Accepted",
   under_review: "🟡 Under Review",
-  major_revision: "🟠 Major Revision",
+  major_revision:
+    "🟠 Major Revision",
   published: "🔵 Published",
 };
 
@@ -22,12 +25,18 @@ export default function PublicationsPage() {
   const [
     openAbstract,
     setOpenAbstract,
-  ] = useState<string | null>(null);
+  ] =
+    useState<string | null>(
+      null
+    );
 
   const [
     copiedBibtex,
     setCopiedBibtex,
-  ] = useState<string | null>(null);
+  ] =
+    useState<string | null>(
+      null
+    );
 
   /* ========================================================= */
   /* Years */
@@ -36,11 +45,13 @@ export default function PublicationsPage() {
   const years = [
     ...new Set(
       publications.map(
-        (paper) => paper.year
+        (paper) =>
+          paper.year
       )
     ),
   ].sort(
-    (a, b) => b - a
+    (a, b) =>
+      b - a
   );
 
   /* ========================================================= */
@@ -50,69 +61,85 @@ export default function PublicationsPage() {
   const [
     openYears,
     setOpenYears,
-  ] = useState<number[]>(
-    years.length > 0
-      ? [years[0]]
-      : []
-  );
+  ] =
+    useState<number[]>(
+      years.length > 0
+        ? [years[0]]
+        : []
+    );
 
   /* ========================================================= */
   /* Anchor Navigation */
   /* ========================================================= */
 
   useEffect(() => {
-    const openHashTarget = () => {
-      const hash =
-        decodeURIComponent(
-          window.location.hash.replace(
-            "#",
-            ""
-          )
-        );
-
-      if (!hash) {
-        return;
-      }
-
-      const targetPaper =
-        publications.find(
-          (paper) =>
-            paper.anchor === hash
-        );
-
-      if (!targetPaper) {
-        return;
-      }
-
-      setOpenYears((prev) => {
-        if (
-          prev.includes(
-            targetPaper.year
-          )
-        ) {
-          return prev;
-        }
-
-        return [
-          ...prev,
-          targetPaper.year,
-        ];
-      });
-
-      window.setTimeout(() => {
-        const element =
-          document.getElementById(
-            hash
+    const openHashTarget =
+      () => {
+        const hash =
+          decodeURIComponent(
+            window.location.hash.replace(
+              "#",
+              ""
+            )
           );
 
-        if (element) {
-          element.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
+        if (!hash) {
+          return;
         }
-      }, 150);
-    };
+
+        const targetPaper =
+          publications.find(
+            (paper) =>
+              paper.anchor ===
+              hash
+          );
+
+        if (
+          !targetPaper
+        ) {
+          return;
+        }
+
+        setOpenYears(
+          (prev) => {
+            if (
+              prev.includes(
+                targetPaper.year
+              )
+            ) {
+              return prev;
+            }
+
+            return [
+              ...prev,
+              targetPaper.year,
+            ];
+          }
+        );
+
+        window.setTimeout(
+          () => {
+            const element =
+              document.getElementById(
+                hash
+              );
+
+            if (
+              element
+            ) {
+              element.scrollIntoView(
+                {
+                  behavior:
+                    "smooth",
+                  block:
+                    "start",
+                }
+              );
+            }
+          },
+          150
+        );
+      };
 
     openHashTarget();
 
@@ -136,30 +163,40 @@ export default function PublicationsPage() {
   const toggleYear = (
     year: number
   ) => {
-    setOpenYears((prev) =>
-      prev.includes(year)
-        ? prev.filter(
-            (item) =>
-              item !== year
-          )
-        : [
-            ...prev,
-            year,
-          ]
+    setOpenYears(
+      (prev) =>
+        prev.includes(
+          year
+        )
+          ? prev.filter(
+              (item) =>
+                item !==
+                year
+            )
+          : [
+              ...prev,
+              year,
+            ]
     );
   };
 
-  const expandAll = () => {
-    setOpenYears(years);
-  };
+  const expandAll =
+    () => {
+      setOpenYears(
+        years
+      );
+    };
 
-  const collapseAll = () => {
-    setOpenYears([]);
-  };
+  const collapseAll =
+    () => {
+      setOpenYears([]);
+    };
 
   return (
     <main
-      className={styles.page}
+      className={
+        styles.page
+      }
     >
       {/* ===================================================== */}
       {/* Page Title */}
@@ -186,8 +223,7 @@ export default function PublicationsPage() {
           style={{
             fontSize:
               "16px",
-            opacity:
-              0.7,
+            opacity: 0.7,
           }}
         >
           Peer-reviewed journal and conference publications.
@@ -327,7 +363,10 @@ export default function PublicationsPage() {
                   year
               )
               .sort(
-                (a, b) =>
+                (
+                  a,
+                  b
+                ) =>
                   (b.monthNumber ??
                     0) -
                   (a.monthNumber ??
@@ -341,7 +380,9 @@ export default function PublicationsPage() {
 
           return (
             <section
-              key={year}
+              key={
+                year
+              }
               style={{
                 marginBottom:
                   isYearOpen
@@ -382,10 +423,8 @@ export default function PublicationsPage() {
                   style={{
                     fontSize:
                       "14px",
-                    opacity:
-                      0.6,
-                    lineHeight:
-                      1,
+                    opacity: 0.6,
+                    lineHeight: 1,
                     transform:
                       isYearOpen
                         ? "rotate(0deg)"
@@ -459,6 +498,14 @@ export default function PublicationsPage() {
                           className={
                             styles.cardLayout
                           }
+                          style={
+                            paper.thumbnail
+                              ? undefined
+                              : {
+                                  gridTemplateColumns:
+                                    "minmax(0, 1fr)",
+                                }
+                          }
                         >
                           {/* ================================= */}
                           {/* Thumbnail */}
@@ -470,30 +517,12 @@ export default function PublicationsPage() {
                                 styles.thumbnail
                               }
                             >
-                              {paper.thumbnail
-                                .toLowerCase()
-                                .endsWith(
-                                  ".pdf"
-                                ) ? (
-                                <object
-                                  data={`${paper.thumbnail}#toolbar=0&navpanes=0&scrollbar=0`}
-                                  type="application/pdf"
-                                  aria-label={`${paper.title} thumbnail`}
-                                  className={
-                                    styles.pdfThumbnail
-                                  }
-                                />
-                              ) : (
-                                <img
-                                  src={
-                                    paper.thumbnail
-                                  }
-                                  alt={`${paper.title} thumbnail`}
-                                  className={
-                                    styles.thumbnailImage
-                                  }
-                                />
-                              )}
+                              <PublicationThumbnail
+                                src={
+                                  paper.thumbnail
+                                }
+                                alt={`${paper.title} representative figure`}
+                              />
                             </div>
                           )}
 

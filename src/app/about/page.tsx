@@ -5,7 +5,6 @@ import {
   Heading,
   Icon,
   IconButton,
-  Media,
   Tag,
   Text,
   Meta,
@@ -68,7 +67,6 @@ function SectionHeader({
         {title}
       </Heading>
 
-      {/* Section divider only */}
       <div
         style={{
           flex: 1,
@@ -104,6 +102,18 @@ export default function About() {
 
       return (b.monthNumber ?? 0) - (a.monthNumber ?? 0);
     });
+
+  /* ========================================================= */
+  /* Selected Publication Years */
+  /* ========================================================= */
+
+  const selectedYears = Array.from(
+    new Set(
+      selectedPublications.map(
+        (paper) => paper.year
+      )
+    )
+  ).sort((a, b) => b - a);
 
   return (
     <main
@@ -418,374 +428,143 @@ export default function About() {
             }
           />
 
-          <Column
-            fillWidth
-            gap="16"
-          >
-            {selectedPublications.map(
-              (paper) => {
-                const paperKey =
-                  `${paper.year}-${paper.venue}-${paper.title}`;
-
-                const destination =
-                  paper.anchor
-                    ? `/publications#${paper.anchor}`
-                    : "/publications";
+          <Column fillWidth>
+            {selectedYears.map(
+              (year, yearIndex) => {
+                const papersForYear =
+                  selectedPublications.filter(
+                    (paper) =>
+                      paper.year === year
+                  );
 
                 return (
-                  <Row
-                    key={paperKey}
-                    className={styles.selectedItem}
-                    fillWidth
-                    vertical="start"
-                    gap="12"
-                    paddingY="4"
+                  <React.Fragment
+                    key={year}
                   >
-                    {/* Venue */}
+                    {/* ======================================= */}
+                    {/* Year */}
+                    {/* ======================================= */}
 
-                    <Text
-                      className={styles.selectedVenue}
-                      variant="body-strong-m"
-                      onBackground="brand-medium"
-                      style={{
-                        minWidth: "72px",
-                        whiteSpace: "nowrap",
-                      }}
+                    <div
+                      className={
+                        styles.selectedYearGroup
+                      }
                     >
-                      {paper.venue}
-                    </Text>
+                      <Heading
+                        as="h3"
+                        variant="heading-strong-l"
+                        className={
+                          styles.selectedYear
+                        }
+                      >
+                        {year}
+                      </Heading>
 
-                    {/* Separator */}
+                      <Column
+                        fillWidth
+                        gap="16"
+                      >
+                        {papersForYear.map(
+                          (paper) => {
+                            const paperKey =
+                              `${paper.year}-${paper.venue}-${paper.title}`;
 
-                    <Text
-                      className={styles.selectedSeparator}
-                      variant="body-default-m"
-                      onBackground="neutral-weak"
-                    >
-                      —
-                    </Text>
+                            const destination =
+                              paper.anchor
+                                ? `/publications#${paper.anchor}`
+                                : "/publications";
 
-                    {/* Clickable Title */}
+                            return (
+                              <Row
+                                key={
+                                  paperKey
+                                }
+                                className={
+                                  styles.selectedItem
+                                }
+                                fillWidth
+                                vertical="start"
+                                gap="12"
+                                paddingY="4"
+                              >
+                                {/* Venue */}
 
-                    <a
-                      href={destination}
-                      className={styles.selectedTitle}
-                      style={{
-                        color: "inherit",
-                        textDecoration: "none",
-                        lineHeight: 1.55,
-                        flex: 1,
-                      }}
-                    >
-                      {paper.title}
-                    </a>
-                  </Row>
+                                <Text
+                                  className={
+                                    styles.selectedVenue
+                                  }
+                                  variant="body-strong-m"
+                                  onBackground="brand-medium"
+                                  style={{
+                                    minWidth:
+                                      "64px",
+                                    whiteSpace:
+                                      "nowrap",
+                                  }}
+                                >
+                                  {
+                                    paper.venue
+                                  }
+                                </Text>
+
+                                {/* Separator */}
+
+                                <Text
+                                  className={
+                                    styles.selectedSeparator
+                                  }
+                                  variant="body-default-m"
+                                  onBackground="neutral-weak"
+                                >
+                                  —
+                                </Text>
+
+                                {/* Title */}
+
+                                <a
+                                  href={
+                                    destination
+                                  }
+                                  className={
+                                    styles.selectedTitle
+                                  }
+                                  style={{
+                                    color:
+                                      "inherit",
+                                    textDecoration:
+                                      "none",
+                                    lineHeight:
+                                      1.55,
+                                    flex: 1,
+                                  }}
+                                >
+                                  {
+                                    paper.title
+                                  }
+                                </a>
+                              </Row>
+                            );
+                          }
+                        )}
+                      </Column>
+                    </div>
+
+                    {/* ======================================= */}
+                    {/* Divider between years */}
+                    {/* ======================================= */}
+
+                    {yearIndex <
+                      selectedYears.length -
+                        1 && (
+                      <div
+                        className={
+                          styles.yearDivider
+                        }
+                      />
+                    )}
+                  </React.Fragment>
                 );
               }
-            )}
-          </Column>
-        </section>
-      )}
-
-      {/* ===================================================== */}
-      {/* Work and Research Experience */}
-      {/* ===================================================== */}
-
-      {about.work.display && (
-        <section
-          style={{
-            marginBottom: "64px",
-          }}
-        >
-          <SectionHeader
-            id={about.work.title}
-            title={about.work.title}
-          />
-
-          <Column
-            fillWidth
-            gap="xl"
-          >
-            {about.work.experiences.map(
-              (
-                experience,
-                index
-              ) => (
-                <Column
-                  key={`${experience.company}-${experience.role}-${index}`}
-                  fillWidth
-                >
-                  <Row
-                    fillWidth
-                    horizontal="between"
-                    vertical="end"
-                    marginBottom="4"
-                    gap="24"
-                  >
-                    <Text
-                      id={experience.company}
-                      variant="heading-strong-l"
-                    >
-                      {experience.company}
-                    </Text>
-
-                    <Text
-                      variant="heading-default-xs"
-                      onBackground="neutral-weak"
-                      style={{
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                      {experience.timeframe}
-                    </Text>
-                  </Row>
-
-                  <Text
-                    variant="body-default-s"
-                    onBackground="brand-weak"
-                    marginBottom="m"
-                  >
-                    {experience.role}
-                  </Text>
-
-                  <Column
-                    as="ul"
-                    gap="16"
-                  >
-                    {experience.achievements.map(
-                      (
-                        achievement:
-                          React.ReactNode,
-                        achievementIndex:
-                          number
-                      ) => (
-                        <Text
-                          as="li"
-                          variant="body-default-m"
-                          key={`${experience.company}-${achievementIndex}`}
-                        >
-                          {achievement}
-                        </Text>
-                      )
-                    )}
-                  </Column>
-
-                  {experience.images &&
-                    experience.images.length > 0 && (
-                      <Row
-                        fillWidth
-                        paddingTop="m"
-                        paddingLeft="40"
-                        gap="12"
-                        wrap
-                      >
-                        {experience.images.map(
-                          (
-                            image,
-                            imageIndex
-                          ) => (
-                            <Row
-                              key={imageIndex}
-                              border="neutral-medium"
-                              radius="m"
-                              minWidth={image.width}
-                              height={image.height}
-                            >
-                              <Media
-                                enlarge
-                                radius="m"
-                                sizes={image.width.toString()}
-                                alt={image.alt}
-                                src={image.src}
-                              />
-                            </Row>
-                          )
-                        )}
-                      </Row>
-                    )}
-                </Column>
-              )
-            )}
-          </Column>
-        </section>
-      )}
-
-      {/* ===================================================== */}
-      {/* Education */}
-      {/* ===================================================== */}
-
-      {about.studies.display && (
-        <section
-          style={{
-            marginBottom: "64px",
-          }}
-        >
-          <SectionHeader
-            id={about.studies.title}
-            title={about.studies.title}
-          />
-
-          <Column
-            fillWidth
-            gap="xl"
-          >
-            {about.studies.institutions.map(
-              (
-                institution,
-                index
-              ) => (
-                <Row
-                  key={`${institution.name}-${index}`}
-                  fillWidth
-                  horizontal="between"
-                  vertical="start"
-                  gap="40"
-                >
-                  <Column
-                    flex={8}
-                    gap="4"
-                  >
-                    <Text
-                      id={institution.name}
-                      variant="heading-strong-l"
-                    >
-                      {institution.name}
-                    </Text>
-
-                    <Text
-                      variant="heading-default-xs"
-                      onBackground="neutral-weak"
-                    >
-                      {institution.description}
-                    </Text>
-                  </Column>
-
-                  <Column
-                    flex={2}
-                    horizontal="end"
-                    gap="4"
-                    style={{
-                      minWidth: "150px",
-                    }}
-                  >
-                    <Text
-                      variant="body-default-m"
-                      onBackground="brand-medium"
-                    >
-                      {institution.period}
-                    </Text>
-
-                    <Text
-                      variant="body-default-s"
-                      onBackground="neutral-weak"
-                    >
-                      {institution.location}
-                    </Text>
-                  </Column>
-                </Row>
-              )
-            )}
-          </Column>
-        </section>
-      )}
-
-      {/* ===================================================== */}
-      {/* Research and Technical Interests */}
-      {/* ===================================================== */}
-
-      {about.technical.display && (
-        <section>
-          <SectionHeader
-            id={about.technical.title}
-            title={about.technical.title}
-          />
-
-          <Column
-            fillWidth
-            gap="xl"
-          >
-            {about.technical.skills.map(
-              (
-                skill,
-                index
-              ) => (
-                <Column
-                  key={`${skill.title}-${index}`}
-                  fillWidth
-                  gap="4"
-                >
-                  <Text
-                    id={skill.title}
-                    variant="heading-strong-l"
-                  >
-                    {skill.title}
-                  </Text>
-
-                  <Text
-                    variant="body-default-m"
-                    onBackground="neutral-weak"
-                  >
-                    {skill.description}
-                  </Text>
-
-                  {skill.tags &&
-                    skill.tags.length > 0 && (
-                      <Row
-                        wrap
-                        gap="8"
-                        paddingTop="8"
-                      >
-                        {skill.tags.map(
-                          (
-                            tag,
-                            tagIndex
-                          ) => (
-                            <Tag
-                              key={`${skill.title}-${tagIndex}`}
-                              size="l"
-                              prefixIcon={tag.icon}
-                            >
-                              {tag.name}
-                            </Tag>
-                          )
-                        )}
-                      </Row>
-                    )}
-
-                  {skill.images &&
-                    skill.images.length > 0 && (
-                      <Row
-                        fillWidth
-                        paddingTop="m"
-                        gap="12"
-                        wrap
-                      >
-                        {skill.images.map(
-                          (
-                            image,
-                            imageIndex
-                          ) => (
-                            <Row
-                              key={imageIndex}
-                              border="neutral-medium"
-                              radius="m"
-                              minWidth={image.width}
-                              height={image.height}
-                            >
-                              <Media
-                                enlarge
-                                radius="m"
-                                sizes={image.width.toString()}
-                                alt={image.alt}
-                                src={image.src}
-                              />
-                            </Row>
-                          )
-                        )}
-                      </Row>
-                    )}
-                </Column>
-              )
             )}
           </Column>
         </section>
