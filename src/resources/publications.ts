@@ -668,9 +668,6 @@ export const publications: Publication[] = [
     status:
       "published",
 
-    selected:
-      true,
-
     anchor:
       "access-2023-stereo",
 

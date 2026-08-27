@@ -1,0 +1,312 @@
+.page {
+    width: min(100% - 40px, 1000px);
+    margin: 0 auto;
+    padding: 120px 0 80px;
+}
+
+.typeHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.controls {
+    display: flex;
+    gap: 8px;
+    padding-top: 2px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.controlButton {
+    padding: 7px 12px;
+    border: 1px solid var(--neutral-alpha-medium);
+    border-radius: 6px;
+    background: transparent;
+    color: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.yearHeader {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    text-align: left;
+}
+
+.yearText {
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.publicationCount {
+    font-size: 18px;
+    font-weight: 400;
+    opacity: 0.6;
+    white-space: nowrap;
+}
+
+.yearDivider {
+    flex: 1;
+    min-width: 20px;
+    height: 1px;
+    margin-left: 6px;
+    background: var(--neutral-alpha-medium);
+}
+
+.card {
+    position: relative;
+    scroll-margin-top: 110px;
+    border: 1px solid var(--neutral-alpha-medium);
+    border-radius: 18px;
+    padding: 24px;
+    margin-bottom: 20px;
+    background: var(--neutral-alpha-weak);
+    overflow: hidden;
+}
+
+.cardLayout {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+}
+
+.thumbnail {
+    width: 220px;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.thumbnailImage {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 180px;
+    object-fit: contain;
+}
+
+.pdfThumbnail {
+    display: block;
+    width: 100%;
+    height: 160px;
+    border: none;
+    pointer-events: none;
+}
+
+.paperInfo {
+    min-width: 0;
+    width: 100%;
+}
+
+.paperTitle {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 22px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+
+.authors {
+    margin-top: 0;
+    margin-bottom: 6px;
+    font-size: 17px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.metadata {
+    margin-top: 4px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    line-height: 1.6;
+    opacity: 0.6;
+}
+
+.keywords {
+    display: flex;
+    gap: 9px;
+    flex-wrap: wrap;
+    margin-bottom: 22px;
+}
+
+.keyword {
+    padding: 5px 10px;
+    border: 1px solid var(--neutral-alpha-medium);
+    border-radius: 999px;
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.actionButton,
+.actionLink,
+.doiLink {
+    box-sizing: border-box;
+    padding: 8px 14px;
+    border-radius: 6px;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.actionButton,
+.actionLink {
+    border: 1px solid var(--neutral-alpha-strong);
+    color: inherit;
+}
+
+.doiLink {
+    border: 1px solid var(--brand-alpha-strong);
+    color: var(--brand-on-background-strong);
+}
+
+.abstract {
+    margin-top: 20px;
+    padding: 18px;
+    border: 1px dashed var(--neutral-alpha-strong);
+    border-radius: 10px;
+    background: var(--neutral-alpha-weak);
+    font-size: 15px;
+    line-height: 1.75;
+    text-align: justify;
+}
+
+/* ========================================================== */
+/* Mobile */
+/* ========================================================== */
+
+@media (max-width: 768px) {
+    .page {
+        width: min(100% - 32px, 1000px);
+        padding-top: 96px;
+        padding-bottom: 110px;
+    }
+
+    .typeHeader {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .controls {
+        justify-content: flex-start;
+    }
+
+    .yearHeader {
+        gap: 9px;
+    }
+
+    .yearText {
+        font-size: 28px;
+    }
+
+    .publicationCount {
+        font-size: 16px;
+    }
+
+    .yearDivider {
+        margin-left: 2px;
+    }
+
+    .card {
+        padding: 18px;
+        border-radius: 16px;
+    }
+
+    .cardLayout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+    }
+
+    .thumbnail {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        justify-self: center;
+    }
+
+    .thumbnailImage {
+        width: 100%;
+        max-width: 420px;
+        max-height: 220px;
+    }
+
+    .pdfThumbnail {
+        width: 100%;
+        max-width: 420px;
+        height: 210px;
+    }
+
+    .paperTitle {
+        font-size: 20px;
+        line-height: 1.45;
+    }
+
+    .authors {
+        font-size: 15px;
+    }
+
+    .metadata {
+        font-size: 14px;
+    }
+
+    .abstract {
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .page {
+        width: calc(100% - 28px);
+    }
+
+    .yearText {
+        font-size: 26px;
+    }
+
+    .publicationCount {
+        font-size: 15px;
+    }
+
+    .yearDivider {
+        min-width: 10px;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    .paperTitle {
+        font-size: 19px;
+    }
+
+    .actionButton,
+    .actionLink,
+    .doiLink {
+        padding: 7px 11px;
+        font-size: 13px;
+    }
+}

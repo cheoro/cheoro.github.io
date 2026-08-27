@@ -1,5 +1,9 @@
 @use "../breakpoints.scss" as breakpoints;
 
+/* ========================================================== */
+/* Existing hover effect */
+/* ========================================================== */
+
 .hover {
     transition: var(--transition-micro-medium);
 
@@ -8,39 +12,161 @@
     }
 }
 
-/* Introduction paragraph alignment */
+/* ========================================================== */
+/* Introduction */
+/* ========================================================== */
+
 .introText {
     width: 100%;
-
-    p {
-        width: 100%;
-        text-align: justify !important;
-        text-align-last: left;
-        text-justify: inter-word;
-        hyphens: auto;
-    }
 }
 
-@media (max-width: breakpoints.$s) {
-    .textAlign {
-        text-align: center;
-    }
+/* ========================================================== */
+/* News */
+/* ========================================================== */
 
-    .blockAlign {
-        align-self: center;
-    }
+/*
+ * Desktop layout is controlled by the Row component and
+ * inline styles in page.tsx.
+ *
+ * These classes intentionally do NOT change desktop layout.
+ */
+
+.newsItem {
+    width: 100%;
+}
+
+.newsDate {
+}
+
+.newsText {
+    min-width: 0;
+}
+
+/* ========================================================== */
+/* Selected Publications */
+/* ========================================================== */
+
+.selectedItem {
+    width: 100%;
+}
+
+.selectedVenue {
+}
+
+.selectedSeparator {
+}
+
+.selectedTitle {
+    min-width: 0;
+}
+
+/* ========================================================== */
+/* Mobile */
+/* ========================================================== */
+
+@media (max-width: 768px) {
+
+    /* ====================================================== */
+    /* Profile */
+    /* ====================================================== */
+
+    /*
+     * page.tsx has:
+     *
+     * gridTemplateColumns: "220px minmax(0, 1fr)"
+     *
+     * as an inline style.
+     *
+     * Therefore !important is required here so that only
+     * mobile switches the profile area to a single column.
+     */
 
     .profileGrid {
         grid-template-columns: 1fr !important;
         row-gap: 32px;
     }
 
-    /* Mobile에서는 강제 양쪽 정렬 해제 */
-    .introText {
-        p {
-            text-align: left !important;
-            text-align-last: auto;
-            hyphens: none;
-        }
+    /* ====================================================== */
+    /* News */
+    /* ====================================================== */
+
+    /*
+     * Desktop:
+     *
+     * Aug 2026     Our paper ...
+     *
+     * Mobile:
+     *
+     * Aug 2026
+     * Our paper ...
+     */
+
+    .newsItem {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 4px !important;
+    }
+
+    .newsDate {
+        min-width: 0 !important;
+        width: auto !important;
+    }
+
+    .newsText {
+        width: 100% !important;
+        min-width: 0 !important;
+        flex: none !important;
+    }
+
+    /* ====================================================== */
+    /* Selected Publications */
+    /* ====================================================== */
+
+    /*
+     * Desktop:
+     *
+     * ICCAD  —  CEGF-TM: ...
+     *
+     * Mobile:
+     *
+     * ICCAD
+     * CEGF-TM: ...
+     */
+
+    .selectedItem {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 4px !important;
+    }
+
+    .selectedVenue {
+        min-width: 0 !important;
+        width: auto !important;
+    }
+
+    .selectedSeparator {
+        display: none !important;
+    }
+
+    .selectedTitle {
+        width: 100% !important;
+        min-width: 0 !important;
+        flex: none !important;
+        overflow-wrap: break-word;
+        word-break: normal;
+    }
+
+    /* ====================================================== */
+    /* Existing mobile helpers */
+    /* ====================================================== */
+
+    .textAlign {
+        text-align: center;
+    }
+
+    .blockAlign {
+        align-self: center;
     }
 }

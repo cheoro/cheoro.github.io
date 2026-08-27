@@ -9,6 +9,8 @@ import {
   publications,
 } from "@/resources/publications";
 
+import styles from "./publications.module.scss";
+
 const statusMap = {
   accepted: "🟢 Accepted",
   under_review: "🟡 Under Review",
@@ -109,7 +111,7 @@ export default function PublicationsPage() {
             block: "start",
           });
         }
-      }, 120);
+      }, 150);
     };
 
     openHashTarget();
@@ -157,14 +159,7 @@ export default function PublicationsPage() {
 
   return (
     <main
-      style={{
-        width:
-          "min(100% - 40px, 1000px)",
-        margin:
-          "0 auto",
-        padding:
-          "120px 0 80px",
-      }}
+      className={styles.page}
     >
       {/* ===================================================== */}
       {/* Page Title */}
@@ -214,16 +209,9 @@ export default function PublicationsPage() {
         }}
       >
         <div
-          style={{
-            display:
-              "flex",
-            justifyContent:
-              "space-between",
-            alignItems:
-              "flex-start",
-            gap:
-              "20px",
-          }}
+          className={
+            styles.typeHeader
+          }
         >
           {/* Types */}
 
@@ -294,42 +282,18 @@ export default function PublicationsPage() {
           {/* Expand / Collapse */}
 
           <div
-            style={{
-              display:
-                "flex",
-              gap:
-                "8px",
-              paddingTop:
-                "2px",
-              flexWrap:
-                "wrap",
-              justifyContent:
-                "flex-end",
-            }}
+            className={
+              styles.controls
+            }
           >
             <button
               type="button"
               onClick={
                 expandAll
               }
-              style={{
-                padding:
-                  "7px 12px",
-                border:
-                  "1px solid var(--neutral-alpha-medium)",
-                borderRadius:
-                  "6px",
-                background:
-                  "transparent",
-                color:
-                  "inherit",
-                fontSize:
-                  "13px",
-                fontWeight:
-                  500,
-                cursor:
-                  "pointer",
-              }}
+              className={
+                styles.controlButton
+              }
             >
               Expand All
             </button>
@@ -339,24 +303,9 @@ export default function PublicationsPage() {
               onClick={
                 collapseAll
               }
-              style={{
-                padding:
-                  "7px 12px",
-                border:
-                  "1px solid var(--neutral-alpha-medium)",
-                borderRadius:
-                  "6px",
-                background:
-                  "transparent",
-                color:
-                  "inherit",
-                fontSize:
-                  "13px",
-                fontWeight:
-                  500,
-                cursor:
-                  "pointer",
-              }}
+              className={
+                styles.controlButton
+              }
             >
               Collapse All
             </button>
@@ -411,44 +360,20 @@ export default function PublicationsPage() {
                     year
                   )
                 }
+                className={
+                  styles.yearHeader
+                }
                 style={{
-                  width:
-                    "100%",
-                  display:
-                    "flex",
-                  alignItems:
-                    "center",
-                  gap:
-                    "12px",
                   marginBottom:
                     isYearOpen
                       ? "24px"
                       : "0px",
-                  padding:
-                    0,
-                  border:
-                    "none",
-                  background:
-                    "transparent",
-                  color:
-                    "inherit",
-                  cursor:
-                    "pointer",
-                  textAlign:
-                    "left",
                 }}
               >
                 <span
-                  style={{
-                    fontSize:
-                      "30px",
-                    fontWeight:
-                      600,
-                    lineHeight:
-                      1,
-                    whiteSpace:
-                      "nowrap",
-                  }}
+                  className={
+                    styles.yearText
+                  }
                 >
                   {year}
                 </span>
@@ -473,16 +398,9 @@ export default function PublicationsPage() {
                 </span>
 
                 <span
-                  style={{
-                    fontSize:
-                      "18px",
-                    fontWeight:
-                      400,
-                    opacity:
-                      0.6,
-                    whiteSpace:
-                      "nowrap",
-                  }}
+                  className={
+                    styles.publicationCount
+                  }
                 >
                   {
                     papersForYear.length
@@ -495,16 +413,9 @@ export default function PublicationsPage() {
                 </span>
 
                 <div
-                  style={{
-                    flex:
-                      1,
-                    height:
-                      "1px",
-                    background:
-                      "var(--neutral-alpha-medium)",
-                    marginLeft:
-                      "6px",
-                  }}
+                  className={
+                    styles.yearDivider
+                  }
                 />
               </button>
 
@@ -540,74 +451,49 @@ export default function PublicationsPage() {
                         id={
                           paper.anchor
                         }
-                        style={{
-                          scrollMarginTop:
-                            "110px",
-                          position:
-                            "relative",
-                          border:
-                            "1px solid var(--neutral-alpha-medium)",
-                          borderRadius:
-                            "18px",
-                          padding:
-                            "24px",
-                          marginBottom:
-                            "20px",
-                          background:
-                            "var(--neutral-alpha-weak)",
-                        }}
+                        className={
+                          styles.card
+                        }
                       >
-                        {/* =================================== */}
-                        {/* Main Card Layout */}
-                        {/* =================================== */}
-
                         <div
-                          style={{
-                            display:
-                              "flex",
-                            gap:
-                              "24px",
-                            alignItems:
-                              "flex-start",
-                          }}
+                          className={
+                            styles.cardLayout
+                          }
                         >
+                          {/* ================================= */}
                           {/* Thumbnail */}
+                          {/* ================================= */}
 
                           {paper.thumbnail && (
                             <div
-                              style={{
-                                width:
-                                  "220px",
-                                minWidth:
-                                  "220px",
-                                display:
-                                  "flex",
-                                alignItems:
-                                  "center",
-                                justifyContent:
-                                  "center",
-                                padding:
-                                  "8px",
-                              }}
+                              className={
+                                styles.thumbnail
+                              }
                             >
-                              <img
-                                src={
-                                  paper.thumbnail
-                                }
-                                alt={`${paper.title} thumbnail`}
-                                style={{
-                                  width:
-                                    "100%",
-                                  height:
-                                    "auto",
-                                  maxHeight:
-                                    "180px",
-                                  objectFit:
-                                    "contain",
-                                  display:
-                                    "block",
-                                }}
-                              />
+                              {paper.thumbnail
+                                .toLowerCase()
+                                .endsWith(
+                                  ".pdf"
+                                ) ? (
+                                <object
+                                  data={`${paper.thumbnail}#toolbar=0&navpanes=0&scrollbar=0`}
+                                  type="application/pdf"
+                                  aria-label={`${paper.title} thumbnail`}
+                                  className={
+                                    styles.pdfThumbnail
+                                  }
+                                />
+                              ) : (
+                                <img
+                                  src={
+                                    paper.thumbnail
+                                  }
+                                  alt={`${paper.title} thumbnail`}
+                                  className={
+                                    styles.thumbnailImage
+                                  }
+                                />
+                              )}
                             </div>
                           )}
 
@@ -616,12 +502,9 @@ export default function PublicationsPage() {
                           {/* ================================= */}
 
                           <div
-                            style={{
-                              flex:
-                                1,
-                              minWidth:
-                                0,
-                            }}
+                            className={
+                              styles.paperInfo
+                            }
                           >
                             {/* Venue / Status */}
 
@@ -683,16 +566,9 @@ export default function PublicationsPage() {
                             {/* Title */}
 
                             <h3
-                              style={{
-                                fontSize:
-                                  "22px",
-                                lineHeight:
-                                  1.4,
-                                marginTop:
-                                  0,
-                                marginBottom:
-                                  "12px",
-                              }}
+                              className={
+                                styles.paperTitle
+                              }
                             >
                               {
                                 paper.title
@@ -702,16 +578,9 @@ export default function PublicationsPage() {
                             {/* Authors */}
 
                             <p
-                              style={{
-                                fontSize:
-                                  "17px",
-                                lineHeight:
-                                  1.6,
-                                marginTop:
-                                  0,
-                                marginBottom:
-                                  "6px",
-                              }}
+                              className={
+                                styles.authors
+                              }
                             >
                               {paper.authors
                                 .split(
@@ -782,16 +651,9 @@ export default function PublicationsPage() {
                             {/* Metadata */}
 
                             <p
-                              style={{
-                                fontSize:
-                                  "15px",
-                                opacity:
-                                  0.6,
-                                marginTop:
-                                  "4px",
-                                marginBottom:
-                                  "20px",
-                              }}
+                              className={
+                                styles.metadata
+                              }
                             >
                               {paper.type ===
                               "conference" ? (
@@ -855,16 +717,9 @@ export default function PublicationsPage() {
                             {/* Keywords */}
 
                             <div
-                              style={{
-                                display:
-                                  "flex",
-                                gap:
-                                  "9px",
-                                flexWrap:
-                                  "wrap",
-                                marginBottom:
-                                  "22px",
-                              }}
+                              className={
+                                styles.keywords
+                              }
                             >
                               {paper.keywords.map(
                                 (
@@ -874,18 +729,9 @@ export default function PublicationsPage() {
                                     key={
                                       keyword
                                     }
-                                    style={{
-                                      padding:
-                                        "5px 10px",
-                                      border:
-                                        "1px solid var(--neutral-alpha-medium)",
-                                      borderRadius:
-                                        "999px",
-                                      fontSize:
-                                        "14px",
-                                      opacity:
-                                        0.85,
-                                    }}
+                                    className={
+                                      styles.keyword
+                                    }
                                   >
                                     {
                                       keyword
@@ -898,17 +744,10 @@ export default function PublicationsPage() {
                             {/* Buttons */}
 
                             <div
-                              style={{
-                                display:
-                                  "flex",
-                                gap:
-                                  "10px",
-                                flexWrap:
-                                  "wrap",
-                              }}
+                              className={
+                                styles.buttons
+                              }
                             >
-                              {/* Abstract */}
-
                               <button
                                 type="button"
                                 onClick={() =>
@@ -918,31 +757,14 @@ export default function PublicationsPage() {
                                       : paperKey
                                   )
                                 }
-                                style={{
-                                  padding:
-                                    "8px 14px",
-                                  border:
-                                    "1px solid var(--neutral-alpha-strong)",
-                                  borderRadius:
-                                    "6px",
-                                  background:
-                                    "transparent",
-                                  color:
-                                    "inherit",
-                                  fontSize:
-                                    "14px",
-                                  fontWeight:
-                                    600,
-                                  cursor:
-                                    "pointer",
-                                }}
+                                className={
+                                  styles.actionButton
+                                }
                               >
                                 {isAbstractOpen
                                   ? "Hide Abstract"
                                   : "Abstract"}
                               </button>
-
-                              {/* PDF */}
 
                               {paper.pdf && (
                                 <a
@@ -951,28 +773,13 @@ export default function PublicationsPage() {
                                   }
                                   target="_blank"
                                   rel="noreferrer"
-                                  style={{
-                                    padding:
-                                      "8px 14px",
-                                    border:
-                                      "1px solid var(--neutral-alpha-strong)",
-                                    borderRadius:
-                                      "6px",
-                                    color:
-                                      "inherit",
-                                    textDecoration:
-                                      "none",
-                                    fontSize:
-                                      "14px",
-                                    fontWeight:
-                                      600,
-                                  }}
+                                  className={
+                                    styles.actionLink
+                                  }
                                 >
                                   PDF
                                 </a>
                               )}
-
-                              {/* DOI */}
 
                               {paper.doi && (
                                 <a
@@ -981,28 +788,13 @@ export default function PublicationsPage() {
                                   }
                                   target="_blank"
                                   rel="noreferrer"
-                                  style={{
-                                    padding:
-                                      "8px 14px",
-                                    border:
-                                      "1px solid var(--brand-alpha-strong)",
-                                    borderRadius:
-                                      "6px",
-                                    color:
-                                      "var(--brand-on-background-strong)",
-                                    textDecoration:
-                                      "none",
-                                    fontSize:
-                                      "15px",
-                                    fontWeight:
-                                      600,
-                                  }}
+                                  className={
+                                    styles.doiLink
+                                  }
                                 >
                                   DOI
                                 </a>
                               )}
-
-                              {/* Project */}
 
                               {paper.project && (
                                 <a
@@ -1011,28 +803,13 @@ export default function PublicationsPage() {
                                   }
                                   target="_blank"
                                   rel="noreferrer"
-                                  style={{
-                                    padding:
-                                      "8px 14px",
-                                    border:
-                                      "1px solid var(--neutral-alpha-strong)",
-                                    borderRadius:
-                                      "6px",
-                                    color:
-                                      "inherit",
-                                    textDecoration:
-                                      "none",
-                                    fontSize:
-                                      "14px",
-                                    fontWeight:
-                                      600,
-                                  }}
+                                  className={
+                                    styles.actionLink
+                                  }
                                 >
                                   Project
                                 </a>
                               )}
-
-                              {/* BibTeX */}
 
                               {paper.bibtex && (
                                 <button
@@ -1055,24 +832,9 @@ export default function PublicationsPage() {
                                       2000
                                     );
                                   }}
-                                  style={{
-                                    padding:
-                                      "8px 14px",
-                                    border:
-                                      "1px solid var(--neutral-alpha-strong)",
-                                    borderRadius:
-                                      "6px",
-                                    background:
-                                      "transparent",
-                                    color:
-                                      "inherit",
-                                    fontSize:
-                                      "14px",
-                                    fontWeight:
-                                      600,
-                                    cursor:
-                                      "pointer",
-                                  }}
+                                  className={
+                                    styles.actionButton
+                                  }
                                 >
                                   {isBibtexCopied
                                     ? "Copied!"
@@ -1089,24 +851,9 @@ export default function PublicationsPage() {
 
                         {isAbstractOpen && (
                           <div
-                            style={{
-                              marginTop:
-                                "20px",
-                              padding:
-                                "18px",
-                              border:
-                                "1px dashed var(--neutral-alpha-strong)",
-                              borderRadius:
-                                "10px",
-                              background:
-                                "var(--neutral-alpha-weak)",
-                              fontSize:
-                                "15px",
-                              lineHeight:
-                                1.75,
-                              textAlign:
-                                "justify",
-                            }}
+                            className={
+                              styles.abstract
+                            }
                           >
                             <strong
                               style={{

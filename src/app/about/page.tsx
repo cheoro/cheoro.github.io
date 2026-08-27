@@ -359,12 +359,14 @@ export default function About() {
                 return (
                   <Row
                     key={`${item.date}-${index}`}
+                    className={styles.newsItem}
                     fillWidth
                     vertical="start"
                     gap="24"
                     paddingY="4"
                   >
                     <Text
+                      className={styles.newsDate}
                       variant="body-default-s"
                       onBackground="brand-medium"
                       style={{
@@ -376,6 +378,7 @@ export default function About() {
                     </Text>
 
                     <Text
+                      className={styles.newsText}
                       variant="body-default-m"
                       style={{
                         flex: 1,
@@ -432,6 +435,7 @@ export default function About() {
                 return (
                   <Row
                     key={paperKey}
+                    className={styles.selectedItem}
                     fillWidth
                     vertical="start"
                     gap="12"
@@ -440,6 +444,7 @@ export default function About() {
                     {/* Venue */}
 
                     <Text
+                      className={styles.selectedVenue}
                       variant="body-strong-m"
                       onBackground="brand-medium"
                       style={{
@@ -453,6 +458,7 @@ export default function About() {
                     {/* Separator */}
 
                     <Text
+                      className={styles.selectedSeparator}
                       variant="body-default-m"
                       onBackground="neutral-weak"
                     >
@@ -463,6 +469,7 @@ export default function About() {
 
                     <a
                       href={destination}
+                      className={styles.selectedTitle}
                       style={{
                         color: "inherit",
                         textDecoration: "none",
