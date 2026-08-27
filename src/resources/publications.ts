@@ -77,45 +77,45 @@ export const publications: Publication[] = [
     ],
   },
 
-  // {
-  //   year: 2026,
-  //   venue:
-  //     "-",
-  //   type:
-  //     "conference",
-  //   status:
-  //     "under_review",
-  //   title:
-  //     "--",
-  //   authors: 
-  //     "Cheol-Ho Choi, Jeongkyu Hong",
-  //   publisher:
-  //     "-",
-  //   // month: 
-  //   //   "November 2026",
-  //   monthNumber:
-  //     11,
-  //   // city:
-  //   //   "Hong Kong SAR",
-  //   // country:
-  //   //   "China",
-  //   // pages:
-  //   //   "1-8",
-  //   // acceptanceRate:
-  //   //   "24.09%",
-  //   abstract:
-  //     "This paper presents a guided-frame-reuse tone-mapping accelerator for real-time thermal imaging systems. The proposed architecture reduces histogram computation and on-chip memory requirements while preserving image quality and temporal consistency.",
-  //   pdf:
-  //     "/papers/tecs2026.pdf",
-  //   // doi:
-  //   //   "https://ieeexplore.ieee.org/document/12345678",
-  //   keywords: [
-  //     "Thermal Imaging",
-  //     "FPGA",
-  //     "Tone Mapping",
-  //     "Hardware Accelerator",
-  //   ],
-  // },
+  {
+    year: 2026,
+    venue:
+      "-",
+    type:
+      "conference",
+    status:
+      "under_review",
+    title:
+      "--",
+    authors: 
+      "Cheol-Ho Choi, Jeongkyu Hong",
+    publisher:
+      "-",
+    // month: 
+    //   "November 2026",
+    monthNumber:
+      11,
+    // city:
+    //   "Hong Kong SAR",
+    // country:
+    //   "China",
+    // pages:
+    //   "1-8",
+    // acceptanceRate:
+    //   "24.09%",
+    abstract:
+      "This paper presents a guided-frame-reuse tone-mapping accelerator for real-time thermal imaging systems. The proposed architecture reduces histogram computation and on-chip memory requirements while preserving image quality and temporal consistency.",
+    pdf:
+      "/papers/tecs2026.pdf",
+    // doi:
+    //   "https://ieeexplore.ieee.org/document/12345678",
+    keywords: [
+      "Thermal Imaging",
+      "FPGA",
+      "Tone Mapping",
+      "Hardware Accelerator",
+    ],
+  },
 
   {
     year:
