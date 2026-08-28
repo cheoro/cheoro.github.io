@@ -25,6 +25,7 @@ const routes: RoutesConfig = {
   "/gallery": false,
   "/cv": true,
   "/news": true,
+  "/conferences": true,
 };
 
 const display: DisplayConfig = {

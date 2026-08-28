@@ -1,0 +1,334 @@
+.page {
+  width: min(100% - 40px, 1100px);
+  margin: 0 auto;
+  padding: 120px 0 80px;
+}
+
+/* ========================================================= */
+/* Page Header */
+/* ========================================================= */
+
+.pageHeader {
+  margin-bottom: 58px;
+}
+
+.pageTitle {
+  margin: 0 0 12px;
+
+  font-size: 40px;
+  line-height: 1.15;
+}
+
+.pageDescription {
+  margin: 0;
+
+  font-size: 16px;
+  line-height: 1.6;
+
+  opacity: 0.7;
+}
+
+.lastUpdated {
+  margin: 8px 0 0;
+
+  font-size: 13px;
+  line-height: 1.5;
+
+  opacity: 0.48;
+}
+
+/* ========================================================= */
+/* Year */
+/* ========================================================= */
+
+.yearSection {
+  width: 100%;
+  margin-bottom: 64px;
+}
+
+.yearHeader {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+
+  gap: 14px;
+  margin-bottom: 30px;
+}
+
+.year {
+  flex: none;
+
+  font-size: 22px;
+  font-weight: 650;
+  line-height: 1;
+}
+
+.count {
+  flex: none;
+
+  font-size: 13px;
+  line-height: 1;
+
+  opacity: 0.5;
+}
+
+.yearDivider {
+  flex: 1;
+
+  height: 1px;
+
+  background: var(--neutral-alpha-medium);
+}
+
+/* ========================================================= */
+/* Grid Table */
+/* ========================================================= */
+
+.tableWrapper {
+  width: 100%;
+
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table {
+  width: 100%;
+  min-width: 1000px;
+}
+
+/*
+ * Explicit column positions.
+ *
+ * Conference       160px
+ * Field            210px
+ * Location         190px
+ * Submission       210px
+ * Dates            remaining
+ */
+
+.tableHeader,
+.tableRow {
+  display: grid;
+
+  grid-template-columns:
+    160px
+    210px
+    190px
+    210px
+    minmax(180px, 1fr);
+
+  column-gap: 28px;
+}
+
+/* ========================================================= */
+/* Table Header */
+/* ========================================================= */
+
+.tableHeader {
+  align-items: end;
+
+  padding-bottom: 14px;
+
+  border-bottom: 1px solid var(--neutral-alpha-strong);
+
+  font-size: 11px;
+  font-weight: 650;
+  line-height: 1.4;
+
+  text-transform: uppercase;
+  letter-spacing: 0.045em;
+
+  opacity: 0.48;
+}
+
+.tableHeader > div {
+  white-space: nowrap;
+}
+
+/* ========================================================= */
+/* Table Rows */
+/* ========================================================= */
+
+.tableRow {
+  align-items: center;
+
+  min-height: 64px;
+
+  border-bottom: 1px solid var(--neutral-alpha-medium);
+
+  transition: background 0.15s ease;
+}
+
+.tableRow:hover {
+  background: var(--neutral-alpha-weak);
+}
+
+.cell {
+  min-width: 0;
+
+  padding: 18px 0;
+}
+
+/* ========================================================= */
+/* Conference */
+/* ========================================================= */
+
+.conferenceName {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 6px;
+
+  color: var(--brand-on-background-strong);
+
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  transition: opacity 0.15s ease;
+}
+
+.conferenceName:hover {
+  opacity: 0.65;
+}
+
+.externalIcon {
+  position: relative;
+  top: -1px;
+
+  font-size: 11px;
+  font-weight: 500;
+
+  opacity: 0.58;
+}
+
+/* ========================================================= */
+/* Field */
+/* ========================================================= */
+
+.field {
+  display: block;
+
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+
+  opacity: 0.76;
+}
+
+/* ========================================================= */
+/* Values */
+/* ========================================================= */
+
+.value {
+  display: block;
+
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+
+  opacity: 0.82;
+}
+
+.submissionValue {
+  display: block;
+
+  color: var(--brand-on-background-strong);
+
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+.tbd {
+  display: block;
+
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+
+  opacity: 0.34;
+}
+
+/* ========================================================= */
+/* Mobile */
+/* ========================================================= */
+
+@media (max-width: 768px) {
+  .page {
+    width: min(100% - 32px, 1100px);
+
+    padding-top: 104px;
+    padding-bottom: 64px;
+  }
+
+  .pageHeader {
+    margin-bottom: 46px;
+  }
+
+  .pageTitle {
+    font-size: 34px;
+  }
+
+  .pageDescription {
+    font-size: 15px;
+  }
+
+  .lastUpdated {
+    font-size: 12px;
+  }
+
+  .yearSection {
+    margin-bottom: 52px;
+  }
+
+  .yearHeader {
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .year {
+    font-size: 20px;
+  }
+
+  .count {
+    font-size: 12px;
+  }
+
+  .table {
+    width: 1000px;
+    min-width: 1000px;
+  }
+
+  .tableHeader,
+  .tableRow {
+    grid-template-columns:
+      145px
+      200px
+      180px
+      200px
+      175px;
+
+    column-gap: 25px;
+  }
+
+  .tableHeader {
+    font-size: 10px;
+  }
+
+  .conferenceName {
+    font-size: 15px;
+  }
+
+  .field,
+  .value,
+  .submissionValue,
+  .tbd {
+    font-size: 12px;
+  }
+}

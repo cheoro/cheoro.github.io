@@ -438,7 +438,7 @@ export default function About() {
       {selectedPublications.length > 0 && (
         <section
           style={{
-            marginBottom: "64px",
+            marginBottom: "48px",
           }}
         >
           <SectionHeader
@@ -570,6 +570,45 @@ export default function About() {
           </Column>
         </section>
       )}
+
+      {/* ===================================================== */}
+      {/* Conference Schedule */}
+      {/* ===================================================== */}
+
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "flex-end",
+        }}
+      >
+        <a
+          href="/conferences"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "7px",
+            color: "var(--neutral-on-background-weak)",
+            fontSize: "14px",
+            fontWeight: 500,
+            lineHeight: 1.5,
+            textDecoration: "none",
+            transition: "opacity 0.15s ease",
+          }}
+        >
+          Conference Schedule
+
+          <span
+            aria-hidden="true"
+            style={{
+              fontSize: "13px",
+              opacity: 0.7,
+            }}
+          >
+            →
+          </span>
+        </a>
+      </div>
     </main>
   );
 }
